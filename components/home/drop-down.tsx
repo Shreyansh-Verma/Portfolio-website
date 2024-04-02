@@ -42,6 +42,9 @@ const MediaCard = forwardRef(({ imageLocation, imageTitle }: {imageLocation: str
   );
 });
 
+MediaCard.displayName = "MediaCard";
+
+
 const CardsSpiral = () => {
   // Refs for left and right sections
   const leftCardsRefs = useRef(new Array (4));
