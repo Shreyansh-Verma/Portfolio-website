@@ -108,7 +108,7 @@ const HERO_STYLES = {
         <div style = {{zIndex:"2",minHeight:"20vh", border:"1px solid white", borderRadius:"3%", minWidth:"40vw", backgroundColor:"rgba(0,0,0,0.75)"}}>
           <div style ={{display:"flex", justifyContent:"center",  flexDirection:"column", padding:"2%", fontFamily:"Gotham"}}>
             <div>Currently purusing M.Des in</div>
-            <div><span style = {{fontFamily:"Helios Pro"}}>"Design for Retail Experience"</span> at</div>
+            <div><span style = {{fontFamily:"Helios Pro"}}>Design for Retail Experience</span> at</div>
             <div>National Institute of Design, Bengaluru</div>
           </div>
         </div>
