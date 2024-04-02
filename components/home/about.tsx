@@ -86,6 +86,7 @@ const AboutSection = () => {
   return (
     <section
       className={`tall:pt-20 tall:pb-16 pt-40 pb-24 w-full relative select-none section-container`}
+      style = {{backgroundImage:"`url(/backgroundImg.gif)`"}}
       ref={targetSection}
     >
       {renderQuotes()}

@@ -28,6 +28,15 @@
   font-display: swap;
 }
 
+@font-face {
+  font-family: 'Helios Pro';
+  src: url('/fonts/Helios-Pro.woff2') format('woff2'),
+       url('/fonts/Helios-Pro.woff') format('woff');
+  /* Add additional src declarations for other font file formats if available */
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   @apply bg-gray-900 text-white overflow-x-hidden;
   cursor: none;

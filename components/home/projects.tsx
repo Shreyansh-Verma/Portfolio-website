@@ -126,13 +126,12 @@ const ProjectsSection = ({ isDesktop }: IDesktop) => {
       className={`flex flex-col inner-container  ${
         willChange ? "will-change-transform" : ""
       }`}
-      ref={sectionTitleElementRef}
+      ref={sectionTitleElementRef} style = {{}}
     >
-      <p className="section-title-sm seq">PROJECTS</p>
-      <h1 className="section-heading seq mt-2">My Works</h1>
-      <h2 className="text-2xl md:max-w-3xl w-full seq max-w-sm mt-2">
-        I have contributed in over 20+ projects ranging from Frontend
-        development, UI/UX design, Open Source, and Motion Graphics
+      <p className="text-2xl seq" style = {{fontFamily:"Gotham", color:"white"}}>PROJECTS</p>
+      <h1 className="seq mt-2 text-5xl" style = {{fontFamily:"Helios Pro", color:"white"}}>My Works</h1>
+      <h2 className="text-2xl md:max-w-3xl w-full seq max-w-sm mt-2" style = {{fontFamily:"Gotham"}}>
+        My contributions span across a spectrum of projects ecompassing visual design,branding, UI/UX, service design, system design and retail design. 
       </h2>
     </div>
   );
@@ -149,6 +148,7 @@ const ProjectsSection = ({ isDesktop }: IDesktop) => {
   const { ref: projectsSectionRef } = MENULINKS[1];
 
   return (
+    <div style = {{}}>
     <section
       ref={targetSectionRef}
       className={`${isDesktop && "min-h-screen"} ${PROJECT_STYLES.SECTION}`}
@@ -159,6 +159,7 @@ const ProjectsSection = ({ isDesktop }: IDesktop) => {
         {renderProjectTiles()}
       </div>
     </section>
+    </div>
   );
 };
 

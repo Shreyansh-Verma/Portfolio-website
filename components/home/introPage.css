@@ -1,0 +1,39 @@
+.intro-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .intro-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+  }
+  
+  .intro-text h1 {
+    font-size: 3rem;
+  }
+  
+  .intro-text p {
+    font-size: 1.5rem;
+  }
+  
+  .intro-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+  }
+  
+  .intro-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  

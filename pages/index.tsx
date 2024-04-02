@@ -16,6 +16,8 @@ import Header from "@/components/common/header";
 import ProgressIndicator from "@/components/common/progress-indicator";
 import Cursor from "@/components/common/cursor";
 import HeroSection from "@/components/home/hero";
+import IntroPage from "@/components/home/introPage";
+import CardsSpiral from "@/components/home/drop-down";
 import ProjectsSection from "@/components/home/projects";
 import QuoteSection from "@/components/home/quote";
 import SkillsSection from "@/components/home/skills";
@@ -24,6 +26,7 @@ import Footer from "@/components/common/footer";
 import TimelineSection from "@/components/home/timeline";
 import Scripts from "@/components/common/scripts";
 import AboutSection from "@/components/home/about";
+import Loading from "@/components/home/load";
 
 const DEBOUNCE_TIME = 100;
 
@@ -67,9 +70,17 @@ export default function Home() {
   const renderBackdrop = (): React.ReactNode => (
     <div className="fixed top-0 left-0 h-screen w-screen bg-gray-900 -z-1"></div>
   );
+  const [isLoading, setIsLoading] = useState(true);
 
+  useEffect(() => {
+    // Simulate loading for 2 seconds
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 60);
+  }, []); 
   return (
-    <>
+
+    <div style={{backgroundColor:"black", backgroundImage:`url(/backgroundImg.gif)`, backgroundPosition:"center", backgroundRepeat:"no-repeat", backgroundSize:"cover",  backgroundAttachment:"fixed"}}>
       <Head>
         <title>{METADATA.title}</title>
       </Head>
@@ -77,19 +88,23 @@ export default function Home() {
         <Header />
         <ProgressIndicator />
         <Cursor isDesktop={isDesktop} />
+        {isLoading?(<><Loading/></>):
         <main className="flex-col flex">
-          {renderBackdrop()}
+          {/* {renderBackdrop()} */}
           <HeroSection />
-          <AboutSection />
+          {/* <HeroSection /> */}
+          <IntroPage/>
           <ProjectsSection isDesktop={isDesktop} />
+          <CardsSpiral />
+          <AboutSection />
           <QuoteSection />
           <SkillsSection />
           <TimelineSection isDesktop={isDesktop} />
           <CollaborationSection />
           <Footer />
-        </main>
+        </main>}
         <Scripts />
       </Layout>
-    </>
+    </div>
   );
 }

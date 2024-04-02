@@ -14,14 +14,14 @@ const Header = () => {
   return (
     <header className="w-full fixed top-0 py-8 select-none z-50 bg-gradient-to-b from-gray-900 to-transparent">
       <div className="flex justify-between section-container">
-        <a href="#home" className="link">
+        {/* <a href="#home" className="link">
           <Image
             src="/logo.svg"
             alt="Logo - Ayush Singh"
             width={22}
             height={22}
           />
-        </a>
+        </a> */}
         <nav className={`outer-menu ${menuVisible ? "menu-visible" : ""}`}>
           <button
             className="hamburger w-6 h-6 flex items-center justify-center link relative"
