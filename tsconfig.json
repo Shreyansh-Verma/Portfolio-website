@@ -4,7 +4,8 @@
     "paths": {
       "@/components/*": [
         "components/*"
-      ]
+      ],
+      "react": [ "./node_modules/@types/react" ]
     },
     "target": "es5",
     "lib": [
@@ -12,6 +13,7 @@
       "dom.iterable",
       "esnext"
     ],
+
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
