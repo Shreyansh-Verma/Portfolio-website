@@ -175,7 +175,7 @@ const CardsSpiral = () => {
   // }, []);
 
   return (
-    <div style={{ display: "flex", minHeight: "100vh" , flexDirection:"column" }} id="scrollSection">
+    <div style={{ display: "flex", minHeight: "200vh" , flexDirection:"column" }} id="scrollSection">
       <div className = "text-3xl seq font-bold" style = {{fontFamily:"Gotham",display:"flex", flexDirection:"column", justifyContent:"flex-start", alignItems:"center",height:"30vh"}}>
         <div>
           My design ethos centers around <span style = {{color:"#102A71"}}> user-centric </span> solutions
