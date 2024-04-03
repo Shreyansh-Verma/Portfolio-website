@@ -96,7 +96,7 @@ export default function Home() {
           <IntroPage/>
           <ProjectsSection isDesktop={isDesktop} />
           <CardsSpiral />
-          <AboutSection />
+          {/* <AboutSection /> */}
           <QuoteSection />
           <SkillsSection />
           <TimelineSection isDesktop={isDesktop} />
