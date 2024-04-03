@@ -92,10 +92,10 @@ const HeroSection: React.FC = () => {
 				start: 'top top',
 				scrub: 1.9
 			},
-			x: "-80vw",
-      y: "-20vw",
-      width: "100vw",
-      scale: 0.8
+			x: "-40vw",
+      y: "-120vh",
+      // width: "100vw",
+      // scale: 8
       // rotateY: "180"
 		})
 
@@ -125,7 +125,7 @@ const HERO_STYLES = {
 
   return (
     <div id = "wrapper" style = {{display:"flex", flexDirection:"column", minHeight:"100vh"}}>
-      <div id="div1" style={{flex:"0.1",display:"flex", minHeight: "100vh", backgroundImage:`url(/backgroundImg.gif)`, backgroundPosition:"center", backgroundRepeat:"no-repeat", backgroundSize:"cover" }}>
+      <div id="div1" style={{flex:"0.1",display:"flex", minHeight: "100vh" }}>
         <div style = {{width:"60vw", display:"flex", justifyContent:"center", alignItems:"center", flexDirection:"column"}}>
           <div style = {{ zIndex:"2",display:"flex", width:"100%", flexDirection:"column", justifyContent:"center", alignItems:"center",flex:"1.25",alignSelf:"flex-start"}} id = "upperText">
             <div id = "helloTxt" style = {{ width:"80%"}} className="text-2xl">hello!</div> 
@@ -158,8 +158,8 @@ const HERO_STYLES = {
             </div>
           </div>     
       </div>
-          <div style={{width:"40vw", height: "50vh", position: "relative", alignSelf:"flex-end" }} className="intro-image">
-            <img id="realImage" style={{ height: "80%", width:"80%" }} src="/astronaut.svg" alt="Intro" />
+          <div style={{width:"40vw", height: "50vh", position: "relative", alignSelf:"center" }} className="intro-image">
+            <img id="realImage" style={{  }} src="/rocket.svg" alt="Intro" />
           </div>
     </div>
     <div style = {{flex :"0.1"}} id = "stripe">

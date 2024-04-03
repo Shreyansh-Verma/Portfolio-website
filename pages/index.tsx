@@ -76,7 +76,7 @@ export default function Home() {
     // Simulate loading for 2 seconds
     setTimeout(() => {
       setIsLoading(false);
-    }, 60);
+    }, 6000);
   }, []); 
   return (
 

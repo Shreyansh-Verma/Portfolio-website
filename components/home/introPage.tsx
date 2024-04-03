@@ -123,15 +123,12 @@ const HERO_STYLES = {
       </div>
       <div id = "aboutInfo" style = {{display:"flex", flexDirection:"column", justifyContent:"space-between", minWidth:"50%", border:"3px solid #d9d9d9", borderRadius:"1%", backgroundImage: `url(/aboutSection.png)` , backgroundPosition:"center", backgroundRepeat:"no-repeat", backgroundSize:"cover" }}>
         <div id="headingContent" style = {{minHeight:"20%",display:"flex",justifyContent: "Center", alignItems: "Center" }}>
-          <h1 style = {{fontFamily:"Helios Pro",	fontSize: "70px", color: "#fff"}}>
+          <h1 className = "text-6xl" style = {{fontFamily:"Helios Pro", color: "#fff"}}>
               About
           </h1>
         </div>
         <div id="contentContent" style = {{display:"flex", minHeight:"60%", justifyContent:"center", fontFamily:"Helios Pro"}}>
-          <p style={{margin:"2%", fontFamily:"Gotham", fontSize: "20px"}}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque esse
-							aspernatur fugit debitis quisquam. Quia exercitationem ipsum voluptas voluptatum hic
-							enim quo provident culpa possimus cupiditate! Dolorum quae doloremque cum rerum ipsam
-							inventore beatae, at odit, velit, aspernatur minima! Corporffis</p>
+          <p className="text-2xl" style={{margin:"15%", fontFamily:"Gotham"}}>A dynamic experience designer with a versatile skill set. I thrive on articulating the &quot;PURPOSE&quot; and the &quot;RIGHT METHOD&quot; behind every design, seeking to create impactful experiences that resonate with users on a deeper level.</p>
         </div>
         <div style = {{display:"flex", justifyContent:"flex-end",fontFamily:"Gotham"}}>  
           <div style = {{}}>

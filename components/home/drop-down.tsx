@@ -17,7 +17,7 @@ import { useRouter } from 'next/router';
 const MediaCard = forwardRef(({ imageLocation, imageTitle }: {imageLocation: string, imageTitle:string}) => {
 
   return (
-      <Card sx={{minWidth: 200, maxWidth: 245, minHeight: 100, margin: "1%", borderColor: "black" }}>
+      <Card sx={{minWidth: 250, maxWidth: 345, minHeight: 300, margin: "1%", borderColor: "black" }}>
         <CardMedia
           sx={{ height: 140 }}
           image={imageLocation}
@@ -58,7 +58,7 @@ const CardsSpiral = () => {
 
   useEffect(()=>{
 
-    for(let i = 0;i<4;i++)
+    for(let i = 0;i<3;i++)
     {
       if(i%1)
       {
@@ -97,7 +97,7 @@ const CardsSpiral = () => {
       }
     }
     
-    for(let i = 0;i<4;i++)
+    for(let i = 0;i<3;i++)
     {
       if(i%1)
       {
@@ -144,7 +144,7 @@ const CardsSpiral = () => {
         scrollTrigger: {
           trigger: midCardRef.current,
           start: "top top+=10%", // Adjust start position as needed
-          end: "+=100%",
+          end: "+=50%",
           pin: true,
           // scrub: 3
         }
@@ -175,7 +175,7 @@ const CardsSpiral = () => {
   // }, []);
 
   return (
-    <div style={{ display: "flex", minHeight: "200vh" , flexDirection:"column" }} id="scrollSection">
+    <div style={{ display: "flex", minHeight: "150vh" , flexDirection:"column" }} id="scrollSection">
       <div className = "text-3xl seq font-bold" style = {{fontFamily:"Gotham",display:"flex", flexDirection:"column", justifyContent:"flex-start", alignItems:"center",height:"30vh"}}>
         <div>
           My design ethos centers around <span style = {{color:"#102A71"}}> user-centric </span> solutions
@@ -198,9 +198,9 @@ const CardsSpiral = () => {
           <div ref = {(el)=> leftCardsRefs.current[2] = el} style = {{margin:"2%", alignSelf : "flex-start"}}>
             <MediaCard imageLocation  = "/projects/akgec.jpg" imageTitle="imge"/>
           </div>
-          <div ref = {(el)=> leftCardsRefs.current[3] = el} style = {{margin: "2%", alignSelf : "flex-end"}}>
+          {/* <div ref = {(el)=> leftCardsRefs.current[3] = el} style = {{margin: "2%", alignSelf : "flex-end"}}>
             <MediaCard imageLocation  = "/projects/akgec.jpg" imageTitle="imge"/>
-          </div>
+          </div> */}
         </div>
 
         <div style={{display: "flex", minHeight: "100vh", width: "33vw" }} id="midSection">
@@ -257,9 +257,9 @@ const CardsSpiral = () => {
           <div ref = {(el)=> rightCardsRefs.current[2] = el} style = {{margin:"2%", alignSelf : "flex-end"}}>
             <MediaCard imageLocation  = "/projects/akgec.jpg" imageTitle="imge"/>
           </div>
-          <div ref = {(el)=> rightCardsRefs.current[3] = el} style = {{margin:"2%", alignSelf : "flex-start"}}>
+          {/* <div ref = {(el)=> rightCardsRefs.current[3] = el} style = {{margin:"2%", alignSelf : "flex-start"}}>
             <MediaCard imageLocation  = "/projects/akgec.jpg" imageTitle="imge"/>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>

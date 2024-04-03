@@ -3,7 +3,7 @@ import Typewriter from 'typewriter-effect';
 
 function Loading() {
   return (
-    <div className="h-screen flex justify-center items-center">
+    <div className="h-screen flex justify-center items-center" style={{backgroundColor:"black"}}>
             <Typewriter
             onInit={(typewriter) => {
                 typewriter.typeString('Namaste! Welcome to my portfolio')
