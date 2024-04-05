@@ -54,8 +54,10 @@ export default function Home() {
         navigator.userAgent.indexOf("IEMobile") === -1;
 
       window.history.scrollRestoration = "manual";
-
+      console.log("here is desktiop is changed = ",isDesktopResult)
       setisDesktop(isDesktopResult);
+      console.log("desktop -= ",isDesktop);
+      // setisDesktop(!isDesktop);
     }, DEBOUNCE_TIME);
   };
 
@@ -78,6 +80,7 @@ export default function Home() {
       setIsLoading(false);
     }, 6000);
   }, []); 
+
   return (
 
     <div style={{backgroundColor:"black", backgroundImage:`url(/backgroundImg.gif)`, backgroundPosition:"center", backgroundRepeat:"no-repeat", backgroundSize:"cover",  backgroundAttachment:"fixed"}}>
@@ -90,10 +93,10 @@ export default function Home() {
         <Cursor isDesktop={isDesktop} />
         {isLoading?(<><Loading/></>):
         <main className="flex-col flex">
-          {/* {renderBackdrop()} */}
-          <HeroSection />
+          {renderBackdrop()}
+          <HeroSection isDesktop = {isDesktop} />
           {/* <HeroSection /> */}
-          <IntroPage/>
+          <IntroPage isDesktop={isDesktop}/>
           <ProjectsSection isDesktop={isDesktop} />
           <CardsSpiral />
           {/* <AboutSection /> */}

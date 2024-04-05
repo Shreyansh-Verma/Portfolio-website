@@ -8,6 +8,8 @@ import { EMAIL, MENULINKS, SOCIAL_LINKS, TYPED_STRINGS } from "../../constants";
 // import React, { MutableRefObject, useEffect, useRef } from "react";
 // import Typed from "typed.js";
 // import Image from "next/image";
+import { IDesktop } from "pages";
+
 import { gsap, Linear } from "gsap";
 
 import { motion } from "framer-motion";
@@ -17,7 +19,7 @@ import Typewriter from "typewriter-effect";
 import React, { useEffect, useRef } from 'react';
 // import './introPage.css';
 
-const HeroSection: React.FC = () => {
+const HeroSection = ({ isDesktop }: IDesktop) => {
   const textRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const tl = useRef();
@@ -38,6 +40,14 @@ const HeroSection: React.FC = () => {
       imageRef.current.style.transform = `translateY(${imageScrollAmount}px)`;
     }
   };
+
+
+
+  // useEffect(() =>{
+  //   // console.log("IS desktop = ",isDesktop);
+  // },[isDesktop])
+
+  // console.log("IDdesktop = ", isDesktop);
 
 
   // useEffect(() => {
@@ -122,52 +132,91 @@ const HERO_STYLES = {
   };
 
   
-
-  return (
-    <div id = "wrapper" style = {{display:"flex", flexDirection:"column", minHeight:"100vh"}}>
-      <div id="div1" style={{flex:"0.1",display:"flex", minHeight: "100vh" }}>
-        <div style = {{width:"60vw", display:"flex", justifyContent:"center", alignItems:"center", flexDirection:"column"}}>
-          <div style = {{ zIndex:"2",display:"flex", width:"100%", flexDirection:"column", justifyContent:"center", alignItems:"center",flex:"1.25",alignSelf:"flex-start"}} id = "upperText">
-            <div id = "helloTxt" style = {{ width:"80%"}} className="text-2xl">hello!</div> 
-            <div id = "TVtext" className="text-5xl font-bold" style={{width:"80%", fontFamily:"Helios Pro", fontWeight:"400", color:"white"}}>I am TANISHA VERMA</div>
-            <div id = "dynamicText" className="text-base font-light" style={{width:"80%", fontFamily:"Gotham"}}  >
-            <Typewriter
-                  options={{
-                    // autoStart: true,
-                    loop: true,
+  if(isDesktop)
+  {
+    return (
+      <div id = "wrapper" style = {{display:"flex", flexDirection:"column", minHeight:"100vh"}}>
+        <div id="div1" style={{flex:"0.1",display:"flex", minHeight: "100vh" }}>
+          <div style = {{width:"60vw", display:"flex", justifyContent:"center", alignItems:"center", flexDirection:"column"}}>
+            <div style = {{ zIndex:"2",display:"flex", width:"100%", flexDirection:"column", justifyContent:"center", alignItems:"center",flex:"1.25",alignSelf:"flex-start"}} id = "upperText">
+              <div id = "helloTxt" style = {{ width:"80%"}} className="text-2xl">hello!</div> 
+              <div id = "TVtext" className="text-5xl font-bold" style={{width:"80%", fontFamily:"Helios Pro", fontWeight:"400", color:"white"}}>I am TANISHA VERMA</div>
+              <div id = "dynamicText" className="text-base font-light" style={{width:"80%", fontFamily:"Gotham"}}  >
+              <Typewriter
+                    options={{
+                      // autoStart: true,
+                      loop: true,
+                    }}
+                    onInit={(typewriter) => {
+                      typewriter
+                          .typeString("I design")
+                          .pauseFor(1000)
+                          .deleteAll()
+                          .typeString("Dynamic User Experiences")
+                          .start();
                   }}
-                  onInit={(typewriter) => {
-                    typewriter
-                        .typeString("I design")
-                        .pauseFor(1000)
-                        .deleteAll()
-                        .typeString("Dynamic User Experiences")
-                        .start();
-                }}
-            />
+              />
 
+              </div>
             </div>
-          </div>
 
+            <div style = {{flex:"0.65", fontFamily:"Helios Pro", width:"100%", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center" }} id = "lowerText">
+              <div id = "welcomeTxt" className = "text-2xl font-light" style = {{width:"80%"} }>
+              Welcome to
+              </div>
+              <div id = "spaceTxt" className = "text-6xl font-bold" style = {{width:"80%"}}>
+                my SPACE !
+              </div>
+            </div>     
+        </div>
+            <div style={{width:"40vw", height: "50vh", position: "relative", alignSelf:"center" }} className="intro-image">
+              <img id="realImage" style={{  }} src="/rocket.svg" alt="Intro" />
+            </div>
+      </div>
+      <div style = {{flex :"0.1"}} id = "stripe">
+        <img src = "/stripe.jpeg"></img>
+      </div>
+    </div>
+    );
+}
+else
+{
+  return (
+    <div style = {{display:"flex", flexDirection:"column", alignItems:"center", minHeight:"100vh"}}>
+      <div style = {{ zIndex:"2",display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center",flex:"1.25"}} id = "upperText">
+            <div id = "helloTxt" style = {{ width:"80%"}} className="text-1xl">hello!</div> 
+            <div id = "TVtext" className="text-3xl font-bold" style={{width:"80%", fontFamily:"Helios Pro", fontWeight:"400", color:"white"}}>I am TANISHA VERMA</div>
+            <div id = "dynamicText" className="text-base font-light" style={{width:"80%", fontFamily:"Gotham"}}  >
+              <Typewriter
+                    options={{
+                      // autoStart: true,
+                      loop: true,
+                    }}
+                    onInit={(typewriter) => {
+                      typewriter
+                          .typeString("I design")
+                          .pauseFor(1000)
+                          .deleteAll()
+                          .typeString("Dynamic User Experiences")
+                          .start();
+                  }}
+              />
+            </div>
+      </div>
+      <div>
           <div style = {{flex:"0.65", fontFamily:"Helios Pro", width:"100%", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center" }} id = "lowerText">
             <div id = "welcomeTxt" className = "text-2xl font-light" style = {{width:"80%"} }>
             Welcome to
             </div>
-            <div id = "spaceTxt" className = "text-6xl font-bold" style = {{width:"80%"}}>
+            <div id = "spaceTxt" className = "text-4xl font-bold" style = {{width:"80%"}}>
               my SPACE !
             </div>
-          </div>     
+          </div>  
       </div>
-          <div style={{width:"40vw", height: "50vh", position: "relative", alignSelf:"center" }} className="intro-image">
-            <img id="realImage" style={{  }} src="/rocket.svg" alt="Intro" />
-          </div>
+      
     </div>
-    <div style = {{flex :"0.1"}} id = "stripe">
-      <img src = "/stripe.jpeg"></img>
-    </div>
-  </div>
-
   );
+}
 };
 
 export default HeroSection;

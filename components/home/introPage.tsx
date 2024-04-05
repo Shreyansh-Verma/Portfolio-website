@@ -12,12 +12,13 @@ import { EMAIL, MENULINKS, SOCIAL_LINKS, TYPED_STRINGS } from "../../constants";
 
   import { Navigate } from "react-router-dom";
 
+  import { IDesktop } from "pages";
 
 
 import React, { useEffect, useRef } from 'react';
 // import './introPage.css';
 
-const IntroSection: React.FC = () => {
+const IntroSection = ({ isDesktop }: IDesktop) => {
   const textRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const tl = useRef();
@@ -46,6 +47,8 @@ const IntroSection: React.FC = () => {
   };
 
   useEffect(() => {
+    if (isDesktop)
+    {
     		gsap.from('#imgWrapper', {
 			scrollTrigger: {
 				trigger: '#div2',
@@ -83,6 +86,7 @@ const IntroSection: React.FC = () => {
 			yPercent: 60,
       // scale: 1.5
 		})
+  }
 		// gsap.from('#realImage2', {
 		// 	scrollTrigger: {
 		// 		trigger: '#div2',
@@ -109,6 +113,8 @@ const HERO_STYLES = {
 
   
 
+  if (isDesktop)
+  {
   return (
     <div id="div2" style={{display:"flex", justifyContent:"space-between", backgroundColor: "black", minHeight: "100vh"}}>
       <div id="imgWrapper" style  = {{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"flex-end", position:"relative",minWidth:"50%", minHeight: "100vh"}}>
@@ -140,6 +146,29 @@ const HERO_STYLES = {
       </div>
     </div>
   );
+}
+else
+{
+  return(
+    <div id = "aboutInfo" style = {{ backgroundColor: "black",display:"flex", flexDirection:"column", justifyContent:"space-between", minWidth:"50%", border:"3px solid #d9d9d9", borderRadius:"1%", backgroundImage: `url(/aboutSection.png)` , backgroundPosition:"center", backgroundRepeat:"no-repeat", backgroundSize:"cover" }}>
+        <div id="headingContent" style = {{minHeight:"20%",display:"flex",justifyContent: "Center", alignItems: "Center" }}>
+          <h1 className = "text-6xl" style = {{fontFamily:"Helios Pro", color: "#fff"}}>
+              About
+          </h1>
+        </div>
+        <div id="contentContent" style = {{display:"flex", minHeight:"60%", justifyContent:"center", fontFamily:"Helios Pro"}}>
+          <p className="text-2xl" style={{margin:"15%", fontFamily:"Gotham"}}>A dynamic experience designer with a versatile skill set. I thrive on articulating the &quot;PURPOSE&quot; and the &quot;RIGHT METHOD&quot; behind every design, seeking to create impactful experiences that resonate with users on a deeper level.</p>
+        </div>
+        <div style = {{display:"flex", justifyContent:"flex-end",fontFamily:"Gotham"}}>  
+          <div style = {{}}>
+          <button onClick = {handleClick} className="bg-black hover:bg-transparent-100 text-white-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+            Know More
+          </button>
+          </div>
+        </div>
+      </div>
+  )
+}
 };
 
 export default IntroSection;
