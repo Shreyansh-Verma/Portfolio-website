@@ -23,6 +23,11 @@ const HeroSection = ({ isDesktop }: IDesktop) => {
   const textRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const tl = useRef();
+  const firstText = useRef(null);
+  const secondText = useRef(null);
+
+
+  const slider = useRef(null);
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -40,6 +45,54 @@ const HeroSection = ({ isDesktop }: IDesktop) => {
       imageRef.current.style.transform = `translateY(${imageScrollAmount}px)`;
     }
   };
+
+  let xPercent = 0;
+
+
+  useEffect( () => {
+
+    gsap.set(secondText.current, {xPercent: -102})
+  
+    requestAnimationFrame(animate);
+  
+  }, [])
+  
+  let xPercentOne = 0;
+
+  let xPercentTwo = -102;
+  
+  const animate = () => {
+  
+    if(xPercent > 102){
+  
+      // xPercent = -10;
+      xPercent  = 0;
+      if (xPercentOne>102)
+        {
+          xPercentOne = -102;
+        }
+        else
+        {
+          xPercentTwo = -102;
+        }
+      // xPercentOne = -100;
+      // xPercentTwo = -100;
+  
+    }
+
+    console.log("x percent = ",xPercent);
+  
+    gsap.set(firstText.current, {xPercent: xPercentOne})
+  
+    gsap.set(secondText.current, {xPercent: xPercentTwo})
+  
+    requestAnimationFrame(animate);
+  
+    xPercent += 0.1;
+    xPercentOne += 0.1;
+    xPercentTwo += 0.1
+  
+  }
 
 
 
@@ -61,7 +114,7 @@ const HeroSection = ({ isDesktop }: IDesktop) => {
 
   useEffect(() => {
 
-
+    
 
     // const tl = gsap.timeline({ 
     //   defaults: { ease: 'none' }, 
@@ -88,7 +141,7 @@ const HeroSection = ({ isDesktop }: IDesktop) => {
 			scrollTrigger: {
 				trigger: '#div1',
 				start: 'top 5%',
-        markers: true,
+        // markers: true,
 				scrub: 3,
 			},
 			xPercent: 100,
@@ -135,8 +188,8 @@ const HERO_STYLES = {
   if(isDesktop)
   {
     return (
-      <div id = "wrapper" style = {{display:"flex", flexDirection:"column", minHeight:"100vh"}}>
-        <div id="div1" style={{flex:"0.1",display:"flex", minHeight: "100vh" }}>
+      <div id = "wrapper" style = {{display:"flex", flexDirection:"column", minHeight:"95vh"}}>
+        <div id="div1" style={{flex:"0.1",display:"flex", minHeight: "95vh" }}>
           <div style = {{width:"60vw", display:"flex", justifyContent:"center", alignItems:"center", flexDirection:"column"}}>
             <div style = {{ zIndex:"2",display:"flex", width:"100%", flexDirection:"column", justifyContent:"center", alignItems:"center",flex:"1.25",alignSelf:"flex-start"}} id = "upperText">
               <div id = "helloTxt" style = {{ width:"80%"}} className="text-2xl">hello!</div> 
@@ -173,8 +226,49 @@ const HERO_STYLES = {
               <img id="realImage" style={{  }} src="/rocket.svg" alt="Intro" />
             </div>
       </div>
-      <div style = {{flex :"0.1"}} id = "stripe">
-        <img src = "/stripe.jpeg"></img>
+      <div style = {{fontStyle:"gotham",position:"relative", display:"flex", alignItems:"center", border:"1px solid", borderStyle:"solid none", flex :"0.1", minWidth :"100vw", backgroundColor:"black", whiteSpace:"nowrap", minHeight:"5vh" }} id = "stripe">
+        <span ref={firstText} id = "stripe1" style = {{position:"absolute",display:"flex", justifyContent:"space-between", width:"100vw"}}>
+            {/* <p ref={null} style = {{opacity:"0"}}>Systems Thi</p>             */}
+            <p style = {{}}>Visual Design</p>
+            <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+            <p ref={null}>User Experience</p>
+            <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+            <p ref={null}>Service Design</p>
+            <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+            <p ref={null}>Retail</p>
+            <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+            <p ref={null}>Systems Thinking</p>
+            <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+            <p style = {{}}>Visual Design</p>
+            <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+            <p ref={null}>User Experience</p>
+            <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+            {/* <p ref={null} style = {{opacity:"0"}}>Systems Thi</p> */}
+        </span>
+        {/* <span><p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p></span> */}
+        <span ref={secondText} id = "stripe2" style = {{position:"absolute",display:"flex", justifyContent:"space-between", minWidth:"100vw"}}>
+            {/* <p ref={null} style = {{opacity:"0"}}>Systems Thi</p> */}
+            <p ref={null}>Service Design</p>
+            <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+            <p ref={null}>Retail</p>
+            <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+            <p ref={null}>Systems Thinking</p>
+            <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+            <p ref={null}>Visual Design</p>
+            <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+            <p ref={null}>User Experience</p>
+            <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+            <p ref={null}>Service Design</p>
+            <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+            <p ref={null}>Retail</p>
+            <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+            {/* <p ref={null} style = {{opacity:"0"}}>Systems Thi</p> */}
+
+        </span>
+
+        {/* <span><p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p></span> */}
+      
+      {/* <p ref={secondText}>Freelance Developer -</p> */}
       </div>
     </div>
     );

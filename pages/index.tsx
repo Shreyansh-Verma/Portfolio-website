@@ -102,7 +102,7 @@ export default function Home() {
           {/* <AboutSection /> */}
           <QuoteSection />
           <SkillsSection />
-          <TimelineSection isDesktop={isDesktop} />
+          {/* <TimelineSection isDesktop={isDesktop} /> */}
           <CollaborationSection />
           <Footer />
         </main>}
