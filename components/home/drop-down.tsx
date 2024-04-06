@@ -253,7 +253,7 @@ const CardsSpiral = () => {
   // }, []);
 
   return (
-    <div style={{ display: "flex", minHeight: "200vh" , flexDirection:"column" }} id="scrollSection">
+    <div style={{ display: "flex", minHeight: "130vh" , flexDirection:"column" }} id="scrollSection">
       <div className = "text-4xl seq font-bold" style = {{position:"relative", fontFamily:"Gotham",display:"flex", flexDirection:"column", marginTop:"5%", justifyContent:"flex-start", alignItems:"center",height:"30vh", width:"100vw"}}>
         <img id = "ufo" style={{left:"-10%",top:"-50%",position:"absolute", height:"60vh", width:"50vw"}} src = "/ufo.svg"></img>
         <div>
