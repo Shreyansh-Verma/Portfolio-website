@@ -243,11 +243,8 @@ const HERO_STYLES = {
             <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
             <p ref={null}>User Experience</p>
             <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
-            {/* <p ref={null} style = {{opacity:"0"}}>Systems Thi</p> */}
         </span>
-        {/* <span><p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p></span> */}
         <span ref={secondText} id = "stripe2" style = {{position:"absolute",display:"flex", justifyContent:"space-between", minWidth:"100vw"}}>
-            {/* <p ref={null} style = {{opacity:"0"}}>Systems Thi</p> */}
             <p ref={null}>Service Design</p>
             <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
             <p ref={null}>Retail</p>
@@ -266,9 +263,6 @@ const HERO_STYLES = {
 
         </span>
 
-        {/* <span><p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p></span> */}
-      
-      {/* <p ref={secondText}>Freelance Developer -</p> */}
       </div>
     </div>
     );
