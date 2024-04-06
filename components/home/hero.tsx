@@ -80,7 +80,7 @@ const HeroSection = ({ isDesktop }: IDesktop) => {
   
     }
 
-    console.log("x percent = ",xPercent);
+    // console.log("x percent = ",xPercent);
   
     gsap.set(firstText.current, {xPercent: xPercentOne})
   
