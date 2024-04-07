@@ -22,6 +22,7 @@ import ProjectsSection from "@/components/home/projects";
 import QuoteSection from "@/components/home/quote";
 import SkillsSection from "@/components/home/skills";
 import NewSkills from "@/components/home/newSkills";
+import NewCollaboration from "@/components/home/newCollaboration";
 import CollaborationSection from "@/components/home/collaboration";
 import Footer from "@/components/common/footer";
 import TimelineSection from "@/components/home/timeline";
@@ -102,10 +103,11 @@ export default function Home() {
           <CardsSpiral />
           {/* <AboutSection /> */}
           <NewSkills/>
-          <QuoteSection />
-          <SkillsSection />
+          <NewCollaboration/>
+          {/* <QuoteSection />
+          <SkillsSection /> */}
           {/* <TimelineSection isDesktop={isDesktop} /> */}
-          <CollaborationSection />
+          {/* <CollaborationSection /> */}
           <Footer />
         </main>}
         <Scripts />
