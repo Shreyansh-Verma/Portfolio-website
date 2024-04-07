@@ -21,6 +21,7 @@ import CardsSpiral from "@/components/home/drop-down";
 import ProjectsSection from "@/components/home/projects";
 import QuoteSection from "@/components/home/quote";
 import SkillsSection from "@/components/home/skills";
+import NewSkills from "@/components/home/newSkills";
 import CollaborationSection from "@/components/home/collaboration";
 import Footer from "@/components/common/footer";
 import TimelineSection from "@/components/home/timeline";
@@ -78,7 +79,7 @@ export default function Home() {
     // Simulate loading for 2 seconds
     setTimeout(() => {
       setIsLoading(false);
-    }, 6000);
+    }, 600);
   }, []); 
 
   return (
@@ -100,6 +101,7 @@ export default function Home() {
           <ProjectsSection isDesktop={isDesktop} />
           <CardsSpiral />
           {/* <AboutSection /> */}
+          <NewSkills/>
           <QuoteSection />
           <SkillsSection />
           {/* <TimelineSection isDesktop={isDesktop} /> */}
