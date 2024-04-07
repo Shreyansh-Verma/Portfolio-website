@@ -75,7 +75,7 @@ const CardsSpiral = () => {
 
   useEffect( () => {
 
-    gsap.set(secondText.current, {xPercent: -102})
+    gsap.set(secondText.current, {xPercent: 102})
   
     requestAnimationFrame(animate);
   
@@ -83,22 +83,22 @@ const CardsSpiral = () => {
   
   let xPercentOne = 0;
 
-  let xPercentTwo = -102;
+  let xPercentTwo = 102;
   
   const animate = () => {
 
   
-    if(xPercent > 102){
+    if(xPercent < -102){
   
       // xPercent = -10;
       xPercent  = 0;
-      if (xPercentOne>102)
+      if (xPercentOne < -102)
         {
-          xPercentOne = -102;
+          xPercentOne = 102;
         }
         else
         {
-          xPercentTwo = -102;
+          xPercentTwo = 102;
         }
       // xPercentOne = -100;
       // xPercentTwo = -100;
@@ -113,9 +113,9 @@ const CardsSpiral = () => {
   
     requestAnimationFrame(animate);
   
-    xPercent += 0.1;
-    xPercentOne += 0.1;
-    xPercentTwo += 0.1
+    xPercent -= 0.1;
+    xPercentOne -= 0.1;
+    xPercentTwo -= 0.1
   
   }
 
