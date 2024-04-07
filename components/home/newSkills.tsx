@@ -1,5 +1,7 @@
-import React from 'react';
 import Typewriter from 'typewriter-effect';
+import React, { useEffect, useRef } from "react";
+import { gsap, Linear } from "gsap";
+
 
 const SkillCard = ({cardNumber, cardTitle, cardContent}:{cardNumber:string, cardTitle:string, cardContent:string})=>{
   return(
@@ -26,8 +28,21 @@ const cardContentArr = [
 ]
 
 function NewSkills() {
+
+  useEffect(() => {
+    gsap.to('#flyingAstro', {
+			scrollTrigger: {
+				trigger: '#skillsSection',
+				start: 'top-=20 top',
+				scrub: 1.9
+			},
+			x: "-100vw",
+      y: "-25vh",
+		})
+  },[])
   return (
-    <div style = {{display:"flex", flexDirection:"column", minHeight:"100vh"}}>
+    <div id = "skillsSection" style = {{display:"flex", flexDirection:"column", minHeight:"100vh", position:"relative"}}>
+      <img id = "flyingAstro" style = {{position:"absolute", marginLeft:"80vw", marginTop:"45vh"}} src = "/astro.svg"></img>
       <div style = {{display:"flex", flexDirection:"column" ,minHeight:"20vh", minWidth:"100vw",  marginTop:"5%"}} id="headingSection">
         <div style = {{minHeight:"20%", fontFamily:"Gotham"}}>
           <p className = "text-2xl" style={{marginLeft:"3.2%"}}>Skills</p>
@@ -36,7 +51,7 @@ function NewSkills() {
         <p className = "text-6xl" style = {{marginLeft:"3.2%", fontFamily:"Helios Pro"}}>I can help you with</p>
       </div>
       </div>
-      <div id = "contentSection" style = {{display:"flex", width:"100vw", justifyContent:"space-around"}}>
+      <div id = "contentSection" style = {{display:"flex", width:"100vw", justifyContent:"space-around", flexWrap:"wrap"}}>
           <SkillCard cardNumber = "1" cardContent={cardContentArr[0]} cardTitle='Visual Desigh'/>
           <SkillCard cardNumber = "2" cardContent={cardContentArr[1]} cardTitle="UI/UX"/>
           <SkillCard cardNumber = "3" cardContent={cardContentArr[2]} cardTitle='Service Design'/>
