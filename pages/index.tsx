@@ -90,7 +90,7 @@ export default function Home() {
   if(underConstruction)
     {
       return (
-        <div style = {{display : "flex", justifyContent:"center", alignItems:"center", backgroundColor:"black", height:"100vh", width:"100vw"}}>
+        <div className = "text-6xl" style = {{fontFamily:"Helios Pro",display : "flex", justifyContent:"center", alignItems:"center", backgroundColor:"black", height:"100vh", width:"100vw"}}>
           <h1>Website Under Construction!</h1>
         </div>
       )
