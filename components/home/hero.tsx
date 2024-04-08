@@ -16,10 +16,11 @@ import { motion } from "framer-motion";
 
 import Typewriter from "typewriter-effect";
 
-import React, { useEffect, useRef } from 'react';
+import React, { MutableRefObject, useEffect, useRef } from 'react';
 // import './introPage.css';
 
 const HeroSection = ({ isDesktop }: IDesktop) => {
+  const targetSection: MutableRefObject<HTMLDivElement> = useRef(null);
   const textRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const tl = useRef();
@@ -62,6 +63,7 @@ const HeroSection = ({ isDesktop }: IDesktop) => {
   let xPercentTwo = -102;
   
   const animate = () => {
+
   
     if(xPercent > 102){
   
@@ -188,7 +190,7 @@ const HERO_STYLES = {
   if(isDesktop)
   {
     return (
-      <div id = "wrapper" style = {{display:"flex", flexDirection:"column", minHeight:"95vh"}}>
+      <div ref = {targetSection} id = "wrapper" style = {{display:"flex", flexDirection:"column", minHeight:"95vh"}}>
         <div id="div1" style={{flex:"0.1",display:"flex", minHeight: "95vh" }}>
           <div style = {{width:"60vw", display:"flex", justifyContent:"center", alignItems:"center", flexDirection:"column"}}>
             <div style = {{ zIndex:"2",display:"flex", width:"100%", flexDirection:"column", justifyContent:"center", alignItems:"center",flex:"1.25",alignSelf:"flex-start"}} id = "upperText">
@@ -270,7 +272,7 @@ const HERO_STYLES = {
 else
 {
   return (
-    <div style = {{display:"flex", flexDirection:"column", alignItems:"center", minHeight:"100vh"}}>
+    <div ref = {targetSection} style = {{display:"flex", flexDirection:"column", alignItems:"center", minHeight:"100vh"}}>
       <div style = {{ zIndex:"2",display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center",flex:"1.25"}} id = "upperText">
             <div id = "helloTxt" style = {{ width:"80%"}} className="text-1xl">hello!</div> 
             <div id = "TVtext" className="text-3xl font-bold" style={{width:"80%", fontFamily:"Helios Pro", fontWeight:"400", color:"white"}}>I am TANISHA VERMA</div>

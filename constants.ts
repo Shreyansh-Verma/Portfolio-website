@@ -14,7 +14,7 @@ export const METADATA = {
 export const MENULINKS = [
   {
     name: "Home",
-    ref: "home",
+    ref: "hero",
   },
   {
     name: "Works",

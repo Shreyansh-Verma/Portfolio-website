@@ -22,6 +22,7 @@ import ProjectsSection from "@/components/home/projects";
 import QuoteSection from "@/components/home/quote";
 import SkillsSection from "@/components/home/skills";
 import NewSkills from "@/components/home/newSkills";
+import NewProject from "@/components/home/newProject";
 import NewCollaboration from "@/components/home/newCollaboration";
 import CollaborationSection from "@/components/home/collaboration";
 import Footer from "@/components/common/footer";
@@ -43,6 +44,8 @@ export interface IDesktop {
 export default function Home() {
   gsap.registerPlugin(ScrollTrigger);
   gsap.config({ nullTargetWarn: false });
+
+  const underConstruction = true;
 
   const [isDesktop, setisDesktop] = useState(true);
 
@@ -83,8 +86,19 @@ export default function Home() {
     }, 600);
   }, []); 
 
-  return (
 
+  if(underConstruction)
+    {
+      return (
+        <div style = {{display : "flex", justifyContent:"center", alignItems:"center", backgroundColor:"black", height:"100vh", width:"100vw"}}>
+          <h1>Website Under Construction!</h1>
+        </div>
+      )
+    }
+    else
+    {
+  return (
+    
     <div style={{backgroundColor:"black", backgroundImage:`url(/backgroundImg.gif)`, backgroundPosition:"center", backgroundRepeat:"no-repeat", backgroundSize:"cover",  backgroundAttachment:"fixed"}}>
       <Head>
         <title>{METADATA.title}</title>
@@ -99,6 +113,7 @@ export default function Home() {
           <HeroSection isDesktop = {isDesktop} />
           {/* <HeroSection /> */}
           <IntroPage isDesktop={isDesktop}/>
+          <NewProject />
           <ProjectsSection isDesktop={isDesktop} />
           <CardsSpiral />
           {/* <AboutSection /> */}
@@ -114,4 +129,5 @@ export default function Home() {
       </Layout>
     </div>
   );
+}
 }
