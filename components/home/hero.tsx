@@ -10,6 +10,8 @@ import { EMAIL, MENULINKS, SOCIAL_LINKS, TYPED_STRINGS } from "../../constants";
 // import Image from "next/image";
 import { IDesktop } from "pages";
 
+import MediaQuery, { useMediaQuery } from 'react-responsive'
+
 import { gsap, Linear } from "gsap";
 
 import { motion } from "framer-motion";
@@ -20,15 +22,44 @@ import React, { MutableRefObject, useEffect, useRef } from 'react';
 // import './introPage.css';
 
 const HeroSection = ({ isDesktop }: IDesktop) => {
+
+
+  // let mn = gsap.matchMedia({minH\});
   const targetSection: MutableRefObject<HTMLDivElement> = useRef(null);
   const textRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const tl = useRef();
   const firstText = useRef(null);
   const secondText = useRef(null);
-
-
   const slider = useRef(null);
+
+
+  const isBigScreen = useMediaQuery({ query: '(min-width: 1824px)' })
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' })
+  const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
+  const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' })
+
+
+  const Desktop: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const isDesktop = useMediaQuery({ minWidth: 992 });
+    return isDesktop ? <>{children}</> : null;
+  };
+  
+  const Tablet: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 });
+    return isTablet ? <>{children}</> : null;
+  };
+  
+  const Mobile: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const isMobile = useMediaQuery({ maxWidth: 767 });
+    return isMobile ? <>{children}</> : null;
+  };
+  
+  const Default: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const isNotMobile = useMediaQuery({ minWidth: 768 });
+    return isNotMobile ? <>{children}</> : null;
+  };
+
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -76,18 +107,12 @@ const HeroSection = ({ isDesktop }: IDesktop) => {
         else
         {
           xPercentTwo = -102;
-        }
-      // xPercentOne = -100;
-      // xPercentTwo = -100;
-  
+        }  
     }
-
-    // console.log("x percent = ",xPercent);
   
-    gsap.set(firstText.current, {xPercent: xPercentOne})
-  
+    gsap.set(firstText.current, {xPercent: xPercentOne})  
     gsap.set(secondText.current, {xPercent: xPercentTwo})
-  
+
     requestAnimationFrame(animate);
   
     xPercent += 0.1;
@@ -96,23 +121,21 @@ const HeroSection = ({ isDesktop }: IDesktop) => {
   
   }
 
+  useEffect(() => {
+    function handleResize() {
+      // Update the state or perform any other actions when the
+      // browser is resized
+      // window.location.reload(); 
 
+    }
 
-  // useEffect(() =>{
-  //   // console.log("IS desktop = ",isDesktop);
-  // },[isDesktop])
+    // Attach the event listener to the window object
+    window.addEventListener('resize', handleResize);
+    // window.location.reload();
 
-  // console.log("IDdesktop = ", isDesktop);
-
-
-  // useEffect(() => {
-  //   const animation = motion.animate(
-  //     ".box",
-    
-  //   );
-
-
-  // }, []);
+    // Remove the event listener when the component unmounts
+  
+  }, []);
 
   useEffect(() => {
 
@@ -151,11 +174,52 @@ const HeroSection = ({ isDesktop }: IDesktop) => {
       
 		});
 
+    let mn = gsap.matchMedia();
+
+    mn.add("(min-width: 992px)", () => {
+      gsap.to('#realImage  ', {
+        scrollTrigger: {
+          trigger: '#div1',
+          start: 'top top',
+          // markers:true,
+          scrub: 1.9,
+          invalidateOnRefresh: true,
+        },
+        x: "-40vw",
+        y: "-120vh",
+        rotate:"-35",
+        // width: "100vw",
+        // scale: 8
+        // rotateY: "180"
+      })
+    })
+
+    mn.add("((min-width: 768px) and (max-width: 991px))", () => {
+      gsap.to('#realImage  ', {
+        scrollTrigger: {
+          trigger: '#div1',
+          start: 'top top',
+          markers:true,
+          scrub: 1.9,
+          invalidateOnRefresh: true,
+        },
+        x: "-40vw",
+        y: "-100vh",
+        rotate: "-25",
+        // width: "100vw",
+        // scale: 8
+        // rotateY: "180"
+      })
+    })
+
+
     gsap.to('#realImage  ', {
 			scrollTrigger: {
 				trigger: '#div1',
 				start: 'top top',
-				scrub: 1.9
+        markers:true,
+				scrub: 1.9,
+        invalidateOnRefresh: true,
 			},
 			x: "-40vw",
       y: "-120vh",
@@ -186,127 +250,231 @@ const HERO_STYLES = {
     TYPED_SPAN: "text-xl sm:text-2xl md:text-4xl seq",
   };
 
+    const handleMediaQueryChange = (matches: boolean) => {
+      window.location.reload(); 
+    }
   
-  if(isDesktop)
-  {
     return (
-      <div ref = {targetSection} id = "wrapper" style = {{display:"flex", flexDirection:"column", minHeight:"95vh"}}>
-        <div id="div1" style={{flex:"0.1",display:"flex", minHeight: "95vh" }}>
-          <div style = {{width:"60vw", display:"flex", justifyContent:"center", alignItems:"center", flexDirection:"column"}}>
-            <div style = {{ zIndex:"2",display:"flex", width:"100%", flexDirection:"column", justifyContent:"center", alignItems:"center",flex:"1.25",alignSelf:"flex-start"}} id = "upperText">
-              <div id = "helloTxt" style = {{ width:"80%"}} className="text-2xl">hello!</div> 
-              <div id = "TVtext" className="text-5xl font-bold" style={{width:"80%", fontFamily:"Helios Pro", fontWeight:"400", color:"white"}}>I am TANISHA VERMA</div>
-              <div id = "dynamicText" className="text-base font-light" style={{width:"80%", fontFamily:"Gotham"}}  >
-              <Typewriter
-                    options={{
-                      // autoStart: true,
-                      loop: true,
-                    }}
-                    onInit={(typewriter) => {
-                      typewriter
-                          .typeString("I design")
-                          .pauseFor(1000)
-                          .deleteAll()
-                          .typeString("Dynamic User Experiences")
-                          .start();
-                  }}
-              />
+      <>
+        <Desktop>
+          <div ref = {targetSection} id = "wrapper" style = {{display:"flex", flexDirection:"column", minHeight:"95vh"}}>
+            <div id="div1" style={{position:"relative",flex:"0.1", minHeight: "95vh" }}>
+              <div style = {{ width:"100vw", height:"100vh", display:"flex", justifyContent:"center", alignItems:"center", flexDirection:"column"}}>
+                <div style = {{ zIndex:"2",display:"flex", width:"100%", flexDirection:"column", justifyContent:"center", alignItems:"center",flex:"1.25",alignSelf:"flex-start"}} id = "upperText">
+                  <div id = "helloTxt" style = {{ width:"80%"}} className="text-2xl">hello!</div> 
+                  <div id = "TVtext" className="text-5xl font-bold" style={{width:"80%", fontFamily:"Helios Pro", fontWeight:"400", color:"white"}}>I am TANISHA VERMA</div>
+                  <div id = "dynamicText" className="text-base font-light" style={{width:"80%", fontFamily:"Gotham"}}  >
+                  <Typewriter
+                        options={{
+                          // autoStart: true,
+                          loop: true,
+                        }}
+                        onInit={(typewriter) => {
+                          typewriter
+                              .typeString("I design")
+                              .pauseFor(1000)
+                              .deleteAll()
+                              .typeString("Dynamic User Experiences")
+                              .start();
+                      }}
+                  />
+                  </div>
+                </div>
 
+                <div style = {{flex:"0.65", fontFamily:"Helios Pro", width:"100%", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center" }} id = "lowerText">
+                  <div id = "welcomeTxt" className = "text-2xl font-light" style = {{width:"80%"} }>
+                  Welcome to
+                  </div>
+                  <div id = "spaceTxt" className = "text-6xl font-bold" style = {{width:"80%"}}>
+                    my SPACE !
+                  </div>
+                </div>     
               </div>
-            </div>
-
-            <div style = {{flex:"0.65", fontFamily:"Helios Pro", width:"100%", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center" }} id = "lowerText">
-              <div id = "welcomeTxt" className = "text-2xl font-light" style = {{width:"80%"} }>
-              Welcome to
-              </div>
-              <div id = "spaceTxt" className = "text-6xl font-bold" style = {{width:"80%"}}>
-                my SPACE !
-              </div>
-            </div>     
+                <img id="realImage" style={{position:"absolute", left:"55%", top:"20%"}} src="/rocket.svg" alt="Intro" />
+          </div>
+          <div style = {{fontStyle:"gotham",position:"relative", display:"flex", alignItems:"center", border:"1px solid", borderStyle:"solid none", flex :"0.1", minWidth :"100vw", backgroundColor:"black", whiteSpace:"nowrap", minHeight:"5vh" }} id = "stripe">
+            <span ref={firstText} id = "stripe1" style = {{position:"absolute",display:"flex", justifyContent:"space-between", width:"100vw"}}>
+                <p style = {{}}>Visual Design</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>User Experience</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Service Design</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Retail</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Systems Thinking</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p style = {{}}>Visual Design</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>User Experience</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+            </span>
+            <span ref={secondText} id = "stripe2" style = {{position:"absolute",display:"flex", justifyContent:"space-between", minWidth:"100vw"}}>
+                <p ref={null}>Service Design</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Retail</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Systems Thinking</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Visual Design</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>User Experience</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Service Design</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Retail</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+            </span>
+          </div>
         </div>
-            <div style={{width:"40vw", height: "50vh", position: "relative", alignSelf:"center" }} className="intro-image">
-              <img id="realImage" style={{  }} src="/rocket.svg" alt="Intro" />
-            </div>
-      </div>
-      <div style = {{fontStyle:"gotham",position:"relative", display:"flex", alignItems:"center", border:"1px solid", borderStyle:"solid none", flex :"0.1", minWidth :"100vw", backgroundColor:"black", whiteSpace:"nowrap", minHeight:"5vh" }} id = "stripe">
-        <span ref={firstText} id = "stripe1" style = {{position:"absolute",display:"flex", justifyContent:"space-between", width:"100vw"}}>
-            {/* <p ref={null} style = {{opacity:"0"}}>Systems Thi</p>             */}
-            <p style = {{}}>Visual Design</p>
-            <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
-            <p ref={null}>User Experience</p>
-            <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
-            <p ref={null}>Service Design</p>
-            <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
-            <p ref={null}>Retail</p>
-            <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
-            <p ref={null}>Systems Thinking</p>
-            <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
-            <p style = {{}}>Visual Design</p>
-            <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
-            <p ref={null}>User Experience</p>
-            <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
-        </span>
-        <span ref={secondText} id = "stripe2" style = {{position:"absolute",display:"flex", justifyContent:"space-between", minWidth:"100vw"}}>
-            <p ref={null}>Service Design</p>
-            <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
-            <p ref={null}>Retail</p>
-            <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
-            <p ref={null}>Systems Thinking</p>
-            <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
-            <p ref={null}>Visual Design</p>
-            <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
-            <p ref={null}>User Experience</p>
-            <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
-            <p ref={null}>Service Design</p>
-            <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
-            <p ref={null}>Retail</p>
-            <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
-            {/* <p ref={null} style = {{opacity:"0"}}>Systems Thi</p> */}
+      </Desktop>
+      <Tablet>
+      <div ref = {targetSection} id = "wrapper" style = {{display:"flex", flexDirection:"column", minHeight:"95vh"}}>
+            <div id="div1" style={{position:"relative",flex:"0.1", minHeight: "95vh" }}>
+              <div style = {{ width:"100vw", height:"100vh", display:"flex", justifyContent:"center", alignItems:"center", flexDirection:"column"}}>
+                <div style = {{ zIndex:"2",display:"flex", width:"100%", flexDirection:"column", justifyContent:"center", alignItems:"center",flex:"1.25",alignSelf:"flex-start"}} id = "upperText">
+                  <div id = "helloTxt" style = {{ width:"80%"}} className="text-2xl">hello!</div> 
+                  <div id = "TVtext" className="text-5xl font-bold" style={{width:"80%", fontFamily:"Helios Pro", fontWeight:"400", color:"white"}}>I am TANISHA VERMA</div>
+                  <div id = "dynamicText" className="text-base font-light" style={{width:"80%", fontFamily:"Gotham"}}  >
+                  <Typewriter
+                        options={{
+                          // autoStart: true,
+                          loop: true,
+                        }}
+                        onInit={(typewriter) => {
+                          typewriter
+                              .typeString("I design")
+                              .pauseFor(1000)
+                              .deleteAll()
+                              .typeString("Dynamic User Experiences")
+                              .start();
+                      }}
+                  />
+                  </div>
+                </div>
 
-        </span>
+                <div style = {{flex:"0.65", fontFamily:"Helios Pro", width:"100%", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center" }} id = "lowerText">
+                  <div id = "welcomeTxt" className = "text-2xl font-light" style = {{width:"80%"} }>
+                  Welcome to
+                  </div>
+                  <div id = "spaceTxt" className = "text-6xl font-bold" style = {{width:"80%"}}>
+                    my SPACE !
+                  </div>
+                </div>     
+              </div>
+                <img id="realImage" style={{position:"absolute", left:"30%", top:"20%", scale:"0.6"}} src="/rocket.svg" alt="Intro" />
+          </div>
+          <div style = {{fontStyle:"gotham",position:"relative", display:"flex", alignItems:"center", border:"1px solid", borderStyle:"solid none", flex :"0.1", minWidth :"100vw", backgroundColor:"black", whiteSpace:"nowrap", minHeight:"5vh" }} id = "stripe">
+            <span ref={firstText} id = "stripe1" style = {{position:"absolute",display:"flex", justifyContent:"space-between", width:"100vw"}}>
+                <p style = {{}}>Visual Design</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>User Experience</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Service Design</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Retail</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Systems Thinking</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p style = {{}}>Visual Design</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>User Experience</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+            </span>
+            <span ref={secondText} id = "stripe2" style = {{position:"absolute",display:"flex", justifyContent:"space-between", minWidth:"100vw"}}>
+                <p ref={null}>Service Design</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Retail</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Systems Thinking</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Visual Design</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>User Experience</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Service Design</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Retail</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+            </span>
+          </div>
+        </div>              
+      </Tablet>
+      <Mobile>
+      <div ref = {targetSection} id = "wrapper" style = {{display:"flex", flexDirection:"column", minHeight:"95vh"}}>
+            <div id="div1" style={{position:"relative",flex:"0.1", minHeight: "95vh" }}>
+              <div style = {{ width:"100vw", height:"100vh", display:"flex", justifyContent:"center", alignItems:"center", flexDirection:"column"}}>
+                <div style = {{marginTop:"15%", zIndex:"2",display:"flex", width:"100%", flexDirection:"column", justifyContent:"flex-start", alignItems:"center",flex:"1.25",alignSelf:"flex-start"}} id = "upperText">
+                  <div id = "helloTxt" style = {{ width:"80%"}} className="text-2xl">hello!</div> 
+                  <div id = "TVtext" className="text-3xl font-bold" style={{width:"80%", fontFamily:"Helios Pro", fontWeight:"400", color:"white"}}>I am TANISHA VERMA</div>
+                  <div id = "dynamicText" className="text-base font-light" style={{width:"80%", fontFamily:"Gotham"}}  >
+                  <Typewriter
+                        options={{
+                          // autoStart: true,
+                          loop: true,
+                        }}
+                        onInit={(typewriter) => {
+                          typewriter
+                              .typeString("I design")
+                              .pauseFor(1000)
+                              .deleteAll()
+                              .typeString("Dynamic User Experiences")
+                              .start();
+                      }}
+                  />
+                  </div>
+                </div>
 
-      </div>
-    </div>
+                <div style = {{flex:"0.65", fontFamily:"Helios Pro", width:"100%", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center" }} id = "lowerText">
+                  <div id = "welcomeTxt" className = "text-2xl font-light" style = {{width:"80%"} }>
+                  Welcome to
+                  </div>
+                  <div id = "spaceTxt" className = "text-5xl font-bold" style = {{width:"80%"}}>
+                    my SPACE !
+                  </div>
+                </div>     
+              </div>
+                <img id="realImage" style={{position:"absolute", left:"5%", top:"20%"}} src="/rocket.svg" alt="Intro" />
+          </div>
+          <div style = {{fontStyle:"gotham",position:"relative", display:"flex", alignItems:"center", border:"1px solid", borderStyle:"solid none", flex :"0.1", minWidth :"100vw", backgroundColor:"black", whiteSpace:"nowrap", minHeight:"5vh" }} id = "stripe">
+            <span ref={firstText} id = "stripe1" style = {{position:"absolute",display:"flex", justifyContent:"space-between", width:"100vw"}}>
+                <p style = {{}}>Visual Design</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>User Experience</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Service Design</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Retail</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Systems Thinking</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p style = {{}}>Visual Design</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>User Experience</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+            </span>
+            <span ref={secondText} id = "stripe2" style = {{position:"absolute",display:"flex", justifyContent:"space-between", minWidth:"100vw"}}>
+                <p ref={null}>Service Design</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Retail</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Systems Thinking</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Visual Design</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>User Experience</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Service Design</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Retail</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+            </span>
+          </div>
+        </div>
+      </Mobile>
+   
+    </>
     );
-}
-else
-{
-  return (
-    <div ref = {targetSection} style = {{display:"flex", flexDirection:"column", alignItems:"center", minHeight:"100vh"}}>
-      <div style = {{ zIndex:"2",display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center",flex:"1.25"}} id = "upperText">
-            <div id = "helloTxt" style = {{ width:"80%"}} className="text-1xl">hello!</div> 
-            <div id = "TVtext" className="text-3xl font-bold" style={{width:"80%", fontFamily:"Helios Pro", fontWeight:"400", color:"white"}}>I am TANISHA VERMA</div>
-            <div id = "dynamicText" className="text-base font-light" style={{width:"80%", fontFamily:"Gotham"}}  >
-              <Typewriter
-                    options={{
-                      // autoStart: true,
-                      loop: true,
-                    }}
-                    onInit={(typewriter) => {
-                      typewriter
-                          .typeString("I design")
-                          .pauseFor(1000)
-                          .deleteAll()
-                          .typeString("Dynamic User Experiences")
-                          .start();
-                  }}
-              />
-            </div>
-      </div>
-      <div>
-          <div style = {{flex:"0.65", fontFamily:"Helios Pro", width:"100%", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center" }} id = "lowerText">
-            <div id = "welcomeTxt" className = "text-2xl font-light" style = {{width:"80%"} }>
-            Welcome to
-            </div>
-            <div id = "spaceTxt" className = "text-4xl font-bold" style = {{width:"80%"}}>
-              my SPACE !
-            </div>
-          </div>  
-      </div>
-      
-    </div>
-  );
-}
 };
 
 export default HeroSection;

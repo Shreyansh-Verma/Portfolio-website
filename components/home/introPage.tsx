@@ -8,11 +8,13 @@ import { EMAIL, MENULINKS, SOCIAL_LINKS, TYPED_STRINGS } from "../../constants";
 // import React, { MutableRefObject, useEffect, useRef } from "react";
 // import Typed from "typed.js";
 // import Image from "next/image";
-  import { gsap, Linear } from "gsap";
+import { gsap, Linear } from "gsap";
 
-  import { Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
-  import { IDesktop } from "pages";
+import MediaQuery, { useMediaQuery } from 'react-responsive'
+
+import { IDesktop } from "pages";
 
 
 import React, { useEffect, useRef } from 'react';
@@ -22,6 +24,27 @@ const IntroSection = ({ isDesktop }: IDesktop) => {
   const textRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
   const tl = useRef();
+
+
+  const Desktop: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const isDesktop = useMediaQuery({ minWidth: 992 });
+    return isDesktop ? <>{children}</> : null;
+  };
+  
+  const Tablet: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 });
+    return isTablet ? <>{children}</> : null;
+  };
+  
+  const Mobile: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const isMobile = useMediaQuery({ maxWidth: 767 });
+    return isMobile ? <>{children}</> : null;
+  };
+  
+  const Default: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    const isNotMobile = useMediaQuery({ minWidth: 768 });
+    return isNotMobile ? <>{children}</> : null;
+  };
   // const navigate = useNavigate();
 
   const handleClick = () => {
@@ -54,7 +77,7 @@ const IntroSection = ({ isDesktop }: IDesktop) => {
 				trigger: '#div2',
 				start: 'top 60%',
         end: 'top 20%',
-        markers:true,
+        // markers:true,
 				scrub: 1.9
 			},
 			yPercent: 60,
@@ -67,7 +90,7 @@ const IntroSection = ({ isDesktop }: IDesktop) => {
 				trigger: '#div2',
 				start: 'top 60%',
         end: 'top 20%',
-        markers:true,
+        // markers:true,
 				scrub: 1.9
 			},
 			xPercent: 60,
@@ -80,7 +103,7 @@ const IntroSection = ({ isDesktop }: IDesktop) => {
 				trigger: '#div2',
 				start: 'top 60%',
         end: 'top 20%',
-        markers:true,
+        // markers:true,
 				scrub: 1.9
 			},
 			yPercent: 60,
@@ -111,64 +134,104 @@ const HERO_STYLES = {
     TYPED_SPAN: "text-xl sm:text-2xl md:text-4xl seq",
   };
 
-  
 
-  if (isDesktop)
-  {
   return (
-    <div id="div2" style={{display:"flex", justifyContent:"space-between", backgroundColor: "black", minHeight: "100vh"}}>
-      <div id="imgWrapper" style  = {{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"flex-end", position:"relative",minWidth:"50%", minHeight: "100vh"}}>
-        <div style = {{zIndex:"2",minHeight:"20vh", border:"1px solid white", borderRadius:"3%", minWidth:"40vw", backgroundColor:"rgba(0,0,0,0.75)"}}>
-          <div style ={{display:"flex", justifyContent:"center",  flexDirection:"column", padding:"2%", fontFamily:"Gotham"}}>
-            <div>Currently purusing M.Des in</div>
-            <div><span style = {{fontFamily:"Helios Pro"}}>&apos;Design for Retail Experience&apos;</span> at</div>
-            <div>National Institute of Design, Bengaluru</div>
+    <>
+    <Desktop>
+      <div id="div2" style={{display:"flex", justifyContent:"space-between", backgroundColor: "black", minHeight: "100vh"}}>
+        <div id="imgWrapper" style  = {{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"flex-end", position:"relative",minWidth:"50%", minHeight: "100vh"}}>
+          <div style = {{zIndex:"2",minHeight:"20vh", border:"1px solid white", borderRadius:"3%", minWidth:"40vw", backgroundColor:"rgba(0,0,0,0.75)"}}>
+            <div style ={{display:"flex", justifyContent:"center",  flexDirection:"column", padding:"2%", fontFamily:"Gotham"}}>
+              <div>Currently purusing M.Des in</div>
+              <div><span style = {{fontFamily:"Helios Pro"}}>&apos;Design for Retail Experience&apos;</span> at</div>
+              <div>National Institute of Design, Bengaluru</div>
+            </div>
+          </div>
+          <img id="realImage2" style={{ position:"absolute", height:"100%", width:"100%"}} src="/aboutImg.png" alt="Intro" />
+        </div>
+        <div id = "aboutInfo" style = {{display:"flex", flexDirection:"column", justifyContent:"space-between", minWidth:"50%", border:"3px solid #d9d9d9", borderRadius:"1%", backgroundImage: `url(/aboutSection.png)` , backgroundPosition:"center", backgroundRepeat:"no-repeat", backgroundSize:"cover" }}>
+          <div id="headingContent" style = {{minHeight:"20%",display:"flex",justifyContent: "Center", alignItems: "Center" }}>
+            <h1 className = "text-6xl" style = {{fontFamily:"Helios Pro", color: "#fff"}}>
+                About
+            </h1>
+          </div>
+          <div id="contentContent" style = {{display:"flex", minHeight:"60%", justifyContent:"center", fontFamily:"Helios Pro"}}>
+            <p className="text-2xl" style={{margin:"15%", fontFamily:"Gotham"}}>A dynamic experience designer with a versatile skill set. I thrive on articulating the &quot;PURPOSE&quot; and the &quot;RIGHT METHOD&quot; behind every design, seeking to create impactful experiences that resonate with users on a deeper level.</p>
+          </div>
+          <div style = {{display:"flex", justifyContent:"flex-end",fontFamily:"Gotham"}}>  
+            <div style = {{}}>
+            <button onClick = {handleClick} className="bg-black hover:bg-transparent-100 text-white-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+              Know More
+            </button>
+            </div>
           </div>
         </div>
-        <img id="realImage2" style={{ position:"absolute", height:"100%", width:"100%"}} src="/aboutImg.png" alt="Intro" />
       </div>
-      <div id = "aboutInfo" style = {{display:"flex", flexDirection:"column", justifyContent:"space-between", minWidth:"50%", border:"3px solid #d9d9d9", borderRadius:"1%", backgroundImage: `url(/aboutSection.png)` , backgroundPosition:"center", backgroundRepeat:"no-repeat", backgroundSize:"cover" }}>
-        <div id="headingContent" style = {{minHeight:"20%",display:"flex",justifyContent: "Center", alignItems: "Center" }}>
-          <h1 className = "text-6xl" style = {{fontFamily:"Helios Pro", color: "#fff"}}>
-              About
-          </h1>
+    </Desktop>
+    <Tablet>
+    <div id="div2" style={{display:"flex", flexDirection:"column", justifyContent:"space-between", backgroundColor: "black", minHeight: "100vh"}}>
+        <div id="imgWrapper" style  = {{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"flex-end", position:"relative",minWidth:"50%", minHeight: "60vh"}}>
+          <div style = {{zIndex:"2",minHeight:"10vh", border:"1px solid white", borderRadius:"3%", minWidth:"80vw", backgroundColor:"rgba(0,0,0,0.75)"}}>
+            <div style ={{display:"flex", justifyContent:"center", alignItems:"center",  flexDirection:"column", padding:"2%", fontFamily:"Gotham"}}>
+              <div>Currently purusing M.Des in</div>
+              <div><span style = {{fontFamily:"Helios Pro"}}>&apos;Design for Retail Experience&apos;</span> at</div>
+              <div>National Institute of Design, Bengaluru</div>
+            </div>
+          </div>
+          <img id="realImage2" style={{ position:"absolute", height:"100%", width:"100%"}} src="/aboutImg.png" alt="Intro" />
         </div>
-        <div id="contentContent" style = {{display:"flex", minHeight:"60%", justifyContent:"center", fontFamily:"Helios Pro"}}>
-          <p className="text-2xl" style={{margin:"15%", fontFamily:"Gotham"}}>A dynamic experience designer with a versatile skill set. I thrive on articulating the &quot;PURPOSE&quot; and the &quot;RIGHT METHOD&quot; behind every design, seeking to create impactful experiences that resonate with users on a deeper level.</p>
-        </div>
-        <div style = {{display:"flex", justifyContent:"flex-end",fontFamily:"Gotham"}}>  
-          <div style = {{}}>
-          <button onClick = {handleClick} className="bg-black hover:bg-transparent-100 text-white-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
-            Know More
-          </button>
+        <div id = "aboutInfo" style = {{display:"flex", flexDirection:"column", justifyContent:"space-between", minWidth:"50%", border:"3px solid #d9d9d9", borderRadius:"1%", backgroundImage: `url(/aboutSection.png)`, backgroundPosition:"center", backgroundRepeat:"no-repeat", backgroundSize:"cover" }}>
+          <div id="headingContent" style = {{minHeight:"20%",display:"flex",justifyContent: "Center", alignItems: "Center" }}>
+            <h1 className = "text-6xl" style = {{marginTop:"5%",fontFamily:"Helios Pro", color: "#fff"}}>
+                About
+            </h1>
+          </div>
+          <div id="contentContent" style = {{display:"flex", minHeight:"60%", justifyContent:"center", fontFamily:"Helios Pro"}}>
+            <p className="text-2xl" style={{margin:"15%", fontFamily:"Gotham"}}>A dynamic experience designer with a versatile skill set. I thrive on articulating the &quot;PURPOSE&quot; and the &quot;RIGHT METHOD&quot; behind every design, seeking to create impactful experiences that resonate with users on a deeper level.</p>
+          </div>
+          <div style = {{display:"flex", justifyContent:"flex-end",fontFamily:"Gotham"}}>  
+            <div style = {{}}>
+            <button onClick = {handleClick} className="bg-black hover:bg-transparent-100 text-white-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+              Know More
+            </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </Tablet>
+    <Mobile>
+    <div id="div2" style={{display:"flex", flexDirection:"column", justifyContent:"space-between", backgroundColor: "black", minHeight: "100vh"}}>
+        <div id="imgWrapper" style  = {{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"flex-end", position:"relative",minWidth:"50%", minHeight: "60vh"}}>
+          <div style = {{zIndex:"2",minHeight:"10vh", border:"1px solid white", borderRadius:"3%", minWidth:"80vw", backgroundColor:"rgba(0,0,0,0.75)"}}>
+            <div style ={{display:"flex", justifyContent:"center", alignItems:"center",  flexDirection:"column", padding:"2%", fontFamily:"Gotham"}}>
+              <div>Currently purusing M.Des in</div>
+              <div><span style = {{fontFamily:"Helios Pro"}}>&apos;Design for Retail Experience&apos;</span> at</div>
+              <div>National Institute of Design, Bengaluru</div>
+            </div>
+          </div>
+          <img id="realImage2" style={{ position:"absolute", height:"100%", width:"100%"}} src="/aboutImg.png" alt="Intro" />
+        </div>
+        <div id = "aboutInfo" style = {{display:"flex", flexDirection:"column", justifyContent:"space-between", minWidth:"50%", border:"3px solid #d9d9d9", borderRadius:"1%", backgroundImage: `url(/aboutSection.png)`, backgroundPosition:"center", backgroundRepeat:"no-repeat", backgroundSize:"cover", height:"auto" }}>
+          <div id="headingContent" style = {{minHeight:"20%",display:"flex",justifyContent: "Center", alignItems: "Center" }}>
+            <h1 className = "text-6xl" style = {{marginTop:"5%",fontFamily:"Helios Pro", color: "#fff"}}>
+                About
+            </h1>
+          </div>
+          <div id="contentContent" style = {{display:"flex", minHeight:"60%", justifyContent:"center", fontFamily:"Helios Pro"}}>
+            <p className="text-2xl" style={{margin:"15%", fontFamily:"Gotham"}}>A dynamic experience designer with a versatile skill set. I thrive on articulating the &quot;PURPOSE&quot; and the &quot;RIGHT METHOD&quot; behind every design, seeking to create impactful experiences that resonate with users on a deeper level.</p>
+          </div>
+          <div style = {{display:"flex", justifyContent:"flex-end",fontFamily:"Gotham"}}>  
+            <div style = {{}}>
+            <button onClick = {handleClick} className="bg-black hover:bg-transparent-100 text-white-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+              Know More
+            </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Mobile>
+    </>
   );
-}
-else
-{
-  return(
-    <div id = "aboutInfo" style = {{ backgroundColor: "black",display:"flex", flexDirection:"column", justifyContent:"space-between", minWidth:"50%", border:"3px solid #d9d9d9", borderRadius:"1%", backgroundImage: `url(/aboutSection.png)` , backgroundPosition:"center", backgroundRepeat:"no-repeat", backgroundSize:"cover" }}>
-        <div id="headingContent" style = {{minHeight:"20%",display:"flex",justifyContent: "Center", alignItems: "Center" }}>
-          <h1 className = "text-6xl" style = {{fontFamily:"Helios Pro", color: "#fff"}}>
-              About
-          </h1>
-        </div>
-        <div id="contentContent" style = {{display:"flex", minHeight:"60%", justifyContent:"center", fontFamily:"Helios Pro"}}>
-          <p className="text-2xl" style={{margin:"15%", fontFamily:"Gotham"}}>A dynamic experience designer with a versatile skill set. I thrive on articulating the &quot;PURPOSE&quot; and the &quot;RIGHT METHOD&quot; behind every design, seeking to create impactful experiences that resonate with users on a deeper level.</p>
-        </div>
-        <div style = {{display:"flex", justifyContent:"flex-end",fontFamily:"Gotham"}}>  
-          <div style = {{}}>
-          <button onClick = {handleClick} className="bg-black hover:bg-transparent-100 text-white-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
-            Know More
-          </button>
-          </div>
-        </div>
-      </div>
-  )
-}
 };
 
 export default IntroSection;

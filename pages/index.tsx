@@ -45,9 +45,23 @@ export default function Home() {
   gsap.registerPlugin(ScrollTrigger);
   gsap.config({ nullTargetWarn: false });
 
-  const underConstruction = true;
+  const underConstruction = false;
 
   const [isDesktop, setisDesktop] = useState(true);
+
+  // const [width, setWidth] = useState(window.innerWidth);
+
+  // useEffect(() => {
+  //   const handleResize = () => {
+  //     setWidth(window.innerWidth);
+  //   };
+
+  //   window.addEventListener('resize', handleResize);
+
+  //   return () => {
+  //     window.removeEventListener('resize', handleResize);
+  //   };
+  // }, []);
 
   let timer: NodeJS.Timeout = null;
 
@@ -61,6 +75,7 @@ export default function Home() {
       window.history.scrollRestoration = "manual";
       console.log("here is desktiop is changed = ",isDesktopResult)
       setisDesktop(isDesktopResult);
+      // console.log("width = ", width);
       console.log("desktop -= ",isDesktop);
       // setisDesktop(!isDesktop);
     }, DEBOUNCE_TIME);
@@ -86,6 +101,14 @@ export default function Home() {
     }, 600);
   }, []); 
 
+  useEffect(() => {
+    console.log("oops enter here");
+    // Simulate loading for 2 seconds
+    // setTimeout(() => {
+    //   setIsLoading(true);
+    // }, 600);
+  }, [isDesktop]); 
+
 
   if(underConstruction)
     {
@@ -110,14 +133,24 @@ export default function Home() {
         {isLoading?(<><Loading/></>):
         <main className="flex-col flex">
           {renderBackdrop()}
-          <HeroSection isDesktop = {isDesktop} />
+          <div id = "home">
+            <HeroSection isDesktop = {isDesktop} />
+          </div>
           {/* <HeroSection /> */}
-          <IntroPage isDesktop={isDesktop}/>
-          <NewProject />
-          <ProjectsSection isDesktop={isDesktop} />
-          <CardsSpiral />
+          <div id = "about">
+            <IntroPage isDesktop={isDesktop}/>
+          </div>
+          <div id = "works">
+            <NewProject />
+          </div>
+          {/* <ProjectsSection isDesktop={isDesktop} /> */}
+          <div id = "playground">
+            <CardsSpiral />
+          </div>
           {/* <AboutSection /> */}
-          <NewSkills/>
+          <div id = "skills">
+            <NewSkills/>
+          </div>  
           <NewCollaboration/>
           {/* <QuoteSection />
           <SkillsSection /> */}

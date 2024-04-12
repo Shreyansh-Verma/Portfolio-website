@@ -14,19 +14,23 @@ export const METADATA = {
 export const MENULINKS = [
   {
     name: "Home",
-    ref: "hero",
+    ref: "home",
+  },
+  {
+    name: "About",
+    ref: "about",
   },
   {
     name: "Works",
     ref: "works",
   },
   {
-    name: "Skills",
-    ref: "skills",
+    name: "Playground",
+    ref: "playground",
   },
   {
-    name: "Timeline",
-    ref: "timeline",
+    name: "Skills",
+    ref: "skills",
   },
   {
     name: "Contact",
