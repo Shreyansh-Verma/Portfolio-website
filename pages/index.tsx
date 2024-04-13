@@ -45,7 +45,7 @@ export default function Home() {
   gsap.registerPlugin(ScrollTrigger);
   gsap.config({ nullTargetWarn: false });
 
-  const underConstruction = true;
+  const underConstruction = false;
 
   const [isDesktop, setisDesktop] = useState(true);
 

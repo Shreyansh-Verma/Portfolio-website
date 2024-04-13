@@ -271,10 +271,13 @@ const HERO_STYLES = {
                         }}
                         onInit={(typewriter) => {
                           typewriter
-                              .typeString("I design")
+                              .typeString("I Design Dynamic User Experiences")
                               .pauseFor(1000)
                               .deleteAll()
-                              .typeString("Dynamic User Experiences")
+                              .typeString("I Create Visual design that effectively communicate")
+                              .pauseFor(1000)
+                              .deleteAll()
+                              .typeString("Research is at the core of my design process")
                               .start();
                       }}
                   />
@@ -343,11 +346,14 @@ const HERO_STYLES = {
                         }}
                         onInit={(typewriter) => {
                           typewriter
-                              .typeString("I design")
-                              .pauseFor(1000)
-                              .deleteAll()
-                              .typeString("Dynamic User Experiences")
-                              .start();
+                          .typeString("I Design Dynamic User Experiences")
+                          .pauseFor(1000)
+                          .deleteAll()
+                          .typeString("I Create Visual design that effectively communicate")
+                          .pauseFor(1000)
+                          .deleteAll()
+                          .typeString("Research is at the core of my design process")
+                          .start();
                       }}
                   />
                   </div>
@@ -415,11 +421,14 @@ const HERO_STYLES = {
                         }}
                         onInit={(typewriter) => {
                           typewriter
-                              .typeString("I design")
-                              .pauseFor(1000)
-                              .deleteAll()
-                              .typeString("Dynamic User Experiences")
-                              .start();
+                          .typeString("I Design Dynamic User Experiences")
+                          .pauseFor(1000)
+                          .deleteAll()
+                          .typeString("I Create Visual design that effectively communicate")
+                          .pauseFor(1000)
+                          .deleteAll()
+                          .typeString("Research is at the core of my design process")
+                          .start();
                       }}
                   />
                   </div>
