@@ -38,6 +38,34 @@ export const MENULINKS = [
   },
 ];
 
+
+export const MENULINK_ABOUT = [
+  {
+    name: "Home",
+    ref: "home",
+  },
+  {
+    name: "About",
+    ref: "about",
+  },
+  {
+    name: "Animal Rescue",
+    ref: "animal rescue",
+  },
+  {
+    name: "Wanderlust",
+    ref: "wanderlust",
+  },
+  {
+    name: "Photo Journal",
+    ref: "photo journal",
+  },
+  {
+    name: "Fitness",
+    ref: "fitness",
+  },
+];
+
 export const TYPED_STRINGS = [
   "I design and develop things",
   "I develop modern frontend apps",

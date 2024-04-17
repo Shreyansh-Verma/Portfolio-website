@@ -27,52 +27,60 @@ const MyInfo = ({sectionContent}:{sectionContent:string}) => {
     return(
         <div>
         <Desktop>
-            <div style = {{backgroundColor:"black", display:"flex", minHeight:"100vh"}}>
-                <div style = {{minHeight:"80vh", border: "2px solid white", borderRadius:"2%", flex:"1"}} id = "gifImage">
-                    
-                </div>
-                <div style = {{flex:"1", display:"flex",justifyContent:"center", alignItems:"center"}}>
-                    <motion.div
-                    initial={{ opacity: 0,  }}
-                    whileInView={{ opacity: 1}}
-                    transition={{ease:"linear", duration:0.5}} 
-                    className = "text-2xl" id = "myInfo" style = {{fontFamily:"Gotham", width:"20vw"}}>
-                        <p>{sectionContent}</p>
-                    </motion.div>
+            <div style = {{backgroundColor:"black", display:"flex",justifyContent:"center", alignItems:"center", minHeight:"90vh", width:"100vw"}}>
+                <div style = {{display:"flex", justifyContent:"center",alignItems:"center", width:"95vw"}}>
+                    <div style = {{display :"flex", justifyContent:"flex-start", alignItems:"flex-start",minHeight:"60vh", borderRadius:"2%", flex:"1"}} id = "gifImage">
+                        <div style = {{borderRadius : "1%", minWidth:"40vw", minHeight:"80vh", backgroundImage: `url(/aboutSection/aboutMain.gif)` , backgroundPosition:"center", backgroundRepeat:"no-repeat", backgroundSize:"cover" }}></div>
+                    </div>
+                    <div style = {{flex:"1", display:"flex",justifyContent:"center", minHeight:"80vh"}}>
+                        <motion.div
+                        initial={{ opacity: 0,  }}
+                        whileInView={{ opacity: 1}}
+                        transition={{ease:"linear", duration:0.5}} 
+                        className = "text-2xl" id = "myInfo" style = {{fontFamily:"Gotham",  width:"25vw"}}>
+                            <p>{sectionContent}</p>
+                        </motion.div>
+                    </div>
                 </div>
             </div>
         </Desktop>
         <Tablet>
-            <div style = {{backgroundColor:"black", display:"flex", flexDirection:"column", minHeight:"100vh"}}>
-                <div style = {{display:"flex", justifyContent:"center", alignItems:"center"}}>
-                    <div style = {{height:"60vh", border: "2px solid white", borderRadius:"2%", flex:"1", width:"60vw"}} id = "gifImage">
-                </div>
-                </div>
-                <div style = {{flex:"1", display:"flex",justifyContent:"center", alignItems:"center"}}>
-                    <motion.div
-                    initial={{ opacity: 0,  }}
-                    whileInView={{ opacity: 1}}
-                    transition={{ease:"linear", duration:0.5}} 
-                    className = "text-3xl" id = "myInfo" style = {{fontFamily:"Gotham", width:"80vw"}}>
-                        <p>{sectionContent}</p>
-                    </motion.div>
+            <div style = {{backgroundColor:"black", display:"flex",justifyContent:"center", alignItems:"center"}}>
+                <div style = {{display:"flex",  flexDirection:"column", minHeight:"100vh", width:"95vw"}}>
+                    <div style = {{display:"flex", justifyContent:"center", alignItems:"center"}}>
+                        <div style = {{display:"flex", justifyContent:"center",alignItems:"center",height:"60vh", borderRadius:"2%", flex:"1", width:"60vw"}} id = "gifImage">
+                            <div style = {{borderRadius : "1%", minWidth:"60vw", minHeight:"50vh", backgroundImage: `url(/aboutSection/aboutMain.gif)` , backgroundPosition:"center", backgroundRepeat:"no-repeat", backgroundSize:"cover" }}></div>
+                        </div>
+                    </div>
+                    <div style = {{flex:"1", display:"flex",justifyContent:"center", alignItems:"center"}}>
+                        <motion.div
+                        initial={{ opacity: 0,  }}
+                        whileInView={{ opacity: 1}}
+                        transition={{ease:"linear", duration:0.5}} 
+                        className = "text-3xl" id = "myInfo" style = {{fontFamily:"Gotham", width:"80vw"}}>
+                            <p>{sectionContent}</p>
+                        </motion.div>
+                    </div>
                 </div>
             </div>
         </Tablet>
         <Mobile>
-        <div style = {{backgroundColor:"black", display:"flex", flexDirection:"column", minHeight:"100vh"}}>
-                <div style = {{display:"flex", justifyContent:"center", alignItems:"center"}}>
-                    <div style = {{height:"60vh", border: "2px solid white", borderRadius:"2%", flex:"1", width:"60vw"}} id = "gifImage">
-                </div>
-                </div>
-                <div style = {{flex:"1", display:"flex",justifyContent:"center", alignItems:"center", marginTop:"8%"}}>
-                    <motion.div
-                    initial={{ opacity: 0,  }}
-                    whileInView={{ opacity: 1}}
-                    transition={{ease:"linear", duration:0.5}} 
-                    className = "text-2xl" id = "myInfo" style = {{fontFamily:"Gotham", width:"80vw"}}>
-                        <p>{sectionContent}</p>
-                    </motion.div>
+            <div style = {{backgroundColor:"black", display:"flex", justifyContent:"center", alignItems:"center", minHeight:"100vh"}}>
+                <div style = {{display:"flex", flexDirection:"column", minHeight:"100vh", width:"95vw"}}>
+                    <div style = {{display:"flex", justifyContent:"center", alignItems:"center"}}>
+                        <div style = {{display:"flex", justifyContent:"center",alignItems:"center",height:"60vh", borderRadius:"2%", flex:"1", width:"70vw"}} id = "gifImage">
+                            <div style = {{borderRadius : "1%", minWidth:"95vw", minHeight:"50vh", backgroundImage: `url(/aboutSection/aboutMain.gif)` , backgroundPosition:"center", backgroundRepeat:"no-repeat", backgroundSize:"cover" }}></div>
+                        </div>
+                    </div>
+                    <div style = {{flex:"1", display:"flex",justifyContent:"center", alignItems:"center", marginTop:"8%", textAlign:"center"}}>
+                        <motion.div
+                        initial={{ opacity: 0,  }}
+                        whileInView={{ opacity: 1}}
+                        transition={{ease:"linear", duration:0.5}} 
+                        className = "text-2xl" id = "myInfo" style = {{fontFamily:"Gotham", width:"80vw"}}>
+                            <p>{sectionContent}</p>
+                        </motion.div>
+                    </div>
                 </div>
             </div>
         </Mobile>

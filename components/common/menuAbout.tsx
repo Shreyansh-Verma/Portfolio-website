@@ -5,7 +5,7 @@
 // License text available at https://opensource.org/licenses/MIT
 
 import { Dispatch, SetStateAction } from "react";
-import { MENULINKS } from "../../constants";
+import { MENULINK_ABOUT } from "../../constants";
 import { TiArrowBackOutline } from "react-icons/ti";
 
 const Menu = ({
@@ -24,7 +24,7 @@ const Menu = ({
             className="list-none py-4 px-0 m-0 block max-h-screen"
             role="menu"
           >
-            {MENULINKS.map((el) => (
+            {MENULINK_ABOUT.map((el) => (
               <li
                 className="p-0 m-6 text-2xl block"
                 key={el.name}

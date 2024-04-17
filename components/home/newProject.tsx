@@ -4,6 +4,7 @@ import { gsap, Linear } from "gsap";
 import Carousel from 'react-bootstrap/Carousel';
 import Slider from '@/components/home/slider';
 import { useMediaQuery } from 'react-responsive'
+import { useRouter } from 'next/router';
 
 
 const cardContentArr = [
@@ -14,6 +15,8 @@ const cardContentArr = [
 ]
 
 function NewProject() {
+
+  const router = useRouter();
 
   const Desktop: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const isDesktop = useMediaQuery({ minWidth: 992 });
@@ -35,61 +38,78 @@ function NewProject() {
     return isNotMobile ? <>{children}</> : null;
   };
 
+  const handleButtonClick = () => {
+    router.push('/works'); // Replace '/abc' with the route you want to navigate to
+  };
+
+
   return (
     <>
       <Desktop>
-        <div id = "projectSection" style = {{marginLeft:"3.2%",display:"flex", flexDirection:"column", minHeight:"100vh", position:"relative", justifyContent:"space-around"}}>
-          <div style = {{display:"flex", flexDirection:"column" ,height:"15vh", minWidth:"100vw"}} id="headingSection">
-            <div style = {{fontFamily:"Gotham"}}>
-              <p className = "seq text-2xl" style={{marginLeft:"3.2%"}}>Projects</p>
-            </div>
-            <div style = {{display:"flex", alignItems:"center", marginTop:"2%"}}>
-              <p className = "seq text-6xl" style = {{marginLeft:"3.2%", fontFamily:"Helios Pro"}}>My Works</p>
-            </div>
-            <div style = {{display:"flex", fontFamily:"Gotham", flexDirection:"column", marginTop:"1%"}}>
-              <p className = "text-2xl" style = {{marginLeft:"3.2%"}}>My contributions span across a spectrum of projects ecompassing visual design, branding, UI/UX, </p>
-              <p className = "text-2xl" style = {{marginLeft:"3.2%"}}>service design, system design and retail design.</p>
-            </div>
+        <div id = "projectSection" style = {{display:"flex", flexDirection:"column", position:"relative", justifyContent:"space-around"}}>
+            <div style = {{display:"flex", justifyContent:"center", alignItems:"center", minHeight:"35vh"}}>
+              <div style = {{display:"flex", flexDirection:"column", height:"30vh" ,width:"95vw", justifyContent:"space-between"}} id="headingSection">
+                <div style = {{fontFamily:"Gotham"}}>
+                  <p className = "seq text-2xl" style={{}}>Projects</p>
+                </div>
+                <div style = {{display:"flex", alignItems:"center", justifyContent:"space-between"}}>
+                  <p className = "seq text-6xl" style = {{fontFamily:"Helios Pro"}}>My Works</p>
+                  <button onClick = {handleButtonClick} className="bg-transparent hover:bg-blue-500 text-white-700 font-semibold hover:text-white py-2 px-4 border border-white-500 hover:border-transparent rounded">
+                        Show All
+                      </button>
+                </div>
+                <div style = {{display:"flex", fontFamily:"Gotham", flexDirection:"column"}}>
+                  <p className = "text-2xl" style = {{}}>My contributions span across a spectrum of projects ecompassing visual design, branding, UI/UX, </p>
+                  <p className = "text-2xl" style = {{}}>service design, system design and retail design.</p>
+                </div>
+              </div>
           </div>
-          <Slider height='500px' width = '550px'/>
+          <Slider height='450px' width = '500px'/>
         </div>
       </Desktop>
       <Tablet>
-        <div id = "projectSection" style = {{marginLeft:"3.2%",display:"flex", flexDirection:"column", minHeight:"100vh", position:"relative", justifyContent:"space-around"}}>
-            <div style = {{display:"flex", flexDirection:"column" ,height:"15vh", minWidth:"100vw"}} id="headingSection">
+        <div id = "projectSection" style = {{display:"flex", flexDirection:"column", position:"relative", justifyContent:"space-around"}}>
+          <div style = {{display:"flex", justifyContent:"center", alignItems:"center", height:"30vh"}}>
+            <div style = {{display:"flex", flexDirection:"column", minHeight:"25vh" ,width:"95vw", justifyContent:"space-between"}} id="headingSection">
               <div style = {{fontFamily:"Gotham"}}>
-                <p className = "seq text-2xl" style={{marginLeft:"3.2%"}}>Projects</p>
+                <p className = "seq text-2xl" style={{}}>Projects</p>
               </div>
-              <div style = {{display:"flex", alignItems:"center", marginTop:"2%"}}>
-                <p className = "seq text-6xl" style = {{marginLeft:"3.2%", fontFamily:"Helios Pro"}}>My Works</p>
+              <div style = {{display:"flex", alignItems:"center", justifyContent:"space-between"}}>
+                <p className = "seq text-6xl" style = {{fontFamily:"Helios Pro"}}>My Works</p>
+                <button onClick = {handleButtonClick} className="bg-transparent hover:bg-blue-500 text-white-700 font-semibold hover:text-white py-2 px-4 border border-white-500 hover:border-transparent rounded">
+                      Show All
+                    </button>
               </div>
-              <div style = {{display:"flex", fontFamily:"Gotham", flexDirection:"column", marginTop:"1%"}}>
-                <p className = "text-2xl" style = {{marginLeft:"3.2%"}}>My contributions span across a spectrum of projects ecompassing visual design, branding, UI/UX, </p>
-                <p className = "text-2xl" style = {{marginLeft:"3.2%"}}>service design, system design and retail design.</p>
-              </div>
-            </div>
-            <Slider height='500px' width = '550px'/>
-        </div>
-      </Tablet>
-      <Mobile>
-        <div id = "projectSection" style = {{marginLeft:"3.2%",display:"flex", flexDirection:"column", minHeight:"100vh", position:"relative", justifyContent:"space-around"}}>
-            <div style = {{display:"flex", flexDirection:"column" ,height:"15vh", minWidth:"100vw"}} id="headingSection">
-              <div style = {{fontFamily:"Gotham", alignSelf:"center"}}>
-                <p className = "seq text-3xl" style={{}}>Projects</p>
-              </div>
-              <div style = {{display:"flex", alignItems:"center", marginTop:"2%", alignSelf:"center"}}>
-                <p className = "seq text-4xl" style = {{fontFamily:"Helios Pro"}}>My Works</p>
-              </div>
-              <div style = {{display:"flex", fontFamily:"Gotham", flexDirection:"column", marginTop:"2%", alignSelf:"center", textAlign:"center"}}>
+              <div style = {{display:"flex", fontFamily:"Gotham", flexDirection:"column"}}>
                 <p className = "text-2xl" style = {{}}>My contributions span across a spectrum of projects ecompassing visual design, branding, UI/UX, </p>
                 <p className = "text-2xl" style = {{}}>service design, system design and retail design.</p>
               </div>
             </div>
-            <div style = {{height:"40vh"}}>         
-              < Slider height = "400px" width = "450px" />
-            </div>
-
+          </div>
+            <Slider height='450px' width = '500px'/>
         </div>
+      </Tablet>
+      <Mobile>
+        <div id = "projectSection" style = {{display:"flex", flexDirection:"column", position:"relative", justifyContent:"space-around"}}>
+            <div style = {{display:"flex", justifyContent:"center", alignItems:"center", height:"30vh"}}>
+              <div style = {{display:"flex", flexDirection:"column", minHeight:"25vh" ,width:"95vw", justifyContent:"space-between"}} id="headingSection">
+                <div style = {{fontFamily:"Gotham"}}>
+                  <p className = "seq text-2xl" style={{}}>Projects</p>
+                </div>
+                <div style = {{display:"flex", alignItems:"center", justifyContent:"space-between"}}>
+                  <p className = "seq text-3xl" style = {{fontFamily:"Helios Pro"}}>My Works</p>
+                  <button onClick = {handleButtonClick} className="bg-transparent hover:bg-blue-500 text-white-700 font-semibold hover:text-white py-2 px-4 border border-white-500 hover:border-transparent rounded">
+                        Show All
+                  </button>
+                </div>
+                <div style = {{display:"flex", fontFamily:"Gotham", flexDirection:"column"}}>
+                  <p className = "text-1xl" style = {{}}>My contributions span across a spectrum of projects ecompassing visual design, branding, UI/UX, </p>
+                  <p className = "text-1xl" style = {{}}>service design, system design and retail design.</p>
+                </div>
+              </div>
+            </div>
+              <Slider height='400px' width = '450px'/>
+          </div>
       </Mobile>
 
     </>

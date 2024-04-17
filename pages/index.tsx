@@ -45,7 +45,7 @@ export default function Home() {
   gsap.registerPlugin(ScrollTrigger);
   gsap.config({ nullTargetWarn: false });
 
-  const underConstruction = true;
+  const underConstruction = false;
 
   const [isDesktop, setisDesktop] = useState(true);
 
@@ -151,14 +151,14 @@ export default function Home() {
           <div id = "skills">
             <NewSkills/>
           </div>  
-          <NewCollaboration/>
+          {/* <NewCollaboration/> */}
           {/* <QuoteSection />
           <SkillsSection /> */}
           {/* <TimelineSection isDesktop={isDesktop} /> */}
           {/* <CollaborationSection /> */}
           <Footer />
         </main>}
-        <Scripts />
+        {/* <Scripts /> */}
       </Layout>
     </div>
   );

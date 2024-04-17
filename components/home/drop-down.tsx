@@ -1,6 +1,6 @@
 import { gsap, Linear } from "gsap";
 // import { ScrollTrigger } from "gsap/ScrollTrigger"; // Import ScrollTrigger
-import React, { useEffect, useRef } from "react";
+import React, { useState,useEffect, useRef } from "react";
 // import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -44,24 +44,39 @@ const CardsSpiral = () => {
   const firstText = useRef(null);
   const secondText = useRef(null);
 
+  const [screenWidth, setScreenWidth] = React.useState(window.innerWidth);
+
+  // Function to update screenWidth state when window resizes
+  const updateScreenWidth = () => {
+    setScreenWidth(window.innerWidth);
+  };
+
+  // Add event listener for window resize
+  React.useEffect(() => {
+    window.addEventListener('resize', updateScreenWidth);
+    return () => {
+      window.removeEventListener('resize', updateScreenWidth);
+    };
+  }, []);
+
 
   const Desktop: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const isDesktop = useMediaQuery({ minWidth: 992 });
+    const isDesktop = screenWidth >= 992;
     return isDesktop ? <>{children}</> : null;
   };
-  
+
   const Tablet: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 });
+    const isTablet = screenWidth >= 768 && screenWidth < 992;
     return isTablet ? <>{children}</> : null;
   };
-  
+
   const Mobile: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const isMobile = useMediaQuery({ maxWidth: 767 });
+    const isMobile = screenWidth < 768;
     return isMobile ? <>{children}</> : null;
   };
-  
+
   const Default: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const isNotMobile = useMediaQuery({ minWidth: 768 });
+    const isNotMobile = screenWidth >= 768;
     return isNotMobile ? <>{children}</> : null;
   };
 
@@ -242,126 +257,10 @@ const CardsSpiral = () => {
   return (
     <>
     <Desktop>
-      <div style={{ display: "flex", minHeight: "130vh" , flexDirection:"column" }} id="scrollSection">
-        <div className = "text-4xl seq font-bold" style = {{position:"relative", fontFamily:"Gotham",display:"flex", flexDirection:"column", marginTop:"5%", justifyContent:"flex-start", alignItems:"center",height:"30vh", width:"100vw"}}>
-          <img id = "ufo" style={{left:"-10%",top:"-50%",position:"absolute", height:"60vh", width:"50vw"}} src = "/ufo.svg"></img>
-          <div>
-            My design ethos centers around <span style = {{color:"#102A71"}}> user-centric </span> solutions
-          </div>
-          <div>
-            and  <span style = {{color:"#102A71"}}> cross disciplinary </span> collaboration.
-          </div>
-        </div>
-        <div>     
-        </div>
-        <div style={{display:"flex", paddingLeft:"10%", paddingRight:"10%", marginTop:"5%"}}>
-          <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh", width: "26vw" }} id="leftSection">
-            <div ref = {(el)=> leftCardsRefs.current[0] = el} style = {{margin: "2%", alignSelf:"flex-start"}}>
-              <Card cardImage  = "/rajasthan.png" cardContent="imge"/>
-            </div>
-            <div ref = {(el)=> leftCardsRefs.current[1] = el} style  = {{margin: "2%", alignSelf:"flex-end"}}>
-              <Card cardImage  = "/speech.png" cardContent="imge"/>
-            </div>
-            <div ref = {(el)=> leftCardsRefs.current[2] = el} style = {{margin:"2%", alignSelf : "flex-start"}}>
-              <Card cardImage  = "/dogs.png" cardContent="imge"/>
-            </div>
-          </div>
-
-          <div style={{display: "flex", minHeight: "100vh", width: "48vw" }} id="midSection">
-            <div ref = {(el)=> midCardRef.current = el}  style = {{width:"100%", justifyItems:"center", alignSelf:"flex-start"}}>
-              <div style = {{ display:"flex", flexDirection:"column", justifyContent:"space-between", borderRadius:"5%", alignItems:"center", minHeight:"70vh"}}>
-                <div className = "text-bold text-2xl" id="section-1" style = {{fontFamily:"Gotham", display:"flex",flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
-                    <div>
-                      I enjoy Turning 
-                    </div>
-                      Stories into Realities
-                    <div>
-                    </div>
-                </div>
-
-                <div id="section-2" className="text-bold text-6xl" style = {{fontFamily:"Helios Pro", display:"flex",flexDirection:"column", justifyContent:"center", alignItems:"center"}} >
-                  <div>
-                    My
-                  </div>
-                  <div>
-                    Playground
-                  </div>
-                </div>
-
-                <div id="section-3" className = "text-bold text-2xl" style = {{fontFamily:"Gotham",display:"flex",flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
-                  <div>
-                    I enjoy Turning
-                  </div>
-
-                  <div>
-                    Stories into Realities
-                  </div>
-                </div>
-                <div id="section-4" style = {{display:"flex",flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
-                  <div>
-                  <button onClick = {handleButtonClick} className="bg-transparent hover:bg-blue-500 text-white-700 font-semibold hover:text-white py-2 px-4 border border-white-500 hover:border-transparent rounded">
-                    Know More
-                  </button>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-          </div>
-
-          <div style={{  display: "flex", flexDirection: "column", minHeight: "100vh", width: "26vw"}} id="rightSection">
-          <div ref = {(el)=> rightCardsRefs.current[0] = el} style = {{alignSelf:"flex-end"}}>
-              <Card cardImage  = "/fitness.png" cardContent="imge"/>
-            </div>
-            <div ref = {(el)=> rightCardsRefs.current[1] = el} style = {{margin:"2%",alignSelf:"flex-start"}}>
-              <Card cardImage  = "/streetPhoto.png" cardContent="imge"/>
-            </div>
-            <div ref = {(el)=> rightCardsRefs.current[2] = el} style = {{margin:"2%", alignSelf : "flex-end"}}>
-              <Card cardImage  = "/fitness.png" cardContent="imge"/>
-            </div>
-          </div>
-        </div>
-
-        <div style = {{marginTop:"15%",fontStyle:"gotham",position:"relative", display:"flex", alignItems:"center", border:"1px solid", borderStyle:"solid none", flex :"0.1", minWidth :"100vw", backgroundColor:"black", whiteSpace:"nowrap", minHeight:"5vh" }} id = "stripe">
-          <span ref={firstText} id = "stripe1" style = {{position:"absolute",display:"flex", justifyContent:"space-between", width:"100vw"}}>
-              <p style = {{}}>Visual Design</p>
-              <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
-              <p ref={null}>User Experience</p>
-              <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
-              <p ref={null}>Service Design</p>
-              <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
-              <p ref={null}>Retail</p>
-              <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
-              <p ref={null}>Systems Thinking</p>
-              <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
-              <p style = {{}}>Visual Design</p>
-              <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
-              <p ref={null}>User Experience</p>
-              <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
-          </span>
-          <span ref={secondText} id = "stripe2" style = {{position:"absolute",display:"flex", justifyContent:"space-between", minWidth:"100vw"}}>
-              <p ref={null}>Service Design</p>
-              <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
-              <p ref={null}>Retail</p>
-              <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
-              <p ref={null}>Systems Thinking</p>
-              <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
-              <p ref={null}>Visual Design</p>
-              <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
-              <p ref={null}>User Experience</p>
-              <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
-              <p ref={null}>Service Design</p>
-              <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
-              <p ref={null}>Retail</p>
-              <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
-          </span>
-        </div>
-      </div>
-      </Desktop>
-      <Tablet>
-        <div style={{ display: "flex", minHeight: "150vh" , flexDirection:"column" }} id="scrollSection">
-          <div className = "text-4xl seq font-bold" style = {{position:"relative", fontFamily:"Gotham",display:"flex", flexDirection:"column", marginTop:"5%", justifyContent:"flex-start", alignItems:"center",height:"30vh", width:"100vw"}}>
-            <img id = "ufo" style={{left:"-10%",top:"-50%",position:"absolute", height:"60vh", width:"50vw"}} src = "/ufo.svg"></img>
+      <div style={{ display: "flex", minHeight: "130vh" , flexDirection:"column", justifyContent:"center", alignItems:"center" }} id="scrollSection">
+        <div style = {{display:"flex", justifyContent:"center", alignItems:"center", flexDirection:"column", width:"95vw"}}>
+          <div className = "text-4xl seq font-bold" style = {{position:"relative", fontFamily:"Gotham",display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center",height:"50vh", width:"100%"}}>
+            <img id = "ufo" style={{left:"-10%",top:"-20%",position:"absolute", height:"60vh", width:"50vw"}} src = "/ufo.svg"></img>
             <div>
               My design ethos centers around <span style = {{color:"#102A71"}}> user-centric </span> solutions
             </div>
@@ -371,20 +270,20 @@ const CardsSpiral = () => {
           </div>
           <div>     
           </div>
-          <div style={{display:"flex", paddingLeft:"5%", paddingRight:"5%", marginTop:"5%"}}>
-            <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh", width: "26vw" }} id="leftSection">
-              <div ref = {(el)=> leftCardsRefs.current[0] = el} style = {{margin:"1%"}}>
+          <div style={{display:"flex"}}>
+            <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh", width: "30vw"}} id="leftSection">
+              <div ref = {(el)=> leftCardsRefs.current[0] = el} style = {{alignSelf:"flex-start"}}>
                 <Card cardImage  = "/rajasthan.png" cardContent="imge"/>
               </div>
-              <div ref = {(el)=> leftCardsRefs.current[1] = el} style  = {{margin:"1%"}}>
+              <div ref = {(el)=> leftCardsRefs.current[1] = el} style  = {{alignSelf:"flex-end"}}>
                 <Card cardImage  = "/speech.png" cardContent="imge"/>
               </div>
-              <div ref = {(el)=> leftCardsRefs.current[2] = el} style = {{margin:"1%"}}>
+              <div ref = {(el)=> leftCardsRefs.current[2] = el} style = {{alignSelf : "flex-start"}}>
                 <Card cardImage  = "/dogs.png" cardContent="imge"/>
               </div>
             </div>
 
-            <div style={{display: "flex", minHeight: "100vh", width: "48vw" }} id="midSection">
+            <div style={{display: "flex", minHeight: "100vh", width: "35vw"}} id="midSection">
               <div ref = {(el)=> midCardRef.current = el}  style = {{width:"100%", justifyItems:"center", alignSelf:"flex-start"}}>
                 <div style = {{ display:"flex", flexDirection:"column", justifyContent:"space-between", borderRadius:"5%", alignItems:"center", minHeight:"70vh"}}>
                   <div className = "text-bold text-2xl" id="section-1" style = {{fontFamily:"Gotham", display:"flex",flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
@@ -426,15 +325,136 @@ const CardsSpiral = () => {
               </div>
             </div>
 
-            <div style={{  display: "flex", flexDirection: "column", minHeight: "100vh", width: "26vw"}} id="rightSection">
-            <div ref = {(el)=> rightCardsRefs.current[0] = el} style = {{margin:"1%"}}>
+            <div style={{  display: "flex", flexDirection: "column", minHeight: "100vh", width: "30vw"}} id="rightSection">
+            <div ref = {(el)=> rightCardsRefs.current[0] = el} style = {{alignSelf:"flex-end"}}>
                 <Card cardImage  = "/fitness.png" cardContent="imge"/>
               </div>
-              <div ref = {(el)=> rightCardsRefs.current[1] = el} style = {{margin:"1%"}}>
+              <div ref = {(el)=> rightCardsRefs.current[1] = el} style = {{alignSelf:"flex-start"}}>
                 <Card cardImage  = "/streetPhoto.png" cardContent="imge"/>
               </div>
-              <div ref = {(el)=> rightCardsRefs.current[2] = el} style = {{margin:"1%"}}>
+              <div ref = {(el)=> rightCardsRefs.current[2] = el} style = {{alignSelf : "flex-end"}}>
                 <Card cardImage  = "/fitness.png" cardContent="imge"/>
+              </div>
+            </div>
+          </div>
+
+          <div style = {{marginTop:"15%",fontStyle:"gotham",position:"relative", display:"flex", alignItems:"center", border:"1px solid", borderStyle:"solid none", flex :"0.1", minWidth :"100vw", backgroundColor:"black", whiteSpace:"nowrap", minHeight:"5vh" }} id = "stripe">
+            <span ref={firstText} id = "stripe1" style = {{position:"absolute",display:"flex", justifyContent:"space-between", width:"100vw"}}>
+                <p style = {{}}>Visual Design</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>User Experience</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Service Design</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Retail</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Systems Thinking</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p style = {{}}>Visual Design</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>User Experience</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+            </span>
+            <span ref={secondText} id = "stripe2" style = {{position:"absolute",display:"flex", justifyContent:"space-between", minWidth:"100vw"}}>
+                <p ref={null}>Service Design</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Retail</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Systems Thinking</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Visual Design</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>User Experience</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Service Design</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p ref={null}>Retail</p>
+                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+            </span>
+          </div>
+        </div>
+      </div>
+      </Desktop>
+      <Tablet>
+        <div style={{ display: "flex", minHeight: "150vh" , flexDirection:"column", alignItems:"center" }} id="scrollSection">
+          <div style = {{display:"flex", flexDirection:"column", width:"95vw"}}>
+            <div className = "text-4xl seq font-bold" style = {{position:"relative", fontFamily:"Gotham",display:"flex", flexDirection:"column", justifyContent:"flex-start", alignItems:"center",height:"35vh"}}>
+              <img id = "ufo" style={{left:"-10%",top:"-50%",position:"absolute", height:"60vh", width:"50vw"}} src = "/ufo.svg"></img>
+              <div style = {{display:"flex", justifyContent:"center", alignItems:"center", height:"20vh"}}>
+                <div>
+                  My design ethos centers around <span style = {{color:"#102A71"}}> user-centric </span> solutions
+
+                  and  <span style = {{color:"#102A71"}}> cross disciplinary </span> collaboration.
+                </div>
+              </div>
+            </div>
+            <div>     
+            </div>
+            <div style={{display:"flex"}}>
+              <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh", width: "30vw" }} id="leftSection">
+                <div ref = {(el)=> leftCardsRefs.current[0] = el} style = {{}}>
+                  <Card cardImage  = "/rajasthan.png" cardContent="imge"/>
+                </div>
+                <div ref = {(el)=> leftCardsRefs.current[1] = el} style  = {{}}>
+                  <Card cardImage  = "/speech.png" cardContent="imge"/>
+                </div>
+                <div ref = {(el)=> leftCardsRefs.current[2] = el} style = {{}}>
+                  <Card cardImage  = "/dogs.png" cardContent="imge"/>
+                </div>
+              </div>
+
+              <div style={{display: "flex", minHeight: "100vh", width: "35vw" }} id="midSection">
+                <div ref = {(el)=> midCardRef.current = el}  style = {{width:"100%", justifyItems:"center", alignSelf:"flex-start"}}>
+                  <div style = {{ display:"flex", flexDirection:"column", justifyContent:"space-between", borderRadius:"5%", alignItems:"center", minHeight:"70vh"}}>
+                    <div className = "text-bold text-2xl" id="section-1" style = {{fontFamily:"Gotham", display:"flex",flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
+                        <div>
+                          I enjoy Turning 
+                        </div>
+                          Stories into Realities
+                        <div>
+                        </div>
+                    </div>
+
+                    <div id="section-2" className="text-bold text-5xl" style = {{fontFamily:"Helios Pro", display:"flex",flexDirection:"column", justifyContent:"center", alignItems:"center"}} >
+                      <div>
+                        My
+                      </div>
+                      <div>
+                        Playground
+                      </div>
+                    </div>
+
+                    <div id="section-3" className = "text-bold text-2xl" style = {{fontFamily:"Gotham",display:"flex",flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
+                      <div>
+                        I enjoy Turning
+                      </div>
+
+                      <div>
+                        Stories into Realities
+                      </div>
+                    </div>
+                    <div id="section-4" style = {{display:"flex",flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
+                      <div>
+                      <button onClick = {handleButtonClick} className="bg-transparent hover:bg-blue-500 text-white-700 font-semibold hover:text-white py-2 px-4 border border-white-500 hover:border-transparent rounded">
+                        Know More
+                      </button>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+
+              <div style={{  display: "flex", flexDirection: "column", minHeight: "100vh", width: "30vw"}} id="rightSection">
+              <div ref = {(el)=> rightCardsRefs.current[0] = el} style = {{}}>
+                  <Card cardImage  = "/fitness.png" cardContent="imge"/>
+                </div>
+                <div ref = {(el)=> rightCardsRefs.current[1] = el} style = {{}}>
+                  <Card cardImage  = "/streetPhoto.png" cardContent="imge"/>
+                </div>
+                <div ref = {(el)=> rightCardsRefs.current[2] = el} style = {{}}>
+                  <Card cardImage  = "/fitness.png" cardContent="imge"/>
+                </div>
               </div>
             </div>
           </div>
@@ -478,8 +498,9 @@ const CardsSpiral = () => {
         </div>
       </Tablet>
       <Mobile>
-      <div style={{ display: "flex", minHeight: "150vh" , flexDirection:"column" }} id="scrollSection">
-          <div className = "text-2xl seq font-bold" style = {{position:"relative", fontFamily:"Gotham",display:"flex", flexDirection:"column", marginTop:"25%", justifyContent:"flex-start", alignItems:"center",height:"30vh", width:"100vw", textAlign:"center"}}>
+      <div style={{ display: "flex", minHeight: "150vh" , flexDirection:"column", alignItems:"center" }} id="scrollSection">
+        <div style = {{display:"flex", flexDirection:"column", width:"95vw",alignItems:"center"}}>
+          <div className = "text-2xl seq font-bold" style = {{position:"relative", fontFamily:"Gotham",display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center",height:"30vh", width:"95vw", textAlign:"center"}}>
             <img id = "ufo" style={{left:"-10%",top:"-50%",position:"absolute", height:"60vh", width:"50vw"}} src = "/ufo.svg"></img>
             <div>
               My design ethos centers around <span style = {{color:"#102A71"}}> user-centric </span> solutions
@@ -488,7 +509,7 @@ const CardsSpiral = () => {
               and  <span style = {{color:"#102A71"}}> cross disciplinary </span> collaboration.
             </div>
           </div>
-          <div id="section-2" className="text-bold text-5xl" style = {{fontFamily:"Helios Pro", display:"flex",flexDirection:"column", justifyContent:"center", alignItems:"center"}} >
+          <div id="section-2" className="text-bold text-5xl" style = {{fontFamily:"Helios Pro", display:"flex",flexDirection:"column", justifyContent:"center", alignItems:"center", height:"25vh"}} >
             <div>
               My
             </div>
@@ -496,24 +517,24 @@ const CardsSpiral = () => {
               Playground
             </div>
           </div>
-          <div style={{display:"flex", paddingLeft:"1%", paddingRight:"1%", marginTop:"5%"}}>
+          <div style={{display:"flex",justifyContent:"center", width:"100%"}}>
             <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh", alignItems:"center", width:"100%" }} id="leftSection">
-              <div ref = {(el)=> leftCardsRefs.current[0] = el} style = {{margin:"1%"}}>
+              <div ref = {(el)=> leftCardsRefs.current[0] = el} style = {{}}>
                 <CardMobil cardImage  = "/rajasthan.png" cardContent="imge"/>
               </div>
-              <div ref = {(el)=> leftCardsRefs.current[1] = el} style  = {{margin:"1%"}}>
+              <div ref = {(el)=> leftCardsRefs.current[1] = el} style  = {{}}>
                 <CardMobil cardImage  = "/speech.png" cardContent="imge"/>
               </div>
-              <div ref = {(el)=> leftCardsRefs.current[2] = el} style = {{margin:"1%"}}>
+              <div ref = {(el)=> leftCardsRefs.current[2] = el} style = {{}}>
                 <CardMobil cardImage  = "/dogs.png" cardContent="imge"/>
               </div>
-              <div ref = {(el)=> rightCardsRefs.current[0] = el} style = {{margin:"1%"}}>
+              <div ref = {(el)=> rightCardsRefs.current[0] = el} style = {{}}>
                   <CardMobil cardImage  = "/fitness.png" cardContent="imge"/>
                 </div>
-                <div ref = {(el)=> rightCardsRefs.current[1] = el} style = {{margin:"1%"}}>
+                <div ref = {(el)=> rightCardsRefs.current[1] = el} style = {{}}>
                   <CardMobil cardImage  = "/streetPhoto.png" cardContent="imge"/>
                 </div>
-                <div ref = {(el)=> rightCardsRefs.current[2] = el} style = {{margin:"1%"}}>
+                <div ref = {(el)=> rightCardsRefs.current[2] = el} style = {{}}>
                   <CardMobil cardImage  = "/fitness.png" cardContent="imge"/>
                 </div>
  
@@ -528,7 +549,7 @@ const CardsSpiral = () => {
             </div>
           </div>
 
-          <div style = {{marginTop:"1%",fontStyle:"gotham",position:"relative", display:"flex", alignItems:"center", border:"1px solid", borderStyle:"solid none", flex :"0.1", minWidth :"100vw", backgroundColor:"black", whiteSpace:"nowrap", minHeight:"3vh" }} id = "stripe">
+          <div style = {{fontStyle:"gotham",position:"relative", display:"flex", alignItems:"center", border:"1px solid", borderStyle:"solid none", flex :"0.1", minWidth :"100vw", backgroundColor:"black", whiteSpace:"nowrap", minHeight:"3vh" }} id = "stripe">
             <span ref={firstText} id = "stripe1" style = {{position:"absolute",display:"flex", justifyContent:"space-between", width:"100vw"}}>
                 <p style = {{}}>Visual Design</p>
                 <p><img style = {{maxHeight:"2vh"}}src = "/star.svg"></img></p>
@@ -561,6 +582,7 @@ const CardsSpiral = () => {
                 <p ref={null}>Retail</p>
                 <p><img style = {{maxHeight:"2vh"}}src = "/star.svg"></img></p>
             </span>
+          </div>
           </div>
         </div>
       </Mobile>

@@ -5,7 +5,7 @@ import {useMediaQuery} from 'react-responsive'
 
 const SkillCard = ({cardNumber, cardTitle, cardContent}:{cardNumber:string, cardTitle:string, cardContent:string})=>{
   return(
-    <div style = {{display:"flex", flexDirection:"column", minWidth:"18vw", justifyContent:"space-between", minHeight:"60vh"}}>
+    <div style = {{display:"flex", flexDirection:"column", minWidth:"20vw", justifyContent:"space-between", minHeight:"60vh"}}>
         <div className = "text-1xl" style = {{fontFamily:"Gotham"}} id = "cardHeading">
             <h1>{cardNumber}</h1>
             <div id = "separationLine" style = {{border:"1px solid white", width:"100%"}}></div>
@@ -22,7 +22,7 @@ const SkillCard = ({cardNumber, cardTitle, cardContent}:{cardNumber:string, card
 
 const SkillCardTablet = ({cardNumber, cardTitle, cardContent}:{cardNumber:string, cardTitle:string, cardContent:string})=>{
   return(
-    <div style = {{display:"flex", flexDirection:"column", minWidth:"28vw", justifyContent:"space-between", minHeight:"60vh"}}>
+    <div style = {{display:"flex", flexDirection:"column", minWidth:"35vw", justifyContent:"space-between", minHeight:"60vh"}}>
         <div className = "text-2xl" style = {{fontFamily:"Gotham"}} id = "cardHeading">
             <h1>{cardNumber}</h1>
             <div id = "separationLine" style = {{border:"1px solid white", width:"100%"}}></div>
@@ -39,18 +39,20 @@ const SkillCardTablet = ({cardNumber, cardTitle, cardContent}:{cardNumber:string
 
 const SkillCardMobile = ({cardNumber, cardTitle, cardContent}:{cardNumber:string, cardTitle:string, cardContent:string})=>{
   return(
-    <div style = {{display:"flex", flexDirection:"column", minWidth:"100vw", alignItems:"center", minHeight:"60vh"}}>
-        <div className = "text-2xl" style = {{display:"flex", flexDirection:"column",alignItems:"center",fontFamily:"Gotham", width:"100vw"}} id = "cardHeading">
+    <div style = {{display:"flex", flexDirection:"column", alignItems:"center", minHeight:"60vh"}}>
+        <div className = "text-2xl" style = {{display:"flex", flexDirection:"column",alignItems:"center",fontFamily:"Gotham", width:"100%"}} id = "cardHeading">
             <div>
               <h1>{cardNumber}</h1>
             </div>
-            <div id = "separationLine" style = {{height:"0",border:"1px solid white", width:"80vw"}}></div>
+            <div id = "separationLine" style = {{height:"0",border:"1px solid white", width:"100%"}}></div>
         </div>
-        <div className = "text-3xl" style = {{display:"flex",justifyContent:"center",fontFamily:"Helios Pro", width :"60vw", textAlign:"center"}} id = "cardHeading">
+        <div className = "text-3xl" style = {{display:"flex",justifyContent:"center",fontFamily:"Helios Pro", width :"60vw"}} id = "cardHeading">
           <h1>{cardTitle}</h1>
         </div>
-        <div className = "text-2xl" id = "cardContent" style = {{display:"flex", justifyContent:"center",fontFamily:"Gotham",minHeight:"40vh", width:"60vw", marginTop:"10%", textAlign:"center"}}>
+        <div style = {{display:"flex", justifyContent:"center", alignItems:"center", height:"80%", minHeight:"50vh", width:"70vw"}}>
+        <div className = "text-2xl" id = "cardContent" style = {{display:"flex", justifyContent:"center",fontFamily:"Gotham"}}>
           <p>{cardContent}</p>
+        </div>
         </div>
     </div>
   )
@@ -99,65 +101,71 @@ function NewSkills() {
   return (
     <>
       <Desktop>
-        <div id = "skillsSection" style = {{display:"flex", flexDirection:"column", minHeight:"100vh", position:"relative"}}>
-          <img id = "flyingAstro" style = {{position:"absolute", marginLeft:"80vw", marginTop:"45vh"}} src = "/astro.svg"></img>
-          <div style = {{display:"flex", flexDirection:"column" ,minHeight:"20vh", minWidth:"100vw",  marginTop:"5%"}} id="headingSection">
-            <div style = {{minHeight:"20%", fontFamily:"Gotham"}}>
-              <p className = "text-2xl" style={{marginLeft:"3.2%"}}>Skills</p>
+        <div style = {{display:"flex", justifyContent:"center",alignItems:"center", width:"100vw", minHeight:"100vh"}}>
+          <div id = "skillsSection" style = {{display:"flex", flexDirection:"column", minHeight:"100vh", position:"relative", width:"95vw"}}>
+            <img id = "flyingAstro" style = {{position:"absolute", marginLeft:"80vw", marginTop:"45vh"}} src = "/astro.svg"></img>
+            <div style = {{display:"flex", flexDirection:"column" ,minHeight:"20vh"}} id="headingSection">
+              <div style = {{minHeight:"20%", fontFamily:"Gotham"}}>
+                <p className = "text-2xl" style={{}}>Skills</p>
+              </div>
+              <div style = {{display:"flex", alignItems:"center", minHeight:"20vh"}}>
+                <p className = "text-6xl" style = {{fontFamily:"Helios Pro"}}>I can help you with</p>
+              </div>
             </div>
-          <div style = {{display:"flex", alignItems:"center", minHeight:"20vh"}}>
-            <p className = "text-6xl" style = {{marginLeft:"3.2%", fontFamily:"Helios Pro"}}>I can help you with</p>
-          </div>
-          </div>
-          <div id = "contentSection" style = {{display:"flex", width:"100vw", justifyContent:"space-around", flexWrap:"wrap"}}>
-              <SkillCard cardNumber = "1" cardContent={cardContentArr[0]} cardTitle='Visual Desigh'/>
-              <SkillCard cardNumber = "2" cardContent={cardContentArr[1]} cardTitle="UI/UX"/>
-              <SkillCard cardNumber = "3" cardContent={cardContentArr[2]} cardTitle='Service Design'/>
-              <SkillCard cardNumber = "4" cardContent={cardContentArr[3]} cardTitle='Experience Design'/>
+            <div id = "contentSection" style = {{display:"flex", justifyContent:"space-between"}}>
+                <SkillCard cardNumber = "1" cardContent={cardContentArr[0]} cardTitle='Visual Desigh'/>
+                <SkillCard cardNumber = "2" cardContent={cardContentArr[1]} cardTitle="UI/UX"/>
+                <SkillCard cardNumber = "3" cardContent={cardContentArr[2]} cardTitle='Service Design'/>
+                <SkillCard cardNumber = "4" cardContent={cardContentArr[3]} cardTitle='Experience Design'/>
+            </div>
           </div>
         </div>
       </Desktop>
       <Tablet>
-      <div id = "skillsSection" style = {{display:"flex", flexDirection:"column", minHeight:"100vh", position:"relative"}}>
-          <img id = "flyingAstro" style = {{position:"absolute", marginLeft:"80vw", marginTop:"45vh"}} src = "/astro.svg"></img>
-          <div style = {{display:"flex", flexDirection:"column" ,minHeight:"20vh", minWidth:"100vw",  marginTop:"5%"}} id="headingSection">
-            <div style = {{minHeight:"20%", fontFamily:"Gotham"}}>
-              <p className = "text-2xl" style={{marginLeft:"3.2%"}}>Skills</p>
+        <div style = {{display:"flex",justifyContent:"center", alignItems:"center", minHeight:"100vh"}}>
+        <div id = "skillsSection" style = {{display:"flex", flexDirection:"column", position:"relative", width:"95vw"}}>
+            <img id = "flyingAstro" style = {{position:"absolute", marginLeft:"80vw", marginTop:"45vh"}} src = "/astro.svg"></img>
+            <div style = {{display:"flex", flexDirection:"column" ,minHeight:"20vh", minWidth:"100vw",}} id="headingSection">
+              <div style = {{minHeight:"20%", fontFamily:"Gotham"}}>
+                <p className = "text-2xl" style={{}}>Skills</p>
+              </div>
+            <div style = {{display:"flex", alignItems:"center", minHeight:"20vh"}}>
+              <p className = "text-6xl" style = {{fontFamily:"Helios Pro"}}>I can help you with</p>
             </div>
-          <div style = {{display:"flex", alignItems:"center", minHeight:"20vh"}}>
-            <p className = "text-6xl" style = {{marginLeft:"3.2%", fontFamily:"Helios Pro"}}>I can help you with</p>
-          </div>
-          </div>
-          <div id = "contentSection" style = {{display:"flex", width:"100vw", justifyContent:"space-around", flexWrap:"wrap"}}>
-            <div>
-              <SkillCardTablet cardNumber = "1" cardContent={cardContentArr[0]} cardTitle='Visual Desigh'/>
-              <SkillCardTablet cardNumber = "2" cardContent={cardContentArr[1]} cardTitle="UI/UX"/>
             </div>
-            <div>
-              <SkillCardTablet cardNumber = "3" cardContent={cardContentArr[2]} cardTitle='Service Design'/>
-              <SkillCardTablet cardNumber = "4" cardContent={cardContentArr[3]} cardTitle='Experience Design'/>
-             </div>
+            <div id = "contentSection" style = {{display:"flex", justifyContent:"space-between"}}>
+              <div>
+                <SkillCardTablet cardNumber = "1" cardContent={cardContentArr[0]} cardTitle='Visual Desigh'/>
+                <SkillCardTablet cardNumber = "2" cardContent={cardContentArr[1]} cardTitle="UI/UX"/>
+              </div>
+              <div>
+                <SkillCardTablet cardNumber = "3" cardContent={cardContentArr[2]} cardTitle='Service Design'/>
+                <SkillCardTablet cardNumber = "4" cardContent={cardContentArr[3]} cardTitle='Experience Design'/>
+              </div>
+            </div>
           </div>
         </div>
       </Tablet>
       <Mobile>
-      <div id = "skillsSection" style = {{display:"flex", flexDirection:"column", minHeight:"100vh", position:"relative"}}>
-          <img id = "flyingAstro" style = {{position:"absolute", marginLeft:"80vw", marginTop:"45vh"}} src = "/astro.svg"></img>
-          <div style = {{display:"flex", flexDirection:"column" ,minHeight:"20vh", minWidth:"100vw",  marginTop:"5%"}} id="headingSection">
-            <div style = {{minHeight:"20%", fontFamily:"Gotham"}}>
-              <p className = "text-2xl" style={{marginLeft:"3.2%"}}>Skills</p>
+        <div style = {{display:"flex", justifyContent:"center", alignItems:"center", width:"100vw", minHeight:"100vh"}}>
+          <div id = "skillsSection" style = {{display:"flex", flexDirection:"column", position:"relative", width:"95vw"}}>
+            <img id = "flyingAstro" style = {{position:"absolute", marginLeft:"80vw", marginTop:"45vh"}} src = "/astro.svg"></img>
+            <div style = {{display:"flex", flexDirection:"column" ,minHeight:"20vh"}} id="headingSection">
+              <div style = {{minHeight:"20%", fontFamily:"Gotham"}}>
+                <p className = "text-2xl" style={{}}>Skills</p>
+              </div>
+            <div style = {{display:"flex", alignItems:"center", minHeight:"20vh"}}>
+              <p className = "text-4xl" style = {{fontFamily:"Helios Pro"}}>I can help you with</p>
             </div>
-          <div style = {{display:"flex", alignItems:"center", minHeight:"20vh"}}>
-            <p className = "text-6xl" style = {{marginLeft:"3.2%", fontFamily:"Helios Pro"}}>I can help you with</p>
-          </div>
-          </div>
-          <div id = "contentSection" style = {{display:"flex", flexDirection:"column", width:"100vw", alignItems:"center"}}>
-            <div>
-              <SkillCardMobile cardNumber = "1" cardContent={cardContentArr[0]} cardTitle='Visual Desigh'/>
-              <SkillCardMobile cardNumber = "2" cardContent={cardContentArr[1]} cardTitle="UI/UX"/>
-              <SkillCardMobile cardNumber = "3" cardContent={cardContentArr[2]} cardTitle='Service Design'/>
-              <SkillCardMobile cardNumber = "4" cardContent={cardContentArr[3]} cardTitle='Experience Design'/>
-             </div>
+            </div>
+            <div id = "contentSection" style = {{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"space-between"}}>
+              <div>
+                <SkillCardMobile cardNumber = "1" cardContent={cardContentArr[0]} cardTitle='Visual Desigh'/>
+                <SkillCardMobile cardNumber = "2" cardContent={cardContentArr[1]} cardTitle="UI/UX"/>
+                <SkillCardMobile cardNumber = "3" cardContent={cardContentArr[2]} cardTitle='Service Design'/>
+                <SkillCardMobile cardNumber = "4" cardContent={cardContentArr[3]} cardTitle='Experience Design'/>
+              </div>
+            </div>
           </div>
         </div>
       </Mobile>
