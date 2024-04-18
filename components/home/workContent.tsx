@@ -78,7 +78,7 @@ const WorkContent = () => {
         };
     }, []);
 
-    console.log("yo bro width = ",screenWidth); 
+    // console.log("yo bro width = ",screenWidth); 
   
   
     const Desktop: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -108,143 +108,88 @@ const WorkContent = () => {
   return (
     <>
      <Desktop>        
-        <div style = {{display:"flex", justifyContent:"center", alignItems:"center", width:"100vw", minHeight:"150vh"}}>
-            <div style = {{width:"85vw", minHeight:"120vh"}}>
-                <div style = {{display:"flex", flexDirection:"column", justifyContent:"space-around"}}>
+        <div style = {{display:"flex", justifyContent:"center", alignItems:"flex-start", width:"100vw", height:"320vh"}}>
+            <div style = {{width:"85vw", height:"300vh"}}>
+                <div style = {{height:"300vh", display:"flex", flexDirection:"column", justifyContent:"space-between"}}>
                     <div style = {{display:"flex", justifyContent:"space-between"}}>
-                        <div style = {{display:"flex"}}>
                             <Card cardHeight='40vh' cardWidth='40vw'/>
-                        </div>
-                        <div style = {{display:"flex"}}>
                             <Card cardHeight='40vh' cardWidth='40vw'/>
-                        </div>
                     </div>
                     <div style = {{display:"flex", justifyContent:"space-between"}}>
-                        <div style = {{display:"flex"}}>
                             <Card cardHeight='40vh' cardWidth='40vw'/>
-                        </div>
-                        <div style = {{display:"flex"}}>
                             <Card cardHeight='40vh' cardWidth='40vw'/>
-                        </div>
                     </div>
                     <div style = {{display:"flex", justifyContent:"space-between"}}>
-                        <div style = {{display:"flex"}}>
                             <Card cardHeight='40vh' cardWidth='40vw'/>
-                        </div>
-                        <div style = {{display:"flex"}}>
                             <Card cardHeight='40vh' cardWidth='40vw'/>
-                        </div>
                     </div>
                     <div style = {{display:"flex", justifyContent:"space-between"}}>
-                        <div style = {{display:"flex"}}>
                             <Card cardHeight='40vh' cardWidth='40vw'/>
-                        </div>
-                        <div style = {{display:"flex"}}>
                             <Card cardHeight='40vh' cardWidth='40vw'/>
-                        </div>
                     </div>
                     <div style = {{display:"flex", justifyContent:"space-between"}}>
-                        <div style = {{display:"flex"}}>
                             <Card cardHeight='40vh' cardWidth='40vw'/>
-                        </div>
-                        <div style = {{display:"flex"}}>
                             <Card cardHeight='40vh' cardWidth='40vw'/>
-                        </div>
                     </div>
                     <div style = {{display:"flex", justifyContent:"space-between"}}>
-                        <div style = {{display:"flex"}}>
                             <Card cardHeight='40vh' cardWidth='40vw'/>
-                        </div>
-                        <div style = {{display:"flex"}}>
                             <Card cardHeight='40vh' cardWidth='40vw'/>
-                        </div>
                     </div>
                     <div style = {{display:"flex", justifyContent:"space-between"}}>
-                        <div style = {{display:"flex"}}>
                             <Card cardHeight='40vh' cardWidth='40vw'/>
-                        </div>
-                        <div style = {{display:"flex"}}>
                             <Card cardHeight='40vh' cardWidth='40vw'/>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </Desktop>
     <Tablet>
-    <div style = {{display:"flex", justifyContent:"center", alignItems:"center", width:"100vw"}}>
-            <div style = {{width:"95vw"}}>
-                <div style = {{display:"flex", flexDirection:"column", justifyContent:"space-between"}}>
+    <div style = {{display:"flex", justifyContent:"center", alignItems:"flex-start", width:"100vw", height:"320vh"}}>
+            <div style = {{width:"85vw", height:"300vh"}}>
+                <div style = {{height:"300vh", display:"flex", flexDirection:"column", justifyContent:"space-between"}}>
                     <div style = {{display:"flex", justifyContent:"space-between"}}>
-                        <div style = {{display:"flex"}}>
                             <Card cardHeight='40vh' cardWidth='40vw'/>
-                        </div>
-                        <div style = {{display:"flex"}}>
                             <Card cardHeight='40vh' cardWidth='40vw'/>
-                        </div>
                     </div>
                     <div style = {{display:"flex", justifyContent:"space-between"}}>
-                        <div style = {{display:"flex"}}>
                             <Card cardHeight='40vh' cardWidth='40vw'/>
-                        </div>
-                        <div style = {{display:"flex"}}>
                             <Card cardHeight='40vh' cardWidth='40vw'/>
-                        </div>
                     </div>
                     <div style = {{display:"flex", justifyContent:"space-between"}}>
-                        <div style = {{display:"flex"}}>
                             <Card cardHeight='40vh' cardWidth='40vw'/>
-                        </div>
-                        <div style = {{display:"flex"}}>
                             <Card cardHeight='40vh' cardWidth='40vw'/>
-                        </div>
                     </div>
                     <div style = {{display:"flex", justifyContent:"space-between"}}>
-                        <div style = {{display:"flex"}}>
                             <Card cardHeight='40vh' cardWidth='40vw'/>
-                        </div>
-                        <div style = {{display:"flex"}}>
                             <Card cardHeight='40vh' cardWidth='40vw'/>
-                        </div>
                     </div>
                     <div style = {{display:"flex", justifyContent:"space-between"}}>
-                        <div style = {{display:"flex"}}>
                             <Card cardHeight='40vh' cardWidth='40vw'/>
-                        </div>
-                        <div style = {{display:"flex"}}>
                             <Card cardHeight='40vh' cardWidth='40vw'/>
-                        </div>
                     </div>
                     <div style = {{display:"flex", justifyContent:"space-between"}}>
-                        <div style = {{display:"flex"}}>
                             <Card cardHeight='40vh' cardWidth='40vw'/>
-                        </div>
-                        <div style = {{display:"flex"}}>
                             <Card cardHeight='40vh' cardWidth='40vw'/>
-                        </div>
                     </div>
                     <div style = {{display:"flex", justifyContent:"space-between"}}>
-                        <div style = {{display:"flex"}}>
                             <Card cardHeight='40vh' cardWidth='40vw'/>
-                        </div>
-                        <div style = {{display:"flex"}}>
                             <Card cardHeight='40vh' cardWidth='40vw'/>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </Tablet>
     <Mobile>
-    <div style = {{display:"flex", justifyContent:"center", alignItems:"center", width:"100vw", border:"2px solid green"}}>
-            <div style = {{width:"100vw"}}>
-                <div style = {{display:"flex", flexDirection:"column", justifyContent:"space-between", alignItems:"center"}}>
-                    <Card cardHeight='30vh' cardWidth='50vw'/>
-                    <Card cardHeight='30vh' cardWidth='50vw'/>
-                    <Card cardHeight='30vh' cardWidth='50vw'/>
-                    <Card cardHeight='30vh' cardWidth='50vw'/>
-                    <Card cardHeight='30vh' cardWidth='50vw'/>
-                    <Card cardHeight='30vh' cardWidth='50vw'/>
+         <div style = {{display:"flex", justifyContent:"center", alignItems:"flex-start", width:"100vw", height:"240vh"}}>
+            <div style = {{width:"95vw", height:"240vh"}}>
+                <div style = {{height:"230vh",display:"flex", flexDirection:"column", justifyContent:"space-between", alignItems:"center"}}>
+                    <Card cardHeight='30vh' cardWidth='70vw'/>
+                    <Card cardHeight='30vh' cardWidth='70vw'/>
+                    <Card cardHeight='30vh' cardWidth='70vw'/>
+                    <Card cardHeight='30vh' cardWidth='70vw'/>
+                    <Card cardHeight='30vh' cardWidth='70vw'/>
+                    <Card cardHeight='30vh' cardWidth='70vw'/>
+                    <Card cardHeight='30vh' cardWidth='70vw'/>
                 </div> 
             </div>
         </div>

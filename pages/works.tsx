@@ -50,7 +50,7 @@ const AboutMe  = ()=>{
 
 
     return(
-        <div style = {{backgroundColor:"black", minHeight:"100vh"}}>
+        <div style = {{backgroundColor:"black"}}>
             <Header/>
             <Cursor isDesktop = {isDesktop}/>
             <div id = "home">
