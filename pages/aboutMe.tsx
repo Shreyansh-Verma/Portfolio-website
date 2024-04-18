@@ -53,7 +53,7 @@ const AboutMe  = ()=>{
         // Simulate loading for 2 seconds
         setTimeout(() => {
           setIsLoading(false);
-        }, 6000);
+        }, 3000);
       }, []); 
     
 
