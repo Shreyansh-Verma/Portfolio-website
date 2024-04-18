@@ -1,6 +1,7 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import Cursor from "@/components/common/cursor";
 import Header from "@/components/common/headerAbout";
+import Loading from "@/components/home/load";
 
 import SectionHeading from "@/components/home/sectionHeading";
 import WorkContent from "@/components/home/workContent";
@@ -16,7 +17,17 @@ const AboutMe  = ()=>{
     gsap.registerPlugin(ScrollTrigger);
     gsap.config({ nullTargetWarn: false });
 
+    const [isLoading, setIsLoading] = useState(true);
+
     const [isDesktop, setisDesktop] = useState(true);
+
+    useEffect(() => {
+        // Simulate loading for 2 seconds
+        setTimeout(() => {
+          setIsLoading(false);
+        }, 6000);
+      }, []); 
+    
 
     const aboutSectionIntro = "Committed designer with a focus on sustainable living, intrigued by geopolitics, dedicated to animal welfare, and a fitness enthusiast. My design ethos centers around user-centric solutions and cross-disciplinary collaboration";
     const myInfo = "A dynamic experience designer with a versatile skill set . I thrive on articulating the PURPOSE and the RIGHT METHOD behind every design, seeking to create impactful experiences that resonate with users on a deeper level.A dynamic experience designer with a versatile skill set . I thrive on articulating the PURPOSE and the RIGHT METHOD behind every design, seeking to create impactful experiences that resonate with users on a deeper level.";
@@ -50,7 +61,8 @@ const AboutMe  = ()=>{
 
 
     return(
-        <div style = {{backgroundColor:"black"}}>
+        <>         
+        {isLoading?<Loading/>:(<div style = {{backgroundColor:"black"}}>
             <Header/>
             <Cursor isDesktop = {isDesktop}/>
             <div id = "home">
@@ -58,7 +70,9 @@ const AboutMe  = ()=>{
             </div>
             <WorkContent/>
             <BackToTop/>
-        </div>
+        </div>)}
+        </>
+
     )
 }
 

@@ -45,7 +45,7 @@ export default function Home() {
   gsap.registerPlugin(ScrollTrigger);
   gsap.config({ nullTargetWarn: false });
 
-  const underConstruction = true;
+  const underConstruction = false;
 
   const [isDesktop, setisDesktop] = useState(true);
 
@@ -98,7 +98,7 @@ export default function Home() {
     // Simulate loading for 2 seconds
     setTimeout(() => {
       setIsLoading(false);
-    }, 600);
+    }, 6000);
   }, []); 
 
   useEffect(() => {
