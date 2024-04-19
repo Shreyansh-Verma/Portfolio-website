@@ -1,5 +1,6 @@
 import Typewriter from 'typewriter-effect';
 import React, {MutableRefObject, useState, useEffect, useRef } from "react";
+import {motion} from "framer-motion";
 import { gsap, Linear } from "gsap";
 import Carousel from 'react-bootstrap/Carousel';
 import Slider from '@/components/home/slider';
@@ -47,16 +48,20 @@ function NewProject() {
     <>
       <Desktop>
         <div id = "projectSection" style = {{display:"flex", flexDirection:"column", position:"relative", justifyContent:"space-around"}}>
-            <div style = {{display:"flex", justifyContent:"center", alignItems:"center", minHeight:"35vh"}}>
+            <div style = {{display:"flex", justifyContent:"center", alignItems:"center", minHeight:"45vh"}}>
               <div style = {{display:"flex", flexDirection:"column", height:"30vh" ,width:"95vw", justifyContent:"space-between"}} id="headingSection">
                 <div style = {{fontFamily:"Gotham"}}>
                   <p className = "seq text-2xl" style={{}}>Projects</p>
                 </div>
                 <div style = {{display:"flex", alignItems:"center", justifyContent:"space-between"}}>
                   <p className = "seq text-6xl" style = {{fontFamily:"Helios Pro"}}>My Works</p>
-                  <button onClick = {handleButtonClick} className="bg-transparent hover:bg-blue-500 text-white-700 font-semibold hover:text-white py-2 px-4 border border-white-500 hover:border-transparent rounded">
+                  <motion.button onClick = {handleButtonClick} className="bg-transparent hover:bg-blue-500 text-white-700 font-semibold hover:text-white py-2 px-4 border border-white-500 hover:border-transparent rounded"
+                    whileHover={{ scale: 1.3 }}
+                    whileTap={{ scale: 0.9 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  >
                         Show All
-                      </button>
+                  </motion.button>
                 </div>
                 <div style = {{display:"flex", fontFamily:"Gotham", flexDirection:"column"}}>
                   <p className = "text-2xl" style = {{}}>My contributions span across a spectrum of projects ecompassing visual design, branding, UI/UX, </p>
@@ -64,21 +69,25 @@ function NewProject() {
                 </div>
               </div>
           </div>
-          <Slider height='450px' width = '500px'/>
+          <Slider height='400px' width = '500px'/>
         </div>
       </Desktop>
       <Tablet>
         <div id = "projectSection" style = {{display:"flex", flexDirection:"column", position:"relative", justifyContent:"space-around"}}>
-          <div style = {{display:"flex", justifyContent:"center", alignItems:"center", height:"30vh"}}>
+          <div style = {{display:"flex", justifyContent:"center", alignItems:"center", height:"35vh"}}>
             <div style = {{display:"flex", flexDirection:"column", minHeight:"25vh" ,width:"95vw", justifyContent:"space-between"}} id="headingSection">
               <div style = {{fontFamily:"Gotham"}}>
                 <p className = "seq text-2xl" style={{}}>Projects</p>
               </div>
               <div style = {{display:"flex", alignItems:"center", justifyContent:"space-between"}}>
                 <p className = "seq text-6xl" style = {{fontFamily:"Helios Pro"}}>My Works</p>
-                <button onClick = {handleButtonClick} className="bg-transparent hover:bg-blue-500 text-white-700 font-semibold hover:text-white py-2 px-4 border border-white-500 hover:border-transparent rounded">
+                <motion.button onClick = {handleButtonClick} className="bg-transparent hover:bg-blue-500 text-white-700 font-semibold hover:text-white py-2 px-4 border border-white-500 hover:border-transparent rounded"
+                  whileHover={{ scale: 1.3 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >
                       Show All
-                    </button>
+                </motion.button>
               </div>
               <div style = {{display:"flex", fontFamily:"Gotham", flexDirection:"column"}}>
                 <p className = "text-2xl" style = {{}}>My contributions span across a spectrum of projects ecompassing visual design, branding, UI/UX, </p>
@@ -86,7 +95,7 @@ function NewProject() {
               </div>
             </div>
           </div>
-            <Slider height='450px' width = '500px'/>
+            <Slider height='400px' width = '500px'/>
         </div>
       </Tablet>
       <Mobile>
@@ -98,9 +107,13 @@ function NewProject() {
                 </div>
                 <div style = {{display:"flex", alignItems:"center", justifyContent:"space-between"}}>
                   <p className = "seq text-3xl" style = {{fontFamily:"Helios Pro"}}>My Works</p>
-                  <button onClick = {handleButtonClick} className="bg-transparent hover:bg-blue-500 text-white-700 font-semibold hover:text-white py-2 px-4 border border-white-500 hover:border-transparent rounded">
+                  <motion.button onClick = {handleButtonClick} className="bg-transparent hover:bg-blue-500 text-white-700 font-semibold hover:text-white py-2 px-4 border border-white-500 hover:border-transparent rounded"
+                    whileHover={{ scale: 1.3 }}
+                    whileTap={{ scale: 0.9 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  >
                         Show All
-                  </button>
+                  </motion.button>
                 </div>
                 <div style = {{display:"flex", fontFamily:"Gotham", flexDirection:"column"}}>
                   <p className = "text-1xl" style = {{}}>My contributions span across a spectrum of projects ecompassing visual design, branding, UI/UX, </p>

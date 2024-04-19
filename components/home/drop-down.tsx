@@ -11,6 +11,8 @@ import { EMAIL, MENULINKS, SOCIAL_LINKS, TYPED_STRINGS } from "../../constants";
 import { forwardRef , ReactNode} from 'react';
 import { useRouter } from 'next/router';
 import { useMediaQuery } from 'react-responsive'
+import {motion} from "framer-motion"
+
 
 
 const Card = (({cardImage, cardContent} : {cardImage:string, cardContent:string}) =>{
@@ -314,11 +316,15 @@ const CardsSpiral = () => {
                     </div>
                   </div>
                   <div id="section-4" style = {{display:"flex",flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
-                    <div>
+                    <motion.div
+                          whileHover={{ scale: 1.3 }}
+                          whileTap={{ scale: 0.9 }}
+                          transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                    >
                     <button onClick = {handleButtonClick} className="bg-transparent hover:bg-blue-500 text-white-700 font-semibold hover:text-white py-2 px-4 border border-white-500 hover:border-transparent rounded">
                       Know More
                     </button>
-                    </div>
+                    </motion.div>
                   </div>
 
                 </div>
@@ -434,11 +440,15 @@ const CardsSpiral = () => {
                       </div>
                     </div>
                     <div id="section-4" style = {{display:"flex",flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
-                      <div>
+                      <motion.div
+                        whileHover={{ scale: 1.3 }}
+                        whileTap={{ scale: 0.9 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                      >
                       <button onClick = {handleButtonClick} className="bg-transparent hover:bg-blue-500 text-white-700 font-semibold hover:text-white py-2 px-4 border border-white-500 hover:border-transparent rounded">
                         Know More
                       </button>
-                      </div>
+                      </motion.div>
                     </div>
 
                   </div>
@@ -542,11 +552,15 @@ const CardsSpiral = () => {
               
           </div>
           <div style = {{display:"flex", justifyContent:"center", alignContent:"center", minHeight:"20vh"}}>
-            <div style = {{display:"flex", justifyContent:"center", flexDirection:"column",minHeight:"5vh"}}>
+            <motion.div style = {{display:"flex", justifyContent:"center", flexDirection:"column",minHeight:"5vh"}}
+              whileHover={{ scale: 1.3 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
             <button style = {{justifyContent:"center"}}  onClick = {handleButtonClick} className="bg-transparent hover:bg-blue-500 text-white-700 font-semibold hover:text-white py-2 px-4 border border-white-500 hover:border-transparent rounded">
               Know More
             </button>
-            </div>
+            </motion.div>
           </div>
 
           <div style = {{fontStyle:"gotham",position:"relative", display:"flex", alignItems:"center", border:"1px solid", borderStyle:"solid none", flex :"0.1", minWidth :"100vw", backgroundColor:"black", whiteSpace:"nowrap", minHeight:"3vh" }} id = "stripe">

@@ -104,19 +104,23 @@ function NewSkills() {
         <div style = {{display:"flex", justifyContent:"center",alignItems:"center", width:"100vw", minHeight:"100vh"}}>
           <div id = "skillsSection" style = {{display:"flex", flexDirection:"column", minHeight:"100vh", position:"relative", width:"95vw"}}>
             <img id = "flyingAstro" style = {{position:"absolute", marginLeft:"80vw", marginTop:"45vh"}} src = "/astro.svg"></img>
-            <div style = {{display:"flex", flexDirection:"column" ,minHeight:"20vh"}} id="headingSection">
-              <div style = {{minHeight:"20%", fontFamily:"Gotham"}}>
-                <p className = "text-2xl" style={{}}>Skills</p>
-              </div>
-              <div style = {{display:"flex", alignItems:"center", minHeight:"20vh"}}>
-                <p className = "text-6xl" style = {{fontFamily:"Helios Pro"}}>I can help you with</p>
+            <div style = {{display:"flex", justifyContent:"flex-start",alignItems:"center",minHeight:"35vh"}} id="headingSection">
+              <div style = {{display:"flex", flexDirection:"column", height:"30vh", width:"100%"}}>
+                <div style = {{minHeight:"20%", fontFamily:"Gotham"}}>
+                  <p className = "text-2xl" style={{}}>Skills</p>
+                </div>
+                <div style = {{display:"flex", alignItems:"center", minHeight:"20vh"}}>
+                  <p className = "text-6xl" style = {{fontFamily:"Helios Pro"}}>I can help you with</p>
+                </div>
               </div>
             </div>
-            <div id = "contentSection" style = {{display:"flex", justifyContent:"space-between"}}>
-                <SkillCard cardNumber = "1" cardContent={cardContentArr[0]} cardTitle='Visual Desigh'/>
-                <SkillCard cardNumber = "2" cardContent={cardContentArr[1]} cardTitle="UI/UX"/>
-                <SkillCard cardNumber = "3" cardContent={cardContentArr[2]} cardTitle='Service Design'/>
-                <SkillCard cardNumber = "4" cardContent={cardContentArr[3]} cardTitle='Experience Design'/>
+            <div style = {{display:"flex", justifyContent:"flex-start", alignItems:"flex-start", height:"70vh"}}>
+              <div id = "contentSection" style = {{height:"50%",display:"flex", justifyContent:"space-between", width:"100%"}}>
+                  <SkillCard cardNumber = "1" cardContent={cardContentArr[0]} cardTitle='Visual Desigh'/>
+                  <SkillCard cardNumber = "2" cardContent={cardContentArr[1]} cardTitle="UI/UX"/>
+                  <SkillCard cardNumber = "3" cardContent={cardContentArr[2]} cardTitle='Service Design'/>
+                  <SkillCard cardNumber = "4" cardContent={cardContentArr[3]} cardTitle='Experience Design'/>
+              </div>
             </div>
           </div>
         </div>
@@ -125,13 +129,15 @@ function NewSkills() {
         <div style = {{display:"flex",justifyContent:"center", alignItems:"center", minHeight:"100vh"}}>
         <div id = "skillsSection" style = {{display:"flex", flexDirection:"column", position:"relative", width:"95vw"}}>
             <img id = "flyingAstro" style = {{position:"absolute", marginLeft:"80vw", marginTop:"45vh"}} src = "/astro.svg"></img>
-            <div style = {{display:"flex", flexDirection:"column" ,minHeight:"20vh", minWidth:"100vw",}} id="headingSection">
-              <div style = {{minHeight:"20%", fontFamily:"Gotham"}}>
-                <p className = "text-2xl" style={{}}>Skills</p>
+            <div style = {{display:"flex", flexDirection:"column" ,minHeight:"25vh", minWidth:"95vw",justifyContent:"center"}} id="headingSection">
+              <div style = {{display:"flex", flexDirection:"column", width:"100%", height:"22vh"}}>
+                <div style = {{minHeight:"20%", fontFamily:"Gotham"}}>
+                  <p className = "text-2xl" style={{}}>Skills</p>
+                </div>
+                <div style = {{display:"flex", alignItems:"center", minHeight:"20vh"}}>
+                  <p className = "text-6xl" style = {{fontFamily:"Helios Pro"}}>I can help you with</p>
+                </div>
               </div>
-            <div style = {{display:"flex", alignItems:"center", minHeight:"20vh"}}>
-              <p className = "text-6xl" style = {{fontFamily:"Helios Pro"}}>I can help you with</p>
-            </div>
             </div>
             <div id = "contentSection" style = {{display:"flex", justifyContent:"space-between"}}>
               <div>
@@ -148,15 +154,17 @@ function NewSkills() {
       </Tablet>
       <Mobile>
         <div style = {{display:"flex", justifyContent:"center", alignItems:"center", width:"100vw", minHeight:"100vh"}}>
-          <div id = "skillsSection" style = {{display:"flex", flexDirection:"column", position:"relative", width:"95vw"}}>
-            <img id = "flyingAstro" style = {{position:"absolute", marginLeft:"80vw", marginTop:"45vh"}} src = "/astro.svg"></img>
-            <div style = {{display:"flex", flexDirection:"column" ,minHeight:"20vh"}} id="headingSection">
-              <div style = {{minHeight:"20%", fontFamily:"Gotham"}}>
-                <p className = "text-2xl" style={{}}>Skills</p>
-              </div>
-            <div style = {{display:"flex", alignItems:"center", minHeight:"20vh"}}>
-              <p className = "text-4xl" style = {{fontFamily:"Helios Pro"}}>I can help you with</p>
-            </div>
+            <div id = "skillsSection" style = {{display:"flex", flexDirection:"column", position:"relative", width:"95vw"}}>
+              <img id = "flyingAstro" style = {{position:"absolute", marginLeft:"80vw", marginTop:"45vh"}} src = "/astro.svg"></img>
+              <div style = {{display:"flex", justifyContent:"flex-start", alignItems:"center",minHeight:"25vh"}} id="headingSection">
+                <div style = {{display:"flex", flexDirection:"column", width:"100%", height:"20vh"}}>
+                  <div style = {{minHeight:"20%", fontFamily:"Gotham"}}>
+                    <p className = "text-2xl" style={{}}>Skills</p>
+                  </div>
+                  <div style = {{display:"flex", alignItems:"center", minHeight:"20vh"}}>
+                    <p className = "text-4xl" style = {{fontFamily:"Helios Pro"}}>I can help you with</p>
+                  </div>
+                </div>
             </div>
             <div id = "contentSection" style = {{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"space-between"}}>
               <div>

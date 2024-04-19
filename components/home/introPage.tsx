@@ -150,7 +150,7 @@ const HERO_STYLES = {
             </div>
           </div>
           <div style = {{zIndex:"2",minHeight:"20vh", border:"1px solid white", borderRadius:"3%", minWidth:"40vw", backgroundColor:"rgba(0,0,0,0.75)"}}>
-            <div style ={{display:"flex", justifyContent:"center", alignItems:"center",  flexDirection:"column", padding:"2%", fontFamily:"Gotham"}}>
+            <div style ={{display:"flex", justifyContent:"center", alignItems:"center",  flexDirection:"column", padding:"2%", fontFamily:"Gotham", height:"100%"}}>
               <div>Currently purusing M.Des in</div>
               <div><span style = {{fontFamily:"Helios Pro"}}>&apos;Design for Retail Experience&apos;</span> at</div>
               <div>National Institute of Design, Bengaluru</div>
@@ -192,7 +192,7 @@ const HERO_STYLES = {
               </div>
             </div>
           <div style = {{zIndex:"2",minHeight:"10vh", border:"1px solid white", borderRadius:"3%", minWidth:"80vw", backgroundColor:"rgba(0,0,0,0.75)"}}>
-            <div style ={{display:"flex", justifyContent:"center", alignItems:"center",  flexDirection:"column", padding:"2%", fontFamily:"Gotham"}}>
+            <div style ={{display:"flex", justifyContent:"center", alignItems:"center",  flexDirection:"column", padding:"2%", fontFamily:"Gotham", height:"100%"}}>
               <div>Currently purusing M.Des in</div>
               <div><span style = {{fontFamily:"Helios Pro"}}>&apos;Design for Retail Experience&apos;</span> at</div>
               <div>National Institute of Design, Bengaluru</div>
@@ -234,7 +234,7 @@ const HERO_STYLES = {
               </div>
           </div>
           <div style = {{zIndex:"2",minHeight:"10vh", border:"1px solid white", borderRadius:"3%", minWidth:"80vw", backgroundColor:"rgba(0,0,0,0.75)"}}>
-            <div style ={{display:"flex", justifyContent:"center", alignItems:"center",  flexDirection:"column", padding:"2%", fontFamily:"Gotham"}}>
+            <div style ={{display:"flex", justifyContent:"center", alignItems:"center",  flexDirection:"column", padding:"2%", fontFamily:"Gotham", height:"100%"}}>
               <div>Currently purusing M.Des in</div>
               <div><span style = {{fontFamily:"Helios Pro"}}>&apos;Design for Retail Experience&apos;</span> at</div>
               <div>National Institute of Design, Bengaluru</div>
