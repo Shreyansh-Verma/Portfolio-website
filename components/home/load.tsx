@@ -69,7 +69,7 @@ function Loading() {
           <div style={{ position: 'absolute', top: '-5px', width: '10px', height: '10px', borderRadius: '50%', backgroundColor: 'blue' }} className="planet earth"></div>
           <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1px solid #fafbfC', borderRadius: '50%', width: '280px', height: '280px', WebkitAnimation: 'spin 7.4s linear 0s infinite' }} className="venus-orbit orbit">
             <div style={{ position: 'absolute', top: '-5px', width: '10px', height: '10px', borderRadius: '50%', backgroundColor: '#928590' }} className="planet venus"></div>
-            <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1px solid #fafbfC', borderRadius: '50%', width: '200px', height: '200px', WebkitAnimation: 'spin 3s linear 0s infinite' }} className="mercury-orbit orbit">
+            <div style={{ position: 'relative', display: 'flex', justifyContent: 'center', alignItems: 'center', border: '1px solid #fafbfC', borderRadius: '50%', width: '150px', height: '150px', WebkitAnimation: 'spin 3s linear 0s infinite' }} className="mercury-orbit orbit">
               <div style={{ position: 'absolute', top: '-5px', width: '10px', height: '10px', borderRadius: '50%', backgroundColor: 'red' }} className="planet mercury"></div>
               <div style={{ width: '60px', height: '60px', borderRadius: '50%', backgroundColor: '#FDB813' }} className="sun"></div>
             </div>
