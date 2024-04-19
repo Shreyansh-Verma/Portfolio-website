@@ -16,6 +16,9 @@ import MediaQuery, { useMediaQuery } from 'react-responsive'
 
 import { IDesktop } from "pages";
 
+import { motion } from "framer-motion";
+
+import { useRouter } from 'next/router';
 
 import React, { useEffect, useRef } from 'react';
 // import './introPage.css';
@@ -23,8 +26,12 @@ import React, { useEffect, useRef } from 'react';
 const IntroSection = ({ isDesktop }: IDesktop) => {
   const textRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLImageElement>(null);
+  const router = useRouter();
   const tl = useRef();
 
+  const handleClick = () => {
+    router.push('/aboutMe'); // Replace '/abc' with the route you want to navigate to
+  };
 
   const Desktop: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const isDesktop = useMediaQuery({ minWidth: 992 });
@@ -47,10 +54,6 @@ const IntroSection = ({ isDesktop }: IDesktop) => {
   };
   // const navigate = useNavigate();
 
-  const handleClick = () => {
-    // useNavigate("/about");
-    // Navigate("/hero");
-  };
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
@@ -143,11 +146,6 @@ const HERO_STYLES = {
       <div id="div2" style={{display:"flex", justifyContent:"space-between", minHeight: "100vh"}}>
         <div id="imgWrapper" style  = {{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"space-between", position:"relative",minWidth:"50%", minHeight: "100vh"}}>
           <div style = {{display:"flex",height:"10vh", minWidth:"40vw", zIndex:"5", alignItems:"center", justifyContent:"center"}}>
-            <div style = {{display:"flex",alignItems:"center",justifyContent:"flex-end", width:"100%"}}>
-              <button onClick = {() => window.location.href = RESUME_LINK} className="bg-transparent hover:bg-blue-500 text-white-700 font-semibold hover:text-white py-2 px-4 border border-white-900 hover:border-transparent rounded">
-                    Resume
-              </button>
-            </div>
           </div>
           <div style = {{zIndex:"2",minHeight:"20vh", border:"1px solid white", borderRadius:"3%", minWidth:"40vw", backgroundColor:"rgba(0,0,0,0.75)"}}>
             <div style ={{display:"flex", justifyContent:"center", alignItems:"center",  flexDirection:"column", padding:"2%", fontFamily:"Gotham", height:"100%"}}>
@@ -169,13 +167,28 @@ const HERO_STYLES = {
             <div id="contentContent" style = {{display:"flex", minHeight:"60%", justifyContent:"center", fontFamily:"Helios Pro"}}>
               <p className="text-2xl" style={{margin:"15%", fontFamily:"Gotham"}}>A dynamic experience designer with a versatile skill set. I thrive on articulating the &quot;PURPOSE&quot; and the &quot;RIGHT METHOD&quot; behind every design, seeking to create impactful experiences that resonate with users on a deeper level.</p>
             </div>
-            <div style = {{display:"flex", justifyContent:"flex-end",fontFamily:"Gotham"}}>  
-              <div style = {{}}>
-              <button onClick = {handleClick} className="bg-black hover:bg-transparent-100 text-white-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
-                Know More
-              </button>
+            <div style = {{display:"flex", width:"100%", justifyContent:"center", alignItems:"center"}}>
+              <div style = {{display:"flex", justifyContent:"space-between",fontFamily:"Gotham", width:"80%"}}>  
+                <div style = {{}}>
+                <motion.button onClick = {() => window.location.href = RESUME_LINK} className="bg-transparent hover:bg-blue-500 text-white-700 font-semibold hover:text-white py-2 px-4 border border-white-500 hover:border-transparent rounded"
+                  whileHover={{ scale: 1.3 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >
+                  Resume
+                </motion.button>
+                </div>
+                <div style = {{}}>
+                <motion.button onClick = {handleClick} className="bg-transparent hover:bg-blue-500 text-white-700 font-semibold hover:text-white py-2 px-4 border border-white-500 hover:border-transparent rounded"
+                  whileHover={{ scale: 1.3 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >
+                  Know More
+                </motion.button>
+                </div>
+               </div>
               </div>
-            </div>
           </div>
           </div>
         </div>
@@ -185,11 +198,11 @@ const HERO_STYLES = {
     <div id="div2" style={{display:"flex", flexDirection:"column", justifyContent:"space-between", minHeight: "100vh"}}>
         <div id="imgWrapper" style  = {{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"space-between", position:"relative",minWidth:"50%", minHeight: "60vh"}}>
           <div style = {{display:"flex",height:"10vh", minWidth:"80vw", zIndex:"5", alignItems:"center", justifyContent:"center"}}>
-              <div style = {{display:"flex",alignItems:"center",justifyContent:"flex-end", width:"100%"}}>
+              {/* <div style = {{display:"flex",alignItems:"center",justifyContent:"flex-end", width:"100%"}}>
                 <button onClick = {() => window.location.href = RESUME_LINK} className="bg-transparent hover:bg-blue-500 text-white-700 font-semibold hover:text-white py-2 px-4 border border-white-900 hover:border-transparent rounded">
                       Resume
                 </button>
-              </div>
+              </div> */}
             </div>
           <div style = {{zIndex:"2",minHeight:"10vh", border:"1px solid white", borderRadius:"3%", minWidth:"80vw", backgroundColor:"rgba(0,0,0,0.75)"}}>
             <div style ={{display:"flex", justifyContent:"center", alignItems:"center",  flexDirection:"column", padding:"2%", fontFamily:"Gotham", height:"100%"}}>
@@ -212,11 +225,28 @@ const HERO_STYLES = {
                 <p className="text-2xl" style={{fontFamily:"Gotham"}}>A dynamic experience designer with a versatile skill set. I thrive on articulating the &quot;PURPOSE&quot; and the &quot;RIGHT METHOD&quot; behind every design, seeking to create impactful experiences that resonate with users on a deeper level.</p>
               </div>
             </div>
-            <div style = {{display:"flex", justifyContent:"flex-end",fontFamily:"Gotham"}}>  
-              <div style = {{}}>
-              <button onClick = {handleClick} className="bg-black hover:bg-transparent-100 text-white-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
-                Know More
-              </button>
+            <div style = {{display:"flex", width:"100%", justifyContent:"center", alignItems:"center"}}>
+              <div style = {{display:"flex", justifyContent:"space-between",fontFamily:"Gotham", width:"80%"}}>  
+                <div style = {{}}>
+                <motion.button onClick = {() => window.location.href = RESUME_LINK} className="bg-transparent hover:bg-blue-500 text-white-700 font-semibold hover:text-white py-2 px-4 border border-white-500 hover:border-transparent rounded"
+                  whileHover={{ scale: 1.3 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >
+                  Resume
+                </motion.button>
+                </div>
+
+                <div style = {{}}>
+                <motion.button onClick = {handleClick} className="bg-transparent hover:bg-blue-500 text-white-700 font-semibold hover:text-white py-2 px-4 border border-white-500 hover:border-transparent rounded"
+                  whileHover={{ scale: 1.3 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >
+                  Know More
+                </motion.button>
+                </div>
+
               </div>
             </div>
           </div>
@@ -227,11 +257,11 @@ const HERO_STYLES = {
     <div id="div2" style={{display:"flex", flexDirection:"column", justifyContent:"space-between", minHeight: "100vh"}}>
         <div id="imgWrapper" style  = {{display:"flex", flexDirection:"column", alignItems:"center", justifyContent:"space-between", position:"relative",minWidth:"50%", minHeight: "60vh"}}>
             <div style = {{display:"flex",height:"10vh", minWidth:"80vw", zIndex:"5", alignItems:"center", justifyContent:"center"}}>
-              <div style = {{display:"flex",alignItems:"center",justifyContent:"flex-end", width:"100%"}}>
+              {/* <div style = {{display:"flex",alignItems:"center",justifyContent:"flex-end", width:"100%"}}>
                 <button onClick = {() => window.location.href = RESUME_LINK} className="bg-transparent hover:bg-blue-500 text-white-700 font-semibold hover:text-white py-2 px-4 border border-white-900 hover:border-transparent rounded">
                       Resume
                 </button>
-              </div>
+              </div> */}
           </div>
           <div style = {{zIndex:"2",minHeight:"10vh", border:"1px solid white", borderRadius:"3%", minWidth:"80vw", backgroundColor:"rgba(0,0,0,0.75)"}}>
             <div style ={{display:"flex", justifyContent:"center", alignItems:"center",  flexDirection:"column", padding:"2%", fontFamily:"Gotham", height:"100%"}}>
@@ -254,11 +284,28 @@ const HERO_STYLES = {
                 <p className="text-1xl" style={{fontFamily:"Gotham"}}>A dynamic experience designer with a versatile skill set. I thrive on articulating the &quot;PURPOSE&quot; and the &quot;RIGHT METHOD&quot; behind every design, seeking to create impactful experiences that resonate with users on a deeper level.</p>
               </div>
             </div>
-            <div style = {{display:"flex", justifyContent:"flex-end",fontFamily:"Gotham"}}>  
-              <div style = {{}}>
-              <button onClick = {handleClick} className="bg-black hover:bg-transparent-100 text-white-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
-                Know More
-              </button>
+            <div style = {{display:"flex", width:"100%", justifyContent:"center", alignItems:"center"}}>
+              <div style = {{display:"flex", justifyContent:"space-between",fontFamily:"Gotham", width:"80%"}}>  
+                <div style = {{}}>
+                <motion.button onClick = {() => window.location.href = RESUME_LINK} className="bg-transparent hover:bg-blue-500 text-white-700 font-semibold hover:text-white py-2 px-4 border border-white-500 hover:border-transparent rounded"
+                  whileHover={{ scale: 1.3 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >
+                  Resume
+                </motion.button>
+                </div>
+                
+                <div style = {{}}>
+                <motion.button onClick = {handleClick} className="bg-transparent hover:bg-blue-500 text-white-700 font-semibold hover:text-white py-2 px-4 border border-white-500 hover:border-transparent rounded"
+                  whileHover={{ scale: 1.3 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                >
+                  Know More
+                </motion.button>
+                </div>
+
               </div>
             </div>
           </div>
