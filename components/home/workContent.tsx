@@ -4,7 +4,7 @@ import {motion} from "framer-motion"
 import { FaArrowRight } from "react-icons/fa6";
 import { useMediaQuery } from 'react-responsive'
 
-const Card = ({cardWidth, cardHeight} : {cardWidth:string, cardHeight:string}) =>{
+const Card = ({cardWidth, cardHeight, firstImg, secondImg} : {cardWidth:string, cardHeight:string, firstImg:string, secondImg:string}) =>{
     const [hovered, setHovered] = useState(false);
 
 
@@ -17,7 +17,7 @@ const Card = ({cardWidth, cardHeight} : {cardWidth:string, cardHeight:string}) =
       };
 
     return(
-        <div style = {{position:"relative",borderRadius:"1%",width:cardWidth, height:cardHeight,transform: hovered ? "scale(1.05)" : "scale(1)",
+        <div style = {{overflow:"hidden",position:"relative",borderRadius:"3%",width:cardWidth, height:cardHeight,transform: hovered ? "scale(1.05)" : "scale(1)",
         transition: "transform 0.3s ease",boxShadow: hovered ? "0 0 20px 5px rgba(255, 255, 255, 0.7)" : "none", cursor: "pointer" // Add white shadow when hovered
     }}   onMouseEnter={handleHover}
         onMouseLeave={handleMouseOut}>
@@ -30,7 +30,7 @@ const Card = ({cardWidth, cardHeight} : {cardWidth:string, cardHeight:string}) =
             >
                 <FaArrowRight color='black' style={{ height: "3vw", width: "3vw", backgroundColor: "white", borderRadius: "50%" }} />
             </motion.div>
-            <div style = {{height:"85%", backgroundImage:`url(${hovered ? '/aboutSection/animalRescue/2.png' : '/aboutSection/animalRescue/1.png'})`, backgroundPosition:"center", backgroundRepeat:"no-repeat", backgroundSize:"cover"}}
+            <div style = {{height:"85%", backgroundImage:`url(${hovered ? firstImg : secondImg})`, backgroundPosition:"center", backgroundRepeat:"no-repeat", backgroundSize:"cover"}}
                 >
 
             </div>
@@ -86,14 +86,14 @@ const WorkContent = () => {
       return isDesktop ? <>{children}</> : null;
     };
   
-    const Tablet: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-      const isTablet = screenWidth >= 768 && screenWidth < 992;
-      console.log("isTablet = ",isTablet);
-      return isTablet ? <>{children}</> : null;
-    };
+    // const Tablet: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+    //   const isTablet = screenWidth >= 768 && screenWidth < 992;
+    //   console.log("isTablet = ",isTablet);
+    //   return isTablet ? <>{children}</> : null;
+    // };
   
     const Mobile: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-      const isMobile = screenWidth < 768;
+      const isMobile = screenWidth < 992;
       console.log("isMobile = ",isMobile)
       return isMobile ? <>{children}</> : null;
     };
@@ -104,93 +104,90 @@ const WorkContent = () => {
     };
 
 
+    const secondImage  = [
+        '/aboutSection/animalRescue/2.png',
+        '/aboutSection/animalRescue/2.png',
+        '/aboutSection/animalRescue/2.png',
+        '/projects/chirpy/cards/image1.png',
+        '/aboutSection/animalRescue/2.png',
+        '/aboutSection/animalRescue/2.png',
+        '/aboutSection/animalRescue/2.png',
+        '/aboutSection/animalRescue/2.png',
+        '/aboutSection/animalRescue/2.png',
+        '/aboutSection/animalRescue/2.png',
+        '/aboutSection/animalRescue/2.png',
+        '/aboutSection/animalRescue/2.png'
+    ];
+
+    const firstImage = [
+        '/aboutSection/animalRescue/1.png',
+        '/aboutSection/animalRescue/1.png',
+        '/aboutSection/animalRescue/1.png',
+        '/projects/chirpy/cards/image2.png',
+        '/aboutSection/animalRescue/1.png',
+        '/aboutSection/animalRescue/1.png',
+        '/aboutSection/animalRescue/1.png',
+        '/aboutSection/animalRescue/1.png',
+        '/aboutSection/animalRescue/1.png',
+        '/aboutSection/animalRescue/1.png',
+        '/aboutSection/animalRescue/1.png',
+        '/aboutSection/animalRescue/1.png'
+    ];
+
+
 
   return (
     <>
      <Desktop>        
-        <div style = {{display:"flex", justifyContent:"center", alignItems:"flex-start", width:"100vw", height:"320vh"}}>
-            <div style = {{width:"85vw", height:"300vh"}}>
-                <div style = {{height:"300vh", display:"flex", flexDirection:"column", justifyContent:"space-between"}}>
-                    <div style = {{display:"flex", justifyContent:"space-between"}}>
-                            <Card cardHeight='40vh' cardWidth='40vw'/>
-                            <Card cardHeight='40vh' cardWidth='40vw'/>
+        <div style = {{minHeight:"2700px",display:"flex", justifyContent:"center", alignItems:"center", width:"100vw", backgroundColor:"black"}}>
+            <div style = {{height:"2600px",width:"85vw", display:"flex", flexDirection:"column", alignItems:"space-between", justifyContent:"space-between"}}>
+                    <div style = {{display:"flex", justifyContent:"space-around"}}>
+                            <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[0]} secondImg={secondImage[0]}/>
+                            <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[1]} secondImg={secondImage[1]}/>
                     </div>
-                    <div style = {{display:"flex", justifyContent:"space-between"}}>
-                            <Card cardHeight='40vh' cardWidth='40vw'/>
-                            <Card cardHeight='40vh' cardWidth='40vw'/>
+
+                    <div style = {{display:"flex", justifyContent:"space-around"}}>
+                            <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[2]} secondImg={secondImage[2]}/>
+                            <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[3]} secondImg={secondImage[3]}/>
                     </div>
-                    <div style = {{display:"flex", justifyContent:"space-between"}}>
-                            <Card cardHeight='40vh' cardWidth='40vw'/>
-                            <Card cardHeight='40vh' cardWidth='40vw'/>
+
+                    <div style = {{display:"flex", justifyContent:"space-around"}}>
+                            <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[4]} secondImg={secondImage[4]}/>
+                            <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[5]} secondImg={secondImage[5]}/>
                     </div>
-                    <div style = {{display:"flex", justifyContent:"space-between"}}>
-                            <Card cardHeight='40vh' cardWidth='40vw'/>
-                            <Card cardHeight='40vh' cardWidth='40vw'/>
+
+                    <div style = {{display:"flex", justifyContent:"space-around"}}>
+                            <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[6]} secondImg={secondImage[6]}/>
+                            <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[7]} secondImg={secondImage[7]}/>
                     </div>
-                    <div style = {{display:"flex", justifyContent:"space-between"}}>
-                            <Card cardHeight='40vh' cardWidth='40vw'/>
-                            <Card cardHeight='40vh' cardWidth='40vw'/>
+
+                    <div style = {{display:"flex", justifyContent:"space-around"}}>
+                            <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[8]} secondImg={secondImage[8]}/>
+                            <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[9]} secondImg={secondImage[9]}/>
                     </div>
-                    <div style = {{display:"flex", justifyContent:"space-between"}}>
-                            <Card cardHeight='40vh' cardWidth='40vw'/>
-                            <Card cardHeight='40vh' cardWidth='40vw'/>
+
+                    <div style = {{display:"flex", justifyContent:"space-around"}}>
+                            <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[10]} secondImg={secondImage[10]}/>
+                            <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[11]} secondImg={secondImage[11]}/>
                     </div>
-                    <div style = {{display:"flex", justifyContent:"space-between"}}>
-                            <Card cardHeight='40vh' cardWidth='40vw'/>
-                            <Card cardHeight='40vh' cardWidth='40vw'/>
-                    </div>
-                </div>
             </div>
         </div>
     </Desktop>
-    <Tablet>
-    <div style = {{display:"flex", justifyContent:"center", alignItems:"flex-start", width:"100vw", height:"320vh"}}>
-            <div style = {{width:"85vw", height:"300vh"}}>
-                <div style = {{height:"300vh", display:"flex", flexDirection:"column", justifyContent:"space-between"}}>
-                    <div style = {{display:"flex", justifyContent:"space-between"}}>
-                            <Card cardHeight='40vh' cardWidth='40vw'/>
-                            <Card cardHeight='40vh' cardWidth='40vw'/>
-                    </div>
-                    <div style = {{display:"flex", justifyContent:"space-between"}}>
-                            <Card cardHeight='40vh' cardWidth='40vw'/>
-                            <Card cardHeight='40vh' cardWidth='40vw'/>
-                    </div>
-                    <div style = {{display:"flex", justifyContent:"space-between"}}>
-                            <Card cardHeight='40vh' cardWidth='40vw'/>
-                            <Card cardHeight='40vh' cardWidth='40vw'/>
-                    </div>
-                    <div style = {{display:"flex", justifyContent:"space-between"}}>
-                            <Card cardHeight='40vh' cardWidth='40vw'/>
-                            <Card cardHeight='40vh' cardWidth='40vw'/>
-                    </div>
-                    <div style = {{display:"flex", justifyContent:"space-between"}}>
-                            <Card cardHeight='40vh' cardWidth='40vw'/>
-                            <Card cardHeight='40vh' cardWidth='40vw'/>
-                    </div>
-                    <div style = {{display:"flex", justifyContent:"space-between"}}>
-                            <Card cardHeight='40vh' cardWidth='40vw'/>
-                            <Card cardHeight='40vh' cardWidth='40vw'/>
-                    </div>
-                    <div style = {{display:"flex", justifyContent:"space-between"}}>
-                            <Card cardHeight='40vh' cardWidth='40vw'/>
-                            <Card cardHeight='40vh' cardWidth='40vw'/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </Tablet>
     <Mobile>
-         <div style = {{display:"flex", justifyContent:"center", alignItems:"flex-start", width:"100vw", height:"240vh"}}>
-            <div style = {{width:"95vw", height:"240vh"}}>
-                <div style = {{height:"230vh",display:"flex", flexDirection:"column", justifyContent:"space-between", alignItems:"center"}}>
-                    <Card cardHeight='30vh' cardWidth='70vw'/>
-                    <Card cardHeight='30vh' cardWidth='70vw'/>
-                    <Card cardHeight='30vh' cardWidth='70vw'/>
-                    <Card cardHeight='30vh' cardWidth='70vw'/>
-                    <Card cardHeight='30vh' cardWidth='70vw'/>
-                    <Card cardHeight='30vh' cardWidth='70vw'/>
-                    <Card cardHeight='30vh' cardWidth='70vw'/>
-                </div> 
+         <div style = {{minHeight:"5400px",display:"flex", justifyContent:"center", alignItems:"center", width:"100vw"}}>
+            <div style = {{height:"5300px",display:"flex", flexDirection:"column",width:"95vw", alignItems:"center", justifyContent:"space-between"}}>
+                <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[0]} secondImg={secondImage[0]}/>
+                <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[1]} secondImg={secondImage[1]}/>
+                <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[2]} secondImg={secondImage[2]}/>
+                <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[3]} secondImg={secondImage[3]}/>
+                <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[4]} secondImg={secondImage[4]}/>
+                <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[5]} secondImg={secondImage[5]}/>
+                <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[6]} secondImg={secondImage[6]}/>
+                <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[7]} secondImg={secondImage[7]}/>
+                <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[8]} secondImg={secondImage[8]}/>
+                <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[9]} secondImg={secondImage[9]}/>
+                <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[10]} secondImg={secondImage[10]}/>
+                <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[11]} secondImg={secondImage[11]}/>
             </div>
         </div>
     </Mobile>   

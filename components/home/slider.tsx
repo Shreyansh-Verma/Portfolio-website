@@ -37,7 +37,7 @@ function Slider({height, width}:{height:string, width:string}) {
   ]
 
   const projectLinks = [
-    "/aboutMe",
+    "/aboutMe~",
     "/link",
     "/link",
     "/link",

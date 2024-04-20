@@ -62,7 +62,7 @@ const AboutMe  = ()=>{
 
     return(
         <>         
-        {isLoading?<Loading/>:(<div style = {{backgroundColor:"black"}}>
+        {isLoading?<Loading/>:(<div style = {{backgroundColor:"black",  minHeight:"200vh"}}>
             <Header/>
             <Cursor isDesktop = {isDesktop}/>
             <div id = "home">

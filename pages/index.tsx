@@ -30,6 +30,7 @@ import TimelineSection from "@/components/home/timeline";
 import Scripts from "@/components/common/scripts";
 import AboutSection from "@/components/home/about";
 import Loading from "@/components/home/load";
+import NewContact from "@/components/home/newContact";
 
 const DEBOUNCE_TIME = 100;
 
@@ -45,7 +46,7 @@ export default function Home() {
   gsap.registerPlugin(ScrollTrigger);
   gsap.config({ nullTargetWarn: false });
 
-  const underConstruction = true;
+  const underConstruction = false;
 
   const [isDesktop, setisDesktop] = useState(true);
 
@@ -148,14 +149,15 @@ export default function Home() {
             <CardsSpiral />
           </div>
           {/* <AboutSection /> */}
-          <div id = "skills">
+          {/* <div id = "skills">
             <NewSkills/>
-          </div>  
+          </div>   */}
           {/* <NewCollaboration/> */}
           {/* <QuoteSection />
           <SkillsSection /> */}
           {/* <TimelineSection isDesktop={isDesktop} /> */}
           {/* <CollaborationSection /> */}
+          <NewContact/>
           <Footer />
         </main>}
         {/* <Scripts /> */}

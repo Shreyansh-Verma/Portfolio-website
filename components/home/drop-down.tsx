@@ -275,13 +275,13 @@ const CardsSpiral = () => {
           <div style={{display:"flex"}}>
             <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh", width: "30vw"}} id="leftSection">
               <div ref = {(el)=> leftCardsRefs.current[0] = el} style = {{alignSelf:"flex-start"}}>
-                <Card cardImage  = "/rajasthan.png" cardContent="imge"/>
+                <Card cardImage  = "/p1.png" cardContent="imge"/>
               </div>
               <div ref = {(el)=> leftCardsRefs.current[1] = el} style  = {{alignSelf:"flex-end"}}>
-                <Card cardImage  = "/speech.png" cardContent="imge"/>
+                <Card cardImage  = "/p3.png" cardContent="imge"/>
               </div>
               <div ref = {(el)=> leftCardsRefs.current[2] = el} style = {{alignSelf : "flex-start"}}>
-                <Card cardImage  = "/dogs.png" cardContent="imge"/>
+                <Card cardImage  = "/p5.png" cardContent="imge"/>
               </div>
             </div>
 
@@ -333,13 +333,13 @@ const CardsSpiral = () => {
 
             <div style={{  display: "flex", flexDirection: "column", minHeight: "100vh", width: "30vw"}} id="rightSection">
             <div ref = {(el)=> rightCardsRefs.current[0] = el} style = {{alignSelf:"flex-end"}}>
-                <Card cardImage  = "/fitness.png" cardContent="imge"/>
+                <Card cardImage  = "/p2.png" cardContent="imge"/>
               </div>
               <div ref = {(el)=> rightCardsRefs.current[1] = el} style = {{alignSelf:"flex-start"}}>
-                <Card cardImage  = "/streetPhoto.png" cardContent="imge"/>
+                <Card cardImage  = "/p4.png" cardContent="imge"/>
               </div>
               <div ref = {(el)=> rightCardsRefs.current[2] = el} style = {{alignSelf : "flex-end"}}>
-                <Card cardImage  = "/fitness.png" cardContent="imge"/>
+                <Card cardImage  = "/p6.png" cardContent="imge"/>
               </div>
             </div>
           </div>
@@ -399,13 +399,13 @@ const CardsSpiral = () => {
             <div style={{display:"flex"}}>
               <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh", width: "30vw" }} id="leftSection">
                 <div ref = {(el)=> leftCardsRefs.current[0] = el} style = {{}}>
-                  <Card cardImage  = "/rajasthan.png" cardContent="imge"/>
+                  <Card cardImage  = "/p1.png" cardContent="imge"/>
                 </div>
                 <div ref = {(el)=> leftCardsRefs.current[1] = el} style  = {{}}>
-                  <Card cardImage  = "/speech.png" cardContent="imge"/>
+                  <Card cardImage  = "/p3.png" cardContent="imge"/>
                 </div>
                 <div ref = {(el)=> leftCardsRefs.current[2] = el} style = {{}}>
-                  <Card cardImage  = "/dogs.png" cardContent="imge"/>
+                  <Card cardImage  = "/p5.png" cardContent="imge"/>
                 </div>
               </div>
 
@@ -457,13 +457,13 @@ const CardsSpiral = () => {
 
               <div style={{  display: "flex", flexDirection: "column", minHeight: "100vh", width: "30vw"}} id="rightSection">
               <div ref = {(el)=> rightCardsRefs.current[0] = el} style = {{}}>
-                  <Card cardImage  = "/fitness.png" cardContent="imge"/>
+                  <Card cardImage  = "/p2.png" cardContent="imge"/>
                 </div>
                 <div ref = {(el)=> rightCardsRefs.current[1] = el} style = {{}}>
-                  <Card cardImage  = "/streetPhoto.png" cardContent="imge"/>
+                  <Card cardImage  = "/p4.png" cardContent="imge"/>
                 </div>
                 <div ref = {(el)=> rightCardsRefs.current[2] = el} style = {{}}>
-                  <Card cardImage  = "/fitness.png" cardContent="imge"/>
+                  <Card cardImage  = "/p6.png" cardContent="imge"/>
                 </div>
               </div>
             </div>
@@ -527,25 +527,25 @@ const CardsSpiral = () => {
               Playground
             </div>
           </div>
-          <div style={{display:"flex",justifyContent:"center", width:"100%"}}>
-            <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh", alignItems:"center", width:"100%" }} id="leftSection">
+          <div style={{display:"flex",justifyContent:"center", width:"100%", minHeight:"210"}}>
+            <div style={{ display: "flex", flexDirection: "column", minHeight: "210vh", justifyContent:"space-between", alignItems:"center", width:"100%" }} id="leftSection">
               <div ref = {(el)=> leftCardsRefs.current[0] = el} style = {{}}>
-                <CardMobil cardImage  = "/rajasthan.png" cardContent="imge"/>
+                <CardMobil cardImage  = "/p1.png" cardContent="imge"/>
               </div>
               <div ref = {(el)=> leftCardsRefs.current[1] = el} style  = {{}}>
-                <CardMobil cardImage  = "/speech.png" cardContent="imge"/>
+                <CardMobil cardImage  = "/p2.png" cardContent="imge"/>
               </div>
               <div ref = {(el)=> leftCardsRefs.current[2] = el} style = {{}}>
-                <CardMobil cardImage  = "/dogs.png" cardContent="imge"/>
+                <CardMobil cardImage  = "/p3.png" cardContent="imge"/>
               </div>
               <div ref = {(el)=> rightCardsRefs.current[0] = el} style = {{}}>
-                  <CardMobil cardImage  = "/fitness.png" cardContent="imge"/>
+                  <CardMobil cardImage  = "/p4.png" cardContent="imge"/>
                 </div>
                 <div ref = {(el)=> rightCardsRefs.current[1] = el} style = {{}}>
-                  <CardMobil cardImage  = "/streetPhoto.png" cardContent="imge"/>
+                  <CardMobil cardImage  = "/p5.png" cardContent="imge"/>
                 </div>
                 <div ref = {(el)=> rightCardsRefs.current[2] = el} style = {{}}>
-                  <CardMobil cardImage  = "/fitness.png" cardContent="imge"/>
+                  <CardMobil cardImage  = "/p6.png" cardContent="imge"/>
                 </div>
  
               </div>

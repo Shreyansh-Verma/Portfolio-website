@@ -7,6 +7,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import Menu from "@/components/common/menu";
+import {motion} from "framer-motion";
 
 
 
