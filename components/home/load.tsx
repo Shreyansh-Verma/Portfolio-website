@@ -29,7 +29,6 @@ function Loading() {
 
   const Mobile: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const isMobile = screenWidth < 768;
-    console.log("isMobile = ",isMobile)
     return isMobile ? <>{children}</> : null;
   };
 

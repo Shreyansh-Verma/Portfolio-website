@@ -74,11 +74,8 @@ export default function Home() {
         navigator.userAgent.indexOf("IEMobile") === -1;
 
       window.history.scrollRestoration = "manual";
-      console.log("here is desktiop is changed = ",isDesktopResult)
       setisDesktop(isDesktopResult);
-      // console.log("width = ", width);
-      console.log("desktop -= ",isDesktop);
-      // setisDesktop(!isDesktop);
+
     }, DEBOUNCE_TIME);
   };
 
@@ -99,7 +96,7 @@ export default function Home() {
     // Simulate loading for 2 seconds
     setTimeout(() => {
       setIsLoading(false);
-    }, 6000);
+    }, 3000);
   }, []); 
 
   useEffect(() => {
@@ -128,11 +125,11 @@ export default function Home() {
         <title>{METADATA.title}</title>
       </Head>
       <Layout>
-        <Header />
         <ProgressIndicator />
         <Cursor isDesktop={isDesktop} />
         {isLoading?(<><Loading/></>):
         <main className="flex-col flex">
+          <Header />      
           {renderBackdrop()}
           <div id = "home">
             <HeroSection isDesktop = {isDesktop} />
@@ -157,7 +154,9 @@ export default function Home() {
           <SkillsSection /> */}
           {/* <TimelineSection isDesktop={isDesktop} /> */}
           {/* <CollaborationSection /> */}
-          <NewContact/>
+          <div id = "contact">
+            <NewContact/>
+          </div>
           {/* <Footer /> */}
         </main>}
         {/* <Scripts /> */}

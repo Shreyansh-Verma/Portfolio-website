@@ -29,10 +29,6 @@ export const MENULINKS = [
     ref: "playground",
   },
   {
-    name: "Skills",
-    ref: "skills",
-  },
-  {
     name: "Contact",
     ref: "contact",
   },
