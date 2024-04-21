@@ -87,7 +87,7 @@ const SectionHeading = ({sectionContent, sectionHeight}:{sectionContent:string, 
                     <img style = {{position:"absolute", right:"0%"}} src = "/aboutSection/logo2.png"></img>
 
                     <div
-                    id = "astro" style = {{position:"absolute", right:"0%", top:"25%", zIndex:"-1"}}>
+                    id = "astro" style = {{position:"absolute", right:"0%", top:"0%", zIndex:"1"}}>
                         <img src = "/aboutSection/astro.svg"></img>
                     </div>
                     <motion.div id = "motionDiv"
@@ -109,7 +109,7 @@ const SectionHeading = ({sectionContent, sectionHeight}:{sectionContent:string, 
                     <img style = {{position:"absolute", right:"0%"}} src = "/aboutSection/logo2.png"></img>
 
                     <div
-                    id = "astro" style = {{position:"absolute", right:"0%", top:"25%", zIndex:"-1"}}>
+                    id = "astro" style = {{position:"absolute", right:"0%", top:"0", zIndex:"1"}}>
                         <img src = "/aboutSection/astro.svg"></img>
                     </div>
                     <motion.div id = "motionDiv"

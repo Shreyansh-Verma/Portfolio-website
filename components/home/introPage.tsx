@@ -73,46 +73,220 @@ const IntroSection = ({ isDesktop }: IDesktop) => {
   };
 
   useEffect(() => {
-    if (isDesktop)
-    {
-    		gsap.from('#imgWrapper', {
-			scrollTrigger: {
-				trigger: '#div2',
-				start: 'top 60%',
-        end: 'top 20%',
-        // markers:true,
-				scrub: 1.9
-			},
-			yPercent: 60,
-      xPercent: -20,
-      scale: 1.5
-		})
 
-    gsap.from('#headingContent', {
-			scrollTrigger: {
-				trigger: '#div2',
-				start: 'top 60%',
-        end: 'top 20%',
-        // markers:true,
-				scrub: 1.9
-			},
-			xPercent: 60,
-      scale: 0.5
-      // scale: 1.5
-		})
+    let mn = gsap.matchMedia();
 
-    gsap.from('#contentContent', {
-			scrollTrigger: {
-				trigger: '#div2',
-				start: 'top 60%',
-        end: 'top 20%',
-        // markers:true,
-				scrub: 1.9
-			},
-			yPercent: 60,
-      // scale: 1.5
-		})
-  }
+    mn.add("(min-width: 992px)", () => {
+      gsap.to('#realImage  ', {
+        scrollTrigger: {
+          trigger: '#div1',
+          start: 'top top',
+          scrub: 1.9,
+          invalidateOnRefresh: true,
+        },
+        x: "-40vw",
+        y: "-120vh",
+  
+      })
+
+      gsap.from('#imgWrapper', {
+        scrollTrigger: {
+          trigger: '#div2',
+          start: 'top 60%',
+          end: 'top 20%',
+          // markers:true,
+          scrub: 1.9
+        },
+        yPercent: 60,
+        xPercent: -20,
+        scale: 1.5
+      })
+
+      gsap.from('#contentContent', {
+        scrollTrigger: {
+          trigger: '#div2',
+          start: 'top 60%',
+          end: 'top 20%',
+          // markers:true,
+          scrub: 1.9
+        },
+        yPercent: 60,
+        // scale: 1.5
+      })
+
+      gsap.from('#headingContent', {
+        scrollTrigger: {
+          trigger: '#div2',
+          start: 'top 60%',
+          end: 'top 20%',
+          // markers:true,
+          scrub: 1.9
+        },
+        xPercent: 60,
+        scale: 0.5
+        // scale: 1.5
+      })
+    })
+
+    mn.add("((min-width: 768px) and (max-width: 991px))", () => {
+      gsap.to('#realImage  ', {
+        scrollTrigger: {
+          trigger: '#div1',
+          start: 'top top',
+          scrub: 1.9,
+          invalidateOnRefresh: true,
+        },
+        x: "-40vw",
+        y: "-120vh",
+  
+      })
+
+      gsap.from('#imgWrapper', {
+        scrollTrigger: {
+          trigger: '#div2',
+          start: 'top 60%',
+          end: 'top 20%',
+          // markers:true,
+          scrub: 1.9
+        },
+        yPercent: 60,
+        xPercent: -20,
+        scale: 1.5
+      })
+
+      gsap.from('#contentContent', {
+        scrollTrigger: {
+          trigger: '#div2',
+          start: 'top 60%',
+          end: 'top 20%',
+          // markers:true,
+          scrub: 1.9
+        },
+        yPercent: 60,
+        // scale: 1.5
+      })
+
+      gsap.from('#headingContent', {
+        scrollTrigger: {
+          trigger: '#div2',
+          start: 'top 60%',
+          end: 'top 20%',
+          // markers:true,
+          scrub: 1.9
+        },
+        xPercent: 60,
+        scale: 0.5
+        // scale: 1.5
+      })
+    })
+
+    mn.add("((max-width: 767px))", () => {
+      gsap.to('#realImage  ', {
+        scrollTrigger: {
+          trigger: '#div1',
+          start: 'top top',
+          scrub: 1.9,
+          invalidateOnRefresh: true,
+        },
+        x: "-40vw",
+        y: "-120vh",
+  
+      })
+
+      gsap.from('#imgWrapper', {
+        scrollTrigger: {
+          trigger: '#div2',
+          start: 'top 60%',
+          end: 'top 20%',
+          // markers:true,
+          scrub: 1.9
+        },
+        yPercent: 60,
+        xPercent: -20,
+        scale: 1.5
+      })
+
+      gsap.from('#contentContent', {
+        scrollTrigger: {
+          trigger: '#div2',
+          start: 'top 60%',
+          end: 'top 20%',
+          // markers:true,
+          scrub: 1.9
+        },
+        yPercent: 60,
+        // scale: 1.5
+      })
+
+      gsap.from('#headingContent', {
+        scrollTrigger: {
+          trigger: '#div2',
+          start: 'top 60%',
+          end: 'top 20%',
+          // markers:true,
+          scrub: 1.9
+        },
+        xPercent: 60,
+        scale: 0.5
+        // scale: 1.5
+      })
+
+    })
+
+
+    // gsap.to('#realImage  ', {
+		// 	scrollTrigger: {
+		// 		trigger: '#div1',
+		// 		start: 'top top',
+		// 		scrub: 1.9,
+    //     invalidateOnRefresh: true,
+		// 	},
+		// 	x: "-40vw",
+    //   y: "-120vh",
+
+		// })
+
+
+  //   if (isDesktop)
+  //   {
+  //   		gsap.from('#imgWrapper', {
+	// 		scrollTrigger: {
+	// 			trigger: '#div2',
+	// 			start: 'top 60%',
+  //       end: 'top 20%',
+  //       // markers:true,
+	// 			scrub: 1.9
+	// 		},
+	// 		yPercent: 60,
+  //     xPercent: -20,
+  //     scale: 1.5
+	// 	})
+
+    // gsap.from('#headingContent', {
+		// 	scrollTrigger: {
+		// 		trigger: '#div2',
+		// 		start: 'top 60%',
+    //     end: 'top 20%',
+    //     // markers:true,
+		// 		scrub: 1.9
+		// 	},
+		// 	xPercent: 60,
+    //   scale: 0.5
+    //   // scale: 1.5
+		// })
+
+  //   gsap.from('#contentContent', {
+	// 		scrollTrigger: {
+	// 			trigger: '#div2',
+	// 			start: 'top 60%',
+  //       end: 'top 20%',
+  //       // markers:true,
+	// 			scrub: 1.9
+	// 		},
+	// 		yPercent: 60,
+  //     // scale: 1.5
+	// 	})
+  // }
 		// gsap.from('#realImage2', {
 		// 	scrollTrigger: {
 		// 		trigger: '#div2',

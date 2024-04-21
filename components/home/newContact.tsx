@@ -48,16 +48,50 @@ const NewContact = () => {
 
 
     React.useEffect(() => {
+
+
+    let mn = gsap.matchMedia();
+
+    mn.add("(min-width: 992px)", () => {
         gsap.to('#flyingAstro', {
-                scrollTrigger: {
-                    trigger: '#newDiv',
-                    start: 'top-=60%top top',
-                    scrub: 1.9
-                },
-                x: "-80vw",
-          y: "-25vh",
-          rotate:"190",
-            })
+            scrollTrigger: {
+                trigger: '#newDiv',
+                start: 'top top',
+                scrub: 1.9
+            },
+            x: "-80vw",
+      y: "-25vh",
+      rotate:"190",
+        })
+    })
+
+    mn.add("((min-width: 768px) and (max-width: 991px))", () => {
+
+        gsap.to('#flyingAstro', {
+            scrollTrigger: {
+                trigger: '#newDiv',
+                start: 'top top',
+                scrub: 1.9
+            },
+            x: "-80vw",
+      y: "-25vh",
+      rotate:"190",
+        })
+ 
+    })
+
+
+
+        // gsap.to('#flyingAstro', {
+        //         scrollTrigger: {
+        //             trigger: '#newDiv',
+        //             start: 'top-=60%top top',
+        //             scrub: 1.9
+        //         },
+        //         x: "-80vw",
+        //   y: "-25vh",
+        //   rotate:"190",
+        //     })
       },[])
 
     return(
@@ -76,7 +110,7 @@ const NewContact = () => {
         </Tablet>
         <Mobile>
             <div  id = "newDiv" style = {{position:"relative"}}>
-                <img id = "flyingAstro" style = {{position:"absolute", marginLeft:"10vw", marginTop:"0.01vh", scale:"0.3"}} src = "/astro.svg"></img>
+                <img id = "flyingAstro" style = {{position:"absolute", marginLeft:"10vw", marginTop:"-10vh", scale:"0.4"}} src = "/astro.svg"></img>
                 <img style = {{height:"100%",width:"100%"}} src = {bgImage}></img>
             </div>
         </Mobile>
