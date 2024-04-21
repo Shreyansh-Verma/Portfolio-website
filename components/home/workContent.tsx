@@ -3,9 +3,15 @@ import { useState } from 'react';
 import {motion} from "framer-motion"
 import { FaArrowRight } from "react-icons/fa6";
 import { useMediaQuery } from 'react-responsive'
+import { useRouter } from 'next/router';
 
-const Card = ({cardWidth, cardHeight, firstImg, secondImg} : {cardWidth:string, cardHeight:string, firstImg:string, secondImg:string}) =>{
+const Card = ({cardWidth, cardHeight, firstImg, secondImg, projLoc, firstText, secondText, scale} : {cardWidth:string, cardHeight:string, firstImg:string, secondImg:string, projLoc:string, firstText:string, secondText:string, scale:string}) =>{
     const [hovered, setHovered] = useState(false);
+    const router = useRouter();
+
+    const handleClick = ({path}:{path:string}) => {
+        router.push(path); // Replace '/abc' with the route you want to navigate to
+    };
 
 
     const handleHover = () => {
@@ -17,7 +23,11 @@ const Card = ({cardWidth, cardHeight, firstImg, secondImg} : {cardWidth:string, 
       };
 
     return(
-        <div style = {{overflow:"hidden",position:"relative",borderRadius:"3%",width:cardWidth, height:cardHeight,transform: hovered ? "scale(1.05)" : "scale(1)",
+        <motion.div
+        whileTap={{ scale: 0.7 }}
+        transition={{ type: "spring", stiffness: 400, damping: 17 }}
+         onClick={()=>handleClick({path:projLoc})} 
+         style = {{scale:scale,overflow:"hidden",position:"relative",borderRadius:"3%",width:cardWidth, height:cardHeight,transform: hovered ? "scale(1.05)" : "scale(1)",
         transition: "transform 0.3s ease",boxShadow: hovered ? "0 0 20px 5px rgba(255, 255, 255, 0.7)" : "none", cursor: "pointer" // Add white shadow when hovered
     }}   onMouseEnter={handleHover}
         onMouseLeave={handleMouseOut}>
@@ -43,17 +53,17 @@ const Card = ({cardWidth, cardHeight, firstImg, secondImg} : {cardWidth:string, 
                 >
                     <div style  = {{display:"flex",alignItems:"center",flex:"1"}}>
                         <div>
-                            txt1
+                            {firstText}
                         </div>
                     </div>
                     <div style = {{display:"flex",alignItems:"center",flex:"1"}}>
                         <div>
-                            txt2
+                            {secondText}
                         </div>
                     </div>
                 </motion.div>
             </div>
-        </div>   
+        </motion.div>   
     );
 }
 
@@ -93,45 +103,95 @@ const WorkContent = () => {
     // };
   
     const Mobile: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-      const isMobile = screenWidth < 992;
-      console.log("isMobile = ",isMobile)
+      const isMobile = screenWidth < 768;
       return isMobile ? <>{children}</> : null;
     };
+
+    const Tablet: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+        const isTablet = screenWidth >= 768 && screenWidth < 992;
+        return isTablet ? <>{children}</> : null;
+      };
   
     const Default: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-      const isNotMobile = screenWidth >= 768;
+      const isNotMobile = screenWidth < 768;
       return isNotMobile ? <>{children}</> : null;
     };
 
 
+    const projectLocation = [
+        "/crocs",
+        "/decentralizationOfEnergy",
+        "/orthoCenter",
+        "/chirpyChips",
+        "/mithilaMakhana",
+        "/cognitiveErgonomics",
+        "/qissaUX",
+        "/qissaUI",
+        "/sniffAndSipp",
+        "/letaSobierajski",
+        "/bhaavi",
+        "/lullabyLand",
+    ];
+
+    const firstText = [
+        "Experience Redesigned",
+        "Experience Redesigned",
+        "Ortho Centre",
+        "Chirpy Chips",
+        "Mithila Makhana",
+        "Aksh",
+        "Qissa",
+        "Qissa Mobile App",
+        "Sniff & Sipp",
+        "Leta Sobierajski",
+        "Bhaavi",
+        "Lullaby Land",
+    ];
+
+    const secondText = [
+        "Revamping the Jibbitz buying experience",
+        "Systems Thinking | Retail Business Strategy",
+        "Rebranding",
+        "Branding",
+        "Branding and Packaging",
+        "UI/UX |Cognitive Ergonomics",
+        "UX Research | Service Design",
+        "UX Research | Service Design",
+        "Branding",
+        "Editorial Design",
+        "Fixture Design for Momo vendors",
+        "A kids furniture collection",
+    ];
+
+
     const secondImage  = [
-        '/aboutSection/animalRescue/2.png',
-        '/aboutSection/animalRescue/2.png',
-        '/aboutSection/animalRescue/2.png',
+        '/projects/crocs/cards/image1.png',
+        '/projects/decentralize/cards/image1.png',
+        '/projects/orthoCenter/cards/image1.gif',
         '/projects/chirpy/cards/image1.png',
-        '/aboutSection/animalRescue/2.png',
-        '/aboutSection/animalRescue/2.png',
-        '/aboutSection/animalRescue/2.png',
-        '/aboutSection/animalRescue/2.png',
-        '/aboutSection/animalRescue/2.png',
-        '/aboutSection/animalRescue/2.png',
-        '/aboutSection/animalRescue/2.png',
-        '/aboutSection/animalRescue/2.png'
+        '/projects/mithilaMakhana/cards/image1.png',
+        '/projects/cognitiveErgonomics/cards/image1.png',
+        '/projects/qissaUX/cards/image1.png',
+        '/projects/qissaUI/cards/image1.png',
+        '/projects/sniffAndSipp/cards/image1.png',
+        '/projects/letaSobierajski/cards/image1.png',
+        '/projects/bhaavi/cards/image1.png',
+        '/projects/lullabyLand/cards/image1.png',
     ];
 
     const firstImage = [
-        '/aboutSection/animalRescue/1.png',
-        '/aboutSection/animalRescue/1.png',
-        '/aboutSection/animalRescue/1.png',
+        '/projects/crocs/cards/image2.png',
+        '/projects/decentralize/cards/image2.png',
+        '/projects/orthoCenter/cards/image2.png',
         '/projects/chirpy/cards/image2.png',
-        '/aboutSection/animalRescue/1.png',
-        '/aboutSection/animalRescue/1.png',
-        '/aboutSection/animalRescue/1.png',
-        '/aboutSection/animalRescue/1.png',
-        '/aboutSection/animalRescue/1.png',
-        '/aboutSection/animalRescue/1.png',
-        '/aboutSection/animalRescue/1.png',
-        '/aboutSection/animalRescue/1.png'
+        '/projects/mithilaMakhana/cards/image2.png',
+        '/projects/cognitiveErgonomics/cards/image2.png',
+        '/projects/qissaUX/cards/image2.png',
+        '/projects/qissaUI/cards/image2.png',
+        '/projects/sniffAndSipp/cards/image2.png',
+        '/projects/letaSobierajski/cards/image2.png',
+        '/projects/bhaavi/cards/image2.png',
+        '/projects/lullabyLand/cards/image2.png',
     ];
 
 
@@ -139,55 +199,75 @@ const WorkContent = () => {
   return (
     <>
      <Desktop>        
-        <div style = {{minHeight:"2700px",display:"flex", justifyContent:"center", alignItems:"center", width:"100vw", backgroundColor:"black"}}>
-            <div style = {{height:"2600px",width:"85vw", display:"flex", flexDirection:"column", alignItems:"space-between", justifyContent:"space-between"}}>
+        <div style = {{minHeight:"3000px",display:"flex", justifyContent:"center", alignItems:"center", width:"100vw", backgroundColor:"black"}}>
+            <div style = {{height:"2900px",width:"85vw", display:"flex", flexDirection:"column", alignItems:"space-between", justifyContent:"space-between"}}>
                     <div style = {{display:"flex", justifyContent:"space-around"}}>
-                            <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[0]} secondImg={secondImage[0]}/>
-                            <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[1]} secondImg={secondImage[1]}/>
+                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[0]} secondImg={secondImage[0]} projLoc={projectLocation[0]} firstText={firstText[0]} secondText={secondText[0]} scale="1" />
+                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[1]} secondImg={secondImage[1]} projLoc={projectLocation[1]} firstText={firstText[1]} secondText={secondText[1]} scale="1"/>
                     </div>
 
                     <div style = {{display:"flex", justifyContent:"space-around"}}>
-                            <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[2]} secondImg={secondImage[2]}/>
-                            <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[3]} secondImg={secondImage[3]}/>
+                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[2]} secondImg={secondImage[2]} projLoc={projectLocation[2]} firstText={firstText[2]} secondText={secondText[2]} scale="1"/>
+                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[3]} secondImg={secondImage[3]} projLoc={projectLocation[3]} firstText={firstText[3]} secondText={secondText[3]} scale="1"/>
                     </div>
 
                     <div style = {{display:"flex", justifyContent:"space-around"}}>
-                            <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[4]} secondImg={secondImage[4]}/>
-                            <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[5]} secondImg={secondImage[5]}/>
+                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[4]} secondImg={secondImage[4]} projLoc={projectLocation[4]} firstText={firstText[4]} secondText={secondText[4]} scale="1"/>
+                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[5]} secondImg={secondImage[5]} projLoc={projectLocation[5]} firstText={firstText[5]} secondText={secondText[5]} scale="1"/>
                     </div>
 
                     <div style = {{display:"flex", justifyContent:"space-around"}}>
-                            <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[6]} secondImg={secondImage[6]}/>
-                            <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[7]} secondImg={secondImage[7]}/>
+                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[6]} secondImg={secondImage[6]} projLoc={projectLocation[6]} firstText={firstText[6]} secondText={secondText[6]} scale="1"/>
+                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[7]} secondImg={secondImage[7]} projLoc={projectLocation[7]} firstText={firstText[7]} secondText={secondText[7]} scale="1"/>
                     </div>
 
                     <div style = {{display:"flex", justifyContent:"space-around"}}>
-                            <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[8]} secondImg={secondImage[8]}/>
-                            <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[9]} secondImg={secondImage[9]}/>
+                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[8]} secondImg={secondImage[8]} projLoc={projectLocation[8]} firstText={firstText[8]} secondText={secondText[8]} scale="1"/>
+                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[9]} secondImg={secondImage[9]} projLoc={projectLocation[9]} firstText={firstText[9]} secondText={secondText[9]} scale="1"/>
                     </div>
 
                     <div style = {{display:"flex", justifyContent:"space-around"}}>
-                            <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[10]} secondImg={secondImage[10]}/>
-                            <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[11]} secondImg={secondImage[11]}/>
+                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[10]} secondImg={secondImage[10]} projLoc={projectLocation[10]} firstText={firstText[10]} secondText={secondText[10]} scale="1"/>
+                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[11]} secondImg={secondImage[11]} projLoc={projectLocation[11]} firstText={firstText[11]} secondText={secondText[11]} scale="1"/>
                     </div>
             </div>
         </div>
     </Desktop>
+
+    <Tablet>
+         <div style = {{minHeight:"5900px",display:"flex", justifyContent:"center", alignItems:"center", width:"100vw"}}>
+            <div style = {{height:"5700px",display:"flex", flexDirection:"column",width:"100vw", alignItems:"center", justifyContent:"space-between"}}>
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[0]} secondImg={secondImage[0]} projLoc={projectLocation[0]} firstText={firstText[0]} secondText={secondText[0]} scale="1"/>
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[1]} secondImg={secondImage[1]} projLoc={projectLocation[1]} firstText={firstText[1]} secondText={secondText[1]} scale="1"/>
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[2]} secondImg={secondImage[2]} projLoc={projectLocation[2]} firstText={firstText[2]} secondText={secondText[2]} scale="1"/>
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[3]} secondImg={secondImage[3]} projLoc={projectLocation[3]} firstText={firstText[3]} secondText={secondText[3]} scale="1"/>
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[4]} secondImg={secondImage[4]} projLoc={projectLocation[4]} firstText={firstText[4]} secondText={secondText[4]} scale="1"/>
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[5]} secondImg={secondImage[5]} projLoc={projectLocation[5]} firstText={firstText[5]} secondText={secondText[5]} scale="1"/>
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[6]} secondImg={secondImage[6]} projLoc={projectLocation[6]} firstText={firstText[6]} secondText={secondText[6]} scale="1"/>
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[7]} secondImg={secondImage[7]} projLoc={projectLocation[7]} firstText={firstText[7]} secondText={secondText[7]} scale="1"/>
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[8]} secondImg={secondImage[8]} projLoc={projectLocation[8]} firstText={firstText[8]} secondText={secondText[8]} scale="1"/>
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[9]} secondImg={secondImage[9]} projLoc={projectLocation[9]} firstText={firstText[9]} secondText={secondText[9]} scale="1"/>
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[10]} secondImg={secondImage[10]} projLoc={projectLocation[10]} firstText={firstText[10]} secondText={secondText[10]} scale="1"/>
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[11]} secondImg={secondImage[11]} projLoc={projectLocation[11]} firstText={firstText[11]} secondText={secondText[11]} scale="1"/>
+            </div>
+        </div>
+    </Tablet>   
+
     <Mobile>
-         <div style = {{minHeight:"5400px",display:"flex", justifyContent:"center", alignItems:"center", width:"100vw"}}>
-            <div style = {{height:"5300px",display:"flex", flexDirection:"column",width:"95vw", alignItems:"center", justifyContent:"space-between"}}>
-                <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[0]} secondImg={secondImage[0]}/>
-                <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[1]} secondImg={secondImage[1]}/>
-                <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[2]} secondImg={secondImage[2]}/>
-                <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[3]} secondImg={secondImage[3]}/>
-                <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[4]} secondImg={secondImage[4]}/>
-                <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[5]} secondImg={secondImage[5]}/>
-                <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[6]} secondImg={secondImage[6]}/>
-                <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[7]} secondImg={secondImage[7]}/>
-                <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[8]} secondImg={secondImage[8]}/>
-                <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[9]} secondImg={secondImage[9]}/>
-                <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[10]} secondImg={secondImage[10]}/>
-                <Card cardHeight='400px' cardWidth='450px' firstImg={firstImage[11]} secondImg={secondImage[11]}/>
+         <div style = {{minHeight:"5900px",display:"flex", justifyContent:"center", alignItems:"center", width:"100vw"}}>
+            <div style = {{height:"5700px",display:"flex", flexDirection:"column",width:"100vw", alignItems:"center", justifyContent:"space-between"}}>
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[0]} secondImg={secondImage[0]} projLoc={projectLocation[0]} firstText={firstText[0]} secondText={secondText[0]} scale="0.8"/>
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[1]} secondImg={secondImage[1]} projLoc={projectLocation[1]} firstText={firstText[1]} secondText={secondText[1]} scale="0.8"/>
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[2]} secondImg={secondImage[2]} projLoc={projectLocation[2]} firstText={firstText[2]} secondText={secondText[2]} scale="0.8"/>
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[3]} secondImg={secondImage[3]} projLoc={projectLocation[3]} firstText={firstText[3]} secondText={secondText[3]} scale="0.8"/>
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[4]} secondImg={secondImage[4]} projLoc={projectLocation[4]} firstText={firstText[4]} secondText={secondText[4]} scale="0.8"/>
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[5]} secondImg={secondImage[5]} projLoc={projectLocation[5]} firstText={firstText[5]} secondText={secondText[5]} scale="0.8"/>
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[6]} secondImg={secondImage[6]} projLoc={projectLocation[6]} firstText={firstText[6]} secondText={secondText[6]} scale="0.8"/>
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[7]} secondImg={secondImage[7]} projLoc={projectLocation[7]} firstText={firstText[7]} secondText={secondText[7]} scale="0.8"/>
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[8]} secondImg={secondImage[8]} projLoc={projectLocation[8]} firstText={firstText[8]} secondText={secondText[8]} scale="0.8"/>
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[9]} secondImg={secondImage[9]} projLoc={projectLocation[9]} firstText={firstText[9]} secondText={secondText[9]} scale="0.8"/>
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[10]} secondImg={secondImage[10]} projLoc={projectLocation[10]} firstText={firstText[10]} secondText={secondText[10]} scale="0.8"/>
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[11]} secondImg={secondImage[11]} projLoc={projectLocation[11]} firstText={firstText[11]} secondText={secondText[11]} scale="0.8"/>
             </div>
         </div>
     </Mobile>   

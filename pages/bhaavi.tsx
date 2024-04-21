@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react";
 import Cursor from "@/components/common/cursor";
-import Header from "@/components/common/headerAbout";
+import Header from "@/components/common/headerProjects";
 import Loading from "@/components/home/load";
 
 import SectionHeading from "@/components/home/sectionHeading";
@@ -57,7 +57,8 @@ const Bhaavi = ()=>{
             <Loading />
         ) : (
             <>                                                                          
-            <Cursor isDesktop={isDesktop} />                                                                                                                                                                                                                                            
+            <Cursor isDesktop={isDesktop} />  
+            <Header/>                                                                                                                                                                                                                                          
             <div style = {{}}>
                 <img style = {{height:"100%",width:"100%"}} src="/projects/bhaavi/page1.png"></img>
             </div>

@@ -65,11 +65,11 @@ function NewProject() {
                 </div>
                 <div style = {{display:"flex", fontFamily:"Gotham", flexDirection:"column"}}>
                   <p className = "text-2xl" style = {{}}>My contributions span across a spectrum of projects ecompassing visual design, branding, UI/UX, </p>
-                  <p className = "text-2xl" style = {{}}>service design, system design and retail design.</p>
+                  <p className = "text-2xl" style = {{}}>service design, system design, retail design and strategic design.</p>
                 </div>
               </div>
           </div>
-          <Slider height='400px' width = '500px'/>
+          <Slider height='400px' width = '450px' sliderRate={450}/>
         </div>
       </Desktop>
       <Tablet>
@@ -91,11 +91,11 @@ function NewProject() {
               </div>
               <div style = {{display:"flex", fontFamily:"Gotham", flexDirection:"column"}}>
                 <p className = "text-2xl" style = {{}}>My contributions span across a spectrum of projects ecompassing visual design, branding, UI/UX, </p>
-                <p className = "text-2xl" style = {{}}>service design, system design and retail design.</p>
+                <p className = "text-2xl" style = {{}}>service design, system design and retail design and strategic design.</p>
               </div>
             </div>
           </div>
-            <Slider height='400px' width = '500px'/>
+            <Slider height='400px' width = '450px' sliderRate={450}/>
         </div>
       </Tablet>
       <Mobile>
@@ -114,14 +114,14 @@ function NewProject() {
                   >
                         Show All
                   </motion.button>
-                </div>
+                </div>    
                 <div style = {{display:"flex", fontFamily:"Gotham", flexDirection:"column"}}>
                   <p className = "text-1xl" style = {{}}>My contributions span across a spectrum of projects ecompassing visual design, branding, UI/UX, </p>
-                  <p className = "text-1xl" style = {{}}>service design, system design and retail design.</p>
+                  <p className = "text-1xl" style = {{}}>service design, system design, retail design and strategic design.</p>
                 </div>
               </div>
             </div>
-              <Slider height='400px' width = '450px'/>
+              <Slider height='400px' width = '450px' sliderRate={348}/>
           </div>
       </Mobile>
 

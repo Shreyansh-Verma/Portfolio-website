@@ -2,27 +2,84 @@ import React from "react"
 import { gsap, Linear } from "gsap";
 
 const NewContact = () => {
-    const bgImage = `url(/Union.png)`;
+    const bgImage = `/Union.png`;
+
+    const [screenWidth, setScreenWidth] = React.useState(0);
+
+    React.useEffect(() => {
+        const updateScreenWidth = () => {
+            setScreenWidth(window.innerWidth);
+        };
+
+        // Add event listener for window resize
+        window.addEventListener('resize', updateScreenWidth);
+
+        // Call updateScreenWidth initially to set the initial screenWidth value
+        updateScreenWidth();
+
+        // Cleanup event listener on component unmount
+        return () => {
+            window.removeEventListener('resize', updateScreenWidth);
+        };
+    }, []);
+
+    // console.log("yo bro width = ",screenWidth); 
+  
+  
+    const Desktop: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+      const isDesktop = screenWidth >= 992;
+      return isDesktop ? <>{children}</> : null;
+    };
+  
+    const Mobile: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+      const isMobile = screenWidth < 768;
+      return isMobile ? <>{children}</> : null;
+    };
+
+    const Tablet: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+        const isTablet = screenWidth >= 768 && screenWidth < 992;
+        return isTablet ? <>{children}</> : null;
+      };
+  
+    const Default: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+      const isNotMobile = screenWidth < 768;
+      return isNotMobile ? <>{children}</> : null;
+    };
 
 
     React.useEffect(() => {
         gsap.to('#flyingAstro', {
                 scrollTrigger: {
                     trigger: '#newDiv',
-                    start: 'top-=20 top',
+                    start: 'top-=60%top top',
                     scrub: 1.9
                 },
-                x: "-100vw",
-          y: "-35vh",
-          rotate:"60",
+                x: "-80vw",
+          y: "-25vh",
+          rotate:"190",
             })
       },[])
 
     return(
         <>
-            <div  id = "newDiv" style = {{position:"relative",minHeight:"100vh", minWidth:"100vw",backgroundImage:bgImage,backgroundPosition:"center", backgroundRepeat:"no-repeat", backgroundSize:"cover",  backgroundAttachment:"fixed"}}>
-                <img id = "flyingAstro" style = {{position:"absolute", marginLeft:"80vw", marginTop:"45vh"}} src = "/astro.svg"></img>
+        <Desktop>
+            <div  id = "newDiv" style = {{position:"relative"}}>
+                <img id = "flyingAstro" style = {{position:"absolute", marginLeft:"80vw", marginTop:"25vh", scale:"1.5"}} src = "/astro.svg"></img>
+                <img style = {{height:"100%",width:"100%"}} src = {bgImage}></img>
             </div>
+        </Desktop>
+        <Tablet>
+            <div id = "newDiv" style = {{position:"relative"}}>
+                <img id = "flyingAstro" style = {{position:"absolute", marginLeft:"50vw", marginTop:"5vh", scale:"0.5"}} src = "/astro.svg"></img>
+                <img style = {{height:"100%",width:"100%"}} src = {bgImage}></img>
+            </div>
+        </Tablet>
+        <Mobile>
+            <div  id = "newDiv" style = {{position:"relative"}}>
+                <img id = "flyingAstro" style = {{position:"absolute", marginLeft:"10vw", marginTop:"0.01vh", scale:"0.3"}} src = "/astro.svg"></img>
+                <img style = {{height:"100%",width:"100%"}} src = {bgImage}></img>
+            </div>
+        </Mobile>
         </>
     )
 }

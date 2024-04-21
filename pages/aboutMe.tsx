@@ -20,7 +20,12 @@ const AboutMe  = ()=>{
     const [isLoading, setIsLoading] = useState(true);
 
     const aboutSectionIntro = "Committed designer with a focus on sustainable living, intrigued by geopolitics, dedicated to animal welfare, and a fitness enthusiast. My design ethos centers around user-centric solutions and cross-disciplinary collaboration";
-    const myInfo = "A dynamic experience designer with a versatile skill set . I thrive on articulating the PURPOSE and the RIGHT METHOD behind every design, seeking to create impactful experiences that resonate with users on a deeper level.A dynamic experience designer with a versatile skill set . I thrive on articulating the PURPOSE and the RIGHT METHOD behind every design, seeking to create impactful experiences that resonate with users on a deeper level.";
+    const myInfo = "I'm Tanisha Verma, currently pursuing M.Des at National Institute of Design, Bangalore and a graduate of B.Des from Indian Institute of Craft's and Design, Jaipur. Throughout my design journey, I've grown, emphasizing ethical design, right research methodologies and fostering deep user connections for understanding their true needs.";
+
+    const animalRescueInfo = "As a passionate animal rescuer and active volunteer with two NGOs, I immerse myself in their world, understanding their emotions deeply.";
+    const wanderLustInfo = "As a solo explorer, I seek inspiration in remote landscapes, connecting with diverse communities, crafting stories, friendships, and enriching my design perspective.";
+    const photoJournalInfo = "Capturing emotions through portraits is my passion; I cherish the stories conveyed when eyes meet the lens, revealing profound narratives.";
+    const fitnessInfo = "For seven years, I've immersed myself in fitness, guiding and motivating others towards a healthier lifestyle, having trained over ten individuals.";
 
     const imageAnimalRescue = [
         `url(/aboutSection/animalRescue/1.png)`,
@@ -65,22 +70,22 @@ const AboutMe  = ()=>{
                 <Header/>
                 <Cursor isDesktop = {isDesktop}/>
                 <div id = "home">
-                    <SectionHeading sectionContent = {aboutSectionIntro}/>
+                    <SectionHeading sectionContent = {aboutSectionIntro} sectionHeight="100vh"/>
                 </div>
                 <div id = "about">
                     <MyInfo sectionContent = {myInfo}/>
                 </div>
                 <div id = "animal rescue">
-                    <AboutContent sectionContent={aboutSectionIntro} sectionHeading="Animal Rescue" numCards={3} imageArr={imageAnimalRescue}/>
+                    <AboutContent sectionContent={animalRescueInfo} sectionHeading="Animal Rescue" numCards={3} imageArr={imageAnimalRescue}/>
                 </div>
                 <div id = "wanderlust">
-                    <AboutContent sectionContent={aboutSectionIntro} sectionHeading="Wanderlust" numCards={6} imageArr={imageWanderLust}/>
+                    <AboutContent sectionContent={wanderLustInfo} sectionHeading="Wanderlust" numCards={6} imageArr={imageWanderLust}/>
                 </div>
                 <div id = "photo journal">
-                    <AboutContent sectionContent={aboutSectionIntro} sectionHeading="Photo Journal" numCards={9} imageArr={imagePhotoJournal}/>
+                    <AboutContent sectionContent={photoJournalInfo} sectionHeading="Photo Journal" numCards={9} imageArr={imagePhotoJournal}/>
                 </div>
                 <div id = "fitness">
-                    <AboutContent sectionContent={aboutSectionIntro} sectionHeading="Fitness" numCards= {null} imageArr={null}/>
+                    <AboutContent sectionContent={fitnessInfo} sectionHeading="Fitness" numCards= {null} imageArr={null}/>
                 </div>
                 <BackToTop/>
             </div>)

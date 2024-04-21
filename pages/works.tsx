@@ -1,6 +1,6 @@
 import {useState, useEffect} from "react";
 import Cursor from "@/components/common/cursor";
-import Header from "@/components/common/headerAbout";
+import Header from "@/components/common/headerWork";
 import Loading from "@/components/home/load";
 
 import SectionHeading from "@/components/home/sectionHeading";
@@ -29,7 +29,7 @@ const AboutMe  = ()=>{
       }, []); 
     
 
-    const aboutSectionIntro = "Committed designer with a focus on sustainable living, intrigued by geopolitics, dedicated to animal welfare, and a fitness enthusiast. My design ethos centers around user-centric solutions and cross-disciplinary collaboration";
+    const aboutSectionIntro = "Visual Design | UI/UX | Service Design | Retail | Systems Thinking | Design Management";
     const myInfo = "A dynamic experience designer with a versatile skill set . I thrive on articulating the PURPOSE and the RIGHT METHOD behind every design, seeking to create impactful experiences that resonate with users on a deeper level.A dynamic experience designer with a versatile skill set . I thrive on articulating the PURPOSE and the RIGHT METHOD behind every design, seeking to create impactful experiences that resonate with users on a deeper level.";
 
     const imageAnimalRescue = [
@@ -66,7 +66,7 @@ const AboutMe  = ()=>{
             <Header/>
             <Cursor isDesktop = {isDesktop}/>
             <div id = "home">
-                <SectionHeading sectionContent = {aboutSectionIntro}/>
+                <SectionHeading sectionContent = {aboutSectionIntro} sectionHeight="60vh"/>
             </div>
             <WorkContent/>
             <BackToTop/>

@@ -5,9 +5,9 @@ import { FaArrowCircleUp } from "react-icons/fa";
 const BackToTop = () =>{
     const [backToTopButton , setBackToTopButton] = useState(false);
     useEffect(()=>{
-        window.addEventListener("scroll", ()=>{
+        window.addEventListener("scroll", ()=>{                                                                                                                                                                                                         
             if(window.scrollY > 100){
-                setBackToTopButton(true);
+                setBackToTopButton(true);                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
             }
             else
             {
@@ -19,7 +19,7 @@ const BackToTop = () =>{
     const scrollUp = () => {
         window.scrollTo({
             top:0,
-            behavior: "smooth"
+            behavior: "smooth"                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
         })
     }
 
@@ -27,7 +27,7 @@ const BackToTop = () =>{
         <div>
             {backToTopButton && 
             <FaArrowCircleUp 
-            style = {{position:"fixed", right:"5vw", bottom:"0vw", height:"80px", width:"80px"}}
+            style = {{position:"fixed", right:"5vw", bottom:"0vw", height:"80px", width:"80px", cursor:"pointer"}}
             onClick = {scrollUp}
             />}
         </div>

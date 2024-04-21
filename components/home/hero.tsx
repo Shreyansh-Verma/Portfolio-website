@@ -373,35 +373,35 @@ const HERO_STYLES = {
           <div style = {{fontStyle:"gotham",position:"relative", display:"flex", alignItems:"center", border:"1px solid", borderStyle:"solid none", flex :"0.1", minWidth :"100vw", backgroundColor:"black", whiteSpace:"nowrap", minHeight:"5vh" }} id = "stripe">
             <span ref={firstText} id = "stripe1" style = {{position:"absolute",display:"flex", justifyContent:"space-between", width:"100vw"}}>
                 <p style = {{}}>Visual Design</p>
-                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p><img style = {{height:"1.8vh"}}src = "/star.svg"></img></p>
                 <p ref={null}>User Experience</p>
-                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p><img style = {{height:"1.8vh"}}src = "/star.svg"></img></p>
                 <p ref={null}>Service Design</p>
-                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p><img style = {{height:"1.8vh"}}src = "/star.svg"></img></p>
                 <p ref={null}>Retail</p>
-                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p><img style = {{height:"1.8vh"}}src = "/star.svg"></img></p>
                 <p ref={null}>Systems Thinking</p>
-                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p><img style = {{height:"1.8vh"}}src = "/star.svg"></img></p>
                 <p style = {{}}>Visual Design</p>
-                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p><img style = {{height:"1.8vh"}}src = "/star.svg"></img></p>
                 <p ref={null}>User Experience</p>
-                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p><img style = {{height:"1.8vh"}}src = "/star.svg"></img></p>
             </span>
-            <span ref={secondText} id = "stripe2" style = {{position:"absolute",display:"flex", justifyContent:"space-between", minWidth:"100vw"}}>
+            <span ref={secondText} id = "stripe2" style = {{position:"absolute",display:"flex", justifyContent:"space-between", width:"100vw"}}>
                 <p ref={null}>Service Design</p>
-                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p><img style = {{height:"1.8vh"}}src = "/star.svg"></img></p>
                 <p ref={null}>Retail</p>
-                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p><img style = {{height:"1.8vh"}}src = "/star.svg"></img></p>
                 <p ref={null}>Systems Thinking</p>
-                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p><img style = {{height:"1.8vh"}}src = "/star.svg"></img></p>
                 <p ref={null}>Visual Design</p>
-                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p><img style = {{height:"1.8vh"}}src = "/star.svg"></img></p>
                 <p ref={null}>User Experience</p>
-                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p><img style = {{height:"1.8vh"}}src = "/star.svg"></img></p>
                 <p ref={null}>Service Design</p>
-                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p><img style = {{height:"1.8vh"}}src = "/star.svg"></img></p>
                 <p ref={null}>Retail</p>
-                <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
+                <p><img style = {{height:"1.8vh"}}src = "/star.svg"></img></p>
             </span>
           </div>
         </div>              
@@ -447,7 +447,7 @@ const HERO_STYLES = {
                 </div>     
               </div>
           </div>
-          <div style = {{fontStyle:"gotham",position:"relative", display:"flex", alignItems:"center", border:"1px solid", borderStyle:"solid none", flex :"0.1", minWidth :"100vw", backgroundColor:"black", whiteSpace:"nowrap", minHeight:"5vh" }} id = "stripe">
+          {/* <div style = {{fontStyle:"gotham",position:"relative", display:"flex", alignItems:"center", border:"1px solid", borderStyle:"solid none", flex :"0.1", minWidth :"100vw", backgroundColor:"black", whiteSpace:"nowrap", minHeight:"5vh" }} id = "stripe">
             <span ref={firstText} id = "stripe1" style = {{position:"absolute",display:"flex", justifyContent:"space-between", width:"100vw"}}>
                 <p style = {{}}>Visual Design</p>
                 <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
@@ -480,7 +480,7 @@ const HERO_STYLES = {
                 <p ref={null}>Retail</p>
                 <p><img style = {{maxHeight:"3vh"}}src = "/star.svg"></img></p>
             </span>
-          </div>
+          </div> */}
         </div>
       </Mobile>
    

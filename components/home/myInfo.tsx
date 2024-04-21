@@ -32,7 +32,7 @@ const MyInfo = ({sectionContent}:{sectionContent:string}) => {
                     <div style = {{display :"flex", justifyContent:"flex-start", alignItems:"flex-start",minHeight:"60vh", borderRadius:"2%", flex:"1"}} id = "gifImage">
                         <div style = {{borderRadius : "1%", minWidth:"40vw", minHeight:"80vh", backgroundImage: `url(/aboutSection/aboutMain.gif)` , backgroundPosition:"center", backgroundRepeat:"no-repeat", backgroundSize:"cover" }}></div>
                     </div>
-                    <div style = {{flex:"1", display:"flex",justifyContent:"center", minHeight:"80vh"}}>
+                    <div style = {{flex:"1", display:"flex",justifyContent:"center",  alignItems:"center",minHeight:"80vh"}}>
                         <motion.div
                         initial={{ opacity: 0,  }}
                         whileInView={{ opacity: 1}}

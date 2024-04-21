@@ -1,6 +1,5 @@
 import {useState, useEffect} from "react";
 import Cursor from "@/components/common/cursor";
-import Header from "@/components/common/headerAbout";
 import Loading from "@/components/home/load";
 
 import SectionHeading from "@/components/home/sectionHeading";
@@ -9,6 +8,8 @@ import AboutContent from "@/components/home/aboutContent";
 import BackToTop from "@/components/home/backToTop";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import Header from "@/components/common/headerProjects";
+
 
 
 const ChirpyChips  = ()=>{
@@ -58,6 +59,7 @@ const ChirpyChips  = ()=>{
         ) : (
             <>
             <Cursor isDesktop={isDesktop} />
+            <Header/>
             <div style = {{}}>
                 <img style = {{height:"100%",width:"100%"}} src="/projects/chirpy/page1.svg"></img>
             </div>

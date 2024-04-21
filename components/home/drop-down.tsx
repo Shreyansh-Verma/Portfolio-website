@@ -15,26 +15,66 @@ import {motion} from "framer-motion"
 
 
 
-const Card = (({cardImage, cardContent} : {cardImage:string, cardContent:string}) =>{
-    return(
-      <div style  = {{display:"flex", minHeight:"30vh", minWidth:"15vw", borderRadius:"2%", backgroundImage: `url(${cardImage})`, backgroundPosition:"center", backgroundRepeat:"no-repeat", backgroundSize:"cover"}}>
-          <div style = {{alignSelf:"flex-end", backgroundColor:"rgba(0,0,0,0.75)", minHeight:"10vh", display:"flex", justifyContent:"center", alignItems:"center", width:"100%"}}>
+const Card = ({cardImage, cardContent}:{cardImage:string,cardContent:string}) => {
+  return (
+      <div style={{
+          display: "flex",
+          minHeight: "30vh",
+          minWidth: "15vw",
+          borderRadius: "2%",
+          backgroundImage: `url(${cardImage})`,
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          transition: "transform 0.3s ease-in-out" // Added transition for smooth scaling
+      }} 
+      onMouseOver={e => e.currentTarget.style.transform = 'scale(1.2)'}
+      onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}>
+          <div style={{
+              alignSelf: "flex-end",
+              backgroundColor: "rgba(0,0,0,0.75)",
+              minHeight: "10vh",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "100%"
+          }}>
               <p>{cardContent}</p>
           </div>
       </div>
-    )
-});
+  );
+};
 
+const CardMobil = ({cardImage, cardContent}:{cardImage:string, cardContent:string}) => {
+  return (
+      <div style={{
+          display: "flex",
+          minHeight: "30vh",
+          minWidth: "80vw",
+          borderRadius: "2%",
+          backgroundImage: `url(${cardImage})`,
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          transition: "transform 0.3s ease-in-out" // Added transition for smooth scaling
+      }} 
+      onMouseOver={e => e.currentTarget.style.transform = 'scale(1.2)'}
+      onMouseOut={e => e.currentTarget.style.transform = 'scale(1)'}>
+          <div style={{
+              alignSelf: "flex-end",
+              backgroundColor: "rgba(0,0,0,0.75)",
+              minHeight: "10vh",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              width: "100%"
+          }}>
+              <p>{cardContent}</p>
+          </div>
+      </div>
+  );
+};
 
-const CardMobil = (({cardImage, cardContent} : {cardImage:string, cardContent:string}) =>{
-  return(
-    <div style  = {{display:"flex", minHeight:"30vh", minWidth:"80vw", borderRadius:"2%", backgroundImage: `url(${cardImage})`, backgroundPosition:"center", backgroundRepeat:"no-repeat", backgroundSize:"cover"}}>
-        <div style = {{alignSelf:"flex-end", backgroundColor:"rgba(0,0,0,0.75)", minHeight:"10vh", display:"flex", justifyContent:"center", alignItems:"center", width:"100%"}}>
-            <p>{cardContent}</p>
-        </div>
-    </div>
-  )
-});
 
 
 const CardsSpiral = () => {
@@ -264,10 +304,10 @@ const CardsSpiral = () => {
           <div className = "text-4xl seq font-bold" style = {{position:"relative", fontFamily:"Gotham",display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center",height:"50vh", width:"100%"}}>
             <img id = "ufo" style={{left:"-10%",top:"-20%",position:"absolute", height:"60vh", width:"50vw"}} src = "/ufo.svg"></img>
             <div>
-              My design ethos centers around <span style = {{color:"#102A71"}}> user-centric </span> solutions
+              My design ethos centers around <span style = {{color:"#ADE1FF"}}> user-centric </span> solutions
             </div>
             <div>
-              and  <span style = {{color:"#102A71"}}> cross disciplinary </span> collaboration.
+              and  <span style = {{color:"#ADE1FF"}}> cross disciplinary </span> collaboration.
             </div>
           </div>
           <div>     
@@ -275,13 +315,13 @@ const CardsSpiral = () => {
           <div style={{display:"flex"}}>
             <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh", width: "30vw"}} id="leftSection">
               <div ref = {(el)=> leftCardsRefs.current[0] = el} style = {{alignSelf:"flex-start"}}>
-                <Card cardImage  = "/p1.png" cardContent="imge"/>
+                <Card cardImage  = "/p1.png" cardContent="Empathy"/>
               </div>
               <div ref = {(el)=> leftCardsRefs.current[1] = el} style  = {{alignSelf:"flex-end"}}>
-                <Card cardImage  = "/p3.png" cardContent="imge"/>
+                <Card cardImage  = "/p3.png" cardContent="Teamwork"/>
               </div>
               <div ref = {(el)=> leftCardsRefs.current[2] = el} style = {{alignSelf : "flex-start"}}>
-                <Card cardImage  = "/p5.png" cardContent="imge"/>
+                <Card cardImage  = "/p5.png" cardContent="Dedication"/>
               </div>
             </div>
 
@@ -333,13 +373,13 @@ const CardsSpiral = () => {
 
             <div style={{  display: "flex", flexDirection: "column", minHeight: "100vh", width: "30vw"}} id="rightSection">
             <div ref = {(el)=> rightCardsRefs.current[0] = el} style = {{alignSelf:"flex-end"}}>
-                <Card cardImage  = "/p2.png" cardContent="imge"/>
+                <Card cardImage  = "/p2.png" cardContent="Integrity"/>
               </div>
               <div ref = {(el)=> rightCardsRefs.current[1] = el} style = {{alignSelf:"flex-start"}}>
-                <Card cardImage  = "/p4.png" cardContent="imge"/>
+                <Card cardImage  = "/p4.png" cardContent="Commitment"/>
               </div>
               <div ref = {(el)=> rightCardsRefs.current[2] = el} style = {{alignSelf : "flex-end"}}>
-                <Card cardImage  = "/p6.png" cardContent="imge"/>
+                <Card cardImage  = "/p6.png" cardContent="Patience"/>
               </div>
             </div>
           </div>
@@ -388,9 +428,9 @@ const CardsSpiral = () => {
               <img id = "ufo" style={{left:"-10%",top:"-50%",position:"absolute", height:"60vh", width:"50vw"}} src = "/ufo.svg"></img>
               <div style = {{display:"flex", justifyContent:"center", alignItems:"center", height:"20vh"}}>
                 <div>
-                  My design ethos centers around <span style = {{color:"#102A71"}}> user-centric </span> solutions
+                  My design ethos centers around <span style = {{color:"#ADE1FF"}}> user-centric </span> solutions
 
-                  and  <span style = {{color:"#102A71"}}> cross disciplinary </span> collaboration.
+                  and  <span style = {{color:"#ADE1FF"}}> cross disciplinary </span> collaboration.
                 </div>
               </div>
             </div>
@@ -399,13 +439,13 @@ const CardsSpiral = () => {
             <div style={{display:"flex"}}>
               <div style={{ display: "flex", flexDirection: "column", minHeight: "100vh", width: "30vw" }} id="leftSection">
                 <div ref = {(el)=> leftCardsRefs.current[0] = el} style = {{}}>
-                  <Card cardImage  = "/p1.png" cardContent="imge"/>
+                  <Card cardImage  = "/p1.png" cardContent="Empathy"/>
                 </div>
                 <div ref = {(el)=> leftCardsRefs.current[1] = el} style  = {{}}>
-                  <Card cardImage  = "/p3.png" cardContent="imge"/>
+                  <Card cardImage  = "/p3.png" cardContent="Teamwork"/>
                 </div>
                 <div ref = {(el)=> leftCardsRefs.current[2] = el} style = {{}}>
-                  <Card cardImage  = "/p5.png" cardContent="imge"/>
+                  <Card cardImage  = "/p5.png" cardContent="Dedication"/>
                 </div>
               </div>
 
@@ -457,13 +497,13 @@ const CardsSpiral = () => {
 
               <div style={{  display: "flex", flexDirection: "column", minHeight: "100vh", width: "30vw"}} id="rightSection">
               <div ref = {(el)=> rightCardsRefs.current[0] = el} style = {{}}>
-                  <Card cardImage  = "/p2.png" cardContent="imge"/>
+                  <Card cardImage  = "/p2.png" cardContent="Integrity"/>
                 </div>
                 <div ref = {(el)=> rightCardsRefs.current[1] = el} style = {{}}>
-                  <Card cardImage  = "/p4.png" cardContent="imge"/>
+                  <Card cardImage  = "/p4.png" cardContent="Commitment"/>
                 </div>
                 <div ref = {(el)=> rightCardsRefs.current[2] = el} style = {{}}>
-                  <Card cardImage  = "/p6.png" cardContent="imge"/>
+                  <Card cardImage  = "/p6.png" cardContent="Patience"/>
                 </div>
               </div>
             </div>
@@ -513,10 +553,10 @@ const CardsSpiral = () => {
           <div className = "text-2xl seq font-bold" style = {{position:"relative", fontFamily:"Gotham",display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center",height:"30vh", width:"95vw", textAlign:"center"}}>
             <img id = "ufo" style={{left:"-10%",top:"-50%",position:"absolute", height:"60vh", width:"50vw"}} src = "/ufo.svg"></img>
             <div>
-              My design ethos centers around <span style = {{color:"#102A71"}}> user-centric </span> solutions
+              My design ethos centers around <span style = {{color:"#ADE1FF"}}> user-centric </span> solutions
             </div>
             <div>
-              and  <span style = {{color:"#102A71"}}> cross disciplinary </span> collaboration.
+              and  <span style = {{color:"#ADE1FF"}}> cross disciplinary </span> collaboration.
             </div>
           </div>
           <div id="section-2" className="text-bold text-5xl" style = {{fontFamily:"Helios Pro", display:"flex",flexDirection:"column", justifyContent:"center", alignItems:"center", height:"25vh"}} >
@@ -530,22 +570,22 @@ const CardsSpiral = () => {
           <div style={{display:"flex",justifyContent:"center", width:"100%", minHeight:"210"}}>
             <div style={{ display: "flex", flexDirection: "column", minHeight: "210vh", justifyContent:"space-between", alignItems:"center", width:"100%" }} id="leftSection">
               <div ref = {(el)=> leftCardsRefs.current[0] = el} style = {{}}>
-                <CardMobil cardImage  = "/p1.png" cardContent="imge"/>
+                <CardMobil cardImage  = "/p1.png" cardContent="Empathy"/>
               </div>
               <div ref = {(el)=> leftCardsRefs.current[1] = el} style  = {{}}>
-                <CardMobil cardImage  = "/p2.png" cardContent="imge"/>
+                <CardMobil cardImage  = "/p2.png" cardContent="Integrity"/>
               </div>
               <div ref = {(el)=> leftCardsRefs.current[2] = el} style = {{}}>
-                <CardMobil cardImage  = "/p3.png" cardContent="imge"/>
+                <CardMobil cardImage  = "/p3.png" cardContent="Teamwork"/>
               </div>
               <div ref = {(el)=> rightCardsRefs.current[0] = el} style = {{}}>
-                  <CardMobil cardImage  = "/p4.png" cardContent="imge"/>
+                  <CardMobil cardImage  = "/p4.png" cardContent="Commitment"/>
                 </div>
                 <div ref = {(el)=> rightCardsRefs.current[1] = el} style = {{}}>
-                  <CardMobil cardImage  = "/p5.png" cardContent="imge"/>
+                  <CardMobil cardImage  = "/p5.png" cardContent="Dedication"/>
                 </div>
                 <div ref = {(el)=> rightCardsRefs.current[2] = el} style = {{}}>
-                  <CardMobil cardImage  = "/p6.png" cardContent="imge"/>
+                  <CardMobil cardImage  = "/p6.png" cardContent="Patience"/>
                 </div>
  
               </div>
@@ -563,7 +603,7 @@ const CardsSpiral = () => {
             </motion.div>
           </div>
 
-          <div style = {{fontStyle:"gotham",position:"relative", display:"flex", alignItems:"center", border:"1px solid", borderStyle:"solid none", flex :"0.1", minWidth :"100vw", backgroundColor:"black", whiteSpace:"nowrap", minHeight:"3vh" }} id = "stripe">
+          {/* <div style = {{fontStyle:"gotham",position:"relative", display:"flex", alignItems:"center", border:"1px solid", borderStyle:"solid none", flex :"0.1", minWidth :"100vw", backgroundColor:"black", whiteSpace:"nowrap", minHeight:"3vh" }} id = "stripe">
             <span ref={firstText} id = "stripe1" style = {{position:"absolute",display:"flex", justifyContent:"space-between", width:"100vw"}}>
                 <p style = {{}}>Visual Design</p>
                 <p><img style = {{maxHeight:"2vh"}}src = "/star.svg"></img></p>
@@ -596,7 +636,7 @@ const CardsSpiral = () => {
                 <p ref={null}>Retail</p>
                 <p><img style = {{maxHeight:"2vh"}}src = "/star.svg"></img></p>
             </span>
-          </div>
+          </div> */}
           </div>
         </div>
       </Mobile>
