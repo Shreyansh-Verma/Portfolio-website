@@ -11,7 +11,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 
-const QissaUI  = ()=>{
+const Leta  = ()=>{
 
     gsap.registerPlugin(ScrollTrigger);
     gsap.config({ nullTargetWarn: false });
@@ -60,8 +60,8 @@ const QissaUI  = ()=>{
             <Cursor isDesktop={isDesktop} />  
             <Header/>                                                                                                                                                                                                                                          
             <div style = {{}}>
-                <img style = {{height:"100%",width:"100%"}} src="/projects/qissaUI/page1.png"></img>
-                <img style = {{height:"100%",width:"100%"}} src="/projects/qissaUI/page3.png"></img>
+                <img style = {{height:"100%",width:"100%"}} src="/projects/letaSobierajski/page1.png"></img>
+                {/* <img style = {{height:"100%",width:"100%"}} src="/projects/qissaUI/page3.png"></img> */}
             </div>
             </>
         )}
@@ -69,4 +69,4 @@ const QissaUI  = ()=>{
     )
 }
 
-export default QissaUI;
+export default Leta;

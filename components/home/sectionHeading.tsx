@@ -72,7 +72,7 @@ const SectionHeading = ({sectionContent, sectionHeight}:{sectionContent:string, 
                         initial={{ opacity: 0,  x:-500}}
                         whileInView={{ opacity: 1,  x: 0 }}
                         transition={{duration:1}}
-                    className = "text-3xl" style = {{textAlign:"center",fontFamily:"Helios Pro",minHeight:sectionHeight, display:"flex", justifyContent:"center", alignItems:"center"}}>
+                    className = {sectionHeight === "60vh" ? "text-2xl" : "text-3xl"} style = {{textAlign:"center",fontFamily:"Helios Pro",minHeight:sectionHeight, display:"flex", justifyContent:"center", alignItems:"center"}}>
                         <div style = {{display:"flex", justifyContent:"center",alignItems:"center", width:"80vw", height:"60vh"}}>
                             <p style = {{textAlign:"center"}}>{sectionContent}</p>
                         </div>
@@ -94,7 +94,7 @@ const SectionHeading = ({sectionContent, sectionHeight}:{sectionContent:string, 
                         initial={{ opacity: 0,  x:-500}}
                         whileInView={{ opacity: 1,  x: 0 }}
                         transition={{duration:1}}
-                    className = "text-3xl" style = {{textAlign:"center",fontFamily:"Helios Pro",minHeight:sectionHeight, display:"flex", justifyContent:"center", alignItems:"center"}}>
+                    className = {sectionHeight === "60vh" ? "text-2xl" : "text-3xl"} style = {{textAlign:"center",fontFamily:"Helios Pro",minHeight:sectionHeight, display:"flex", justifyContent:"center", alignItems:"center"}}>
                         <div style = {{display:"flex", justifyContent:"center",alignItems:"center", width:"80vw", height:"60vh"}}>
                             <p style = {{textAlign:"center"}}>{sectionContent}</p>
                         </div>
@@ -116,7 +116,7 @@ const SectionHeading = ({sectionContent, sectionHeight}:{sectionContent:string, 
                         initial={{ opacity: 0,  x:-200}}
                         whileInView={{ opacity: 1,  x: 0 }}
                         transition={{duration:1}}
-                        className = "text-2xl" style = {{textAlign:"center",fontFamily:"Helios Pro",minHeight:sectionHeight, display:"flex", justifyContent:"center", alignItems:"center"}}>
+                        className = {sectionHeight === "60vh" ? "text-1xl" : "text-2xl"} style = {{textAlign:"center",fontFamily:"Helios Pro",minHeight:sectionHeight, display:"flex", justifyContent:"center", alignItems:"center"}}>
                         <div style = {{display:"flex", justifyContent:"center",alignItems:"center", width:"80vw", height:"60vh"}}>
                             <p style = {{textAlign:"center"}}>{sectionContent}</p>
                         </div>

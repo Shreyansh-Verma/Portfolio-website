@@ -60,8 +60,8 @@ const NewContact = () => {
                 scrub: 1.9
             },
             x: "-80vw",
-      y: "-25vh",
-      rotate:"190",
+            y: "-25vh",
+            rotate:"190",
         })
     })
 
@@ -74,8 +74,8 @@ const NewContact = () => {
                 scrub: 1.9
             },
             x: "-80vw",
-      y: "-25vh",
-      rotate:"190",
+            y: "-25vh",
+            rotate:"190",
         })
  
     })

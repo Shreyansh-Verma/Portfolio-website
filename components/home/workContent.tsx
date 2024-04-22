@@ -135,7 +135,7 @@ const WorkContent = () => {
 
     const firstText = [
         "Experience Redesigned",
-        "Experience Redesigned",
+        "Decentralization of Energy",
         "Ortho Centre",
         "Chirpy Chips",
         "Mithila Makhana",

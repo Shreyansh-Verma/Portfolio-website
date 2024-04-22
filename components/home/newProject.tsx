@@ -69,7 +69,7 @@ function NewProject() {
                 </div>
               </div>
           </div>
-          <Slider height='400px' width = '450px' sliderRate={450}/>
+          <Slider height='480px' width = '450px' sliderRate={450} scale={"0.92"}/>
         </div>
       </Desktop>
       <Tablet>
@@ -95,7 +95,7 @@ function NewProject() {
               </div>
             </div>
           </div>
-            <Slider height='400px' width = '450px' sliderRate={450}/>
+            <Slider height='480px' width = '450px' sliderRate={450} scale={"0.9"}/>
         </div>
       </Tablet>
       <Mobile>
@@ -121,7 +121,7 @@ function NewProject() {
                 </div>
               </div>
             </div>
-              <Slider height='400px' width = '450px' sliderRate={348}/>
+              <Slider height='400px' width = '420px' sliderRate={348} scale={"0.85"}/>
           </div>
       </Mobile>
 
