@@ -206,7 +206,7 @@ const firstImage = [
   const classvalue = "inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300";
 
   return (
-    <div style = {{height:height}} className = "relative flex items-center">
+    <div style = {{height:height+10}} className = "relative flex items-center">
         <MdChevronLeft style = {{height:height, borderTopLeftRadius:"5%", borderBottomLeftRadius:"5%", scale:scale}} className = "opacity-50 cursor-pointer hover:opacity-100 bg-black" onClick={slideLeft} size = {40}/>
         <div id = "slider" className = "w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide">
                 <div className = {classvalue}>
