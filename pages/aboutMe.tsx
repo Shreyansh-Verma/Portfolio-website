@@ -20,7 +20,7 @@ const AboutMe  = ()=>{
     const [isLoading, setIsLoading] = useState(true);
 
     const aboutSectionIntro = "Committed designer with a focus on sustainable living, intrigued by geopolitics, dedicated to animal welfare, and a fitness enthusiast. My design ethos centers around user-centric solutions and cross-disciplinary collaboration";
-    const myInfo = "I'm Tanisha Verma, currently pursuing M.Des at National Institute of Design, Bangalore and a graduate of B.Des from Indian Institute of Craft's and Design, Jaipur. Throughout my design journey, I've grown, emphasizing ethical design, right research methodologies and fostering deep user connections for understanding their true needs.";
+    const myInfo = "I'm Tanisha Verma, currently pursuing M.Des at National Institute of Design, Bangalore and a graduate of B.Des from Indian Institute of Crafts and Design, Jaipur. Throughout my design journey, I've grown, emphasizing ethical design, right research methodologies and fostering deep user connections for understanding their true needs.";
 
     const animalRescueInfo = "As a passionate animal rescuer and active volunteer with two NGOs, I immerse myself in their world, understanding their emotions deeply.";
     const wanderLustInfo = "As a solo explorer, I seek inspiration in remote landscapes, connecting with diverse communities, crafting stories, friendships, and enriching my design perspective.";
