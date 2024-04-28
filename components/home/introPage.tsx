@@ -21,6 +21,9 @@ import { motion } from "framer-motion";
 import { useRouter } from 'next/router';
 
 import React, { useEffect, useRef } from 'react';
+
+import Image from 'next/image'
+
 // import './introPage.css';
 
 const IntroSection = ({ isDesktop }: IDesktop) => {
@@ -328,6 +331,13 @@ const HERO_STYLES = {
               <div>National Institute of Design, Bengaluru</div>
             </div>
           </div>
+          {/* <div id = "realImage2" style = {{position:"absolute"}}>
+          <Image
+                  src ="/introImg.png"
+                  layout='fill'
+                  alt="Picture of the author"
+                />
+          </div> */}
           <img id="realImage2" style={{ position:"absolute", height:"100%", width:"100%"}} src="/introImg.png" alt="Intro" />
         </div>
         <div style = {{display:"flex",height:"100vh", width:"50vw", justifyContent:"flex-start"}}>

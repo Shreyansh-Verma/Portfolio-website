@@ -18,6 +18,8 @@ import { motion } from "framer-motion";
 
 import Typewriter from "typewriter-effect";
 
+import Image from 'next/image'
+
 import React, { MutableRefObject, useEffect, useRef } from 'react';
 // import './introPage.css';
 
@@ -293,7 +295,15 @@ const HERO_STYLES = {
                   </div>
                 </div>     
               </div>
-                <img id="realImage" style={{position:"absolute", left:"45%", top:"8%", scale:"0.8"}} src="/rocket.svg" alt="Intro" />
+              <div id = "realImage" style={{position:"absolute", left:"45%", top:"8%", scale:"0.8"}}>
+                <Image
+                  src ="/rocket.svg"
+                  width={800}
+                  height={800}  
+                  alt="Picture of the author"
+                />
+              </div>
+                {/* <img id="realImage" style={{position:"absolute", left:"45%", top:"8%", scale:"0.8"}} src="/rocket.svg" alt="Intro" /> */}
           </div>
           <div style = {{fontStyle:"gotham",position:"relative", display:"flex", alignItems:"center", border:"1px solid", borderStyle:"solid none", flex :"0.1", minWidth :"100vw", backgroundColor:"black", whiteSpace:"nowrap", minHeight:"5vh" }} id = "stripe">
             <span ref={firstText} id = "stripe1" style = {{position:"absolute",display:"flex", justifyContent:"space-between", width:"100vw"}}>
@@ -368,7 +378,15 @@ const HERO_STYLES = {
                     </div>
                   </div>   
               </div>
-                <img id="realImage" style={{position:"absolute", left:"30%", top:"20%", scale:"0.6"}} src="/rocket.svg" alt="Intro" />
+              <div id = "realImage" style={{position:"absolute", left:"50%", top:"40%"}}>
+              <Image
+                  src ="/rocket.svg"
+                  width={800}
+                  height={800}  
+                  alt="Picture of the author"
+                />
+              </div>
+                {/* <img id="realImage" style={{position:"absolute", left:"30%", top:"20%", scale:"0.6"}} src="/rocket.svg" alt="Intro" /> */}
           </div>
           <div style = {{fontStyle:"gotham",position:"relative", display:"flex", alignItems:"center", border:"1px solid", borderStyle:"solid none", flex :"0.1", minWidth :"100vw", backgroundColor:"black", whiteSpace:"nowrap", minHeight:"5vh" }} id = "stripe">
             <span ref={firstText} id = "stripe1" style = {{position:"absolute",display:"flex", justifyContent:"space-between", width:"100vw"}}>
@@ -434,7 +452,16 @@ const HERO_STYLES = {
                   </div>
                 </div>
                 <div style = {{display:"flex", justifyContent:"center", alignItems:"center"}}>
-                  <img id="realImage" style={{height:"50vh"}} src="/rocket.svg" alt="Intro" />
+                  <div id = "realImage" style={{height:"50vh"}}>
+                    <Image
+                    src ="/rocket.svg"
+                    width={800}
+                    height={800}  
+                    alt="Picture of the author"
+                    />
+
+                  </div>
+                  {/* <img id="realImage"  src="/rocket.svg" alt="Intro" /> */}
                 </div>
 
                 <div style = {{ fontFamily:"Helios Pro", width:"100%", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center" }} id = "lowerText">
