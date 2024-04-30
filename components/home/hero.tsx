@@ -453,13 +453,13 @@ const HERO_STYLES = {
                 </div>
                 <div style = {{display:"flex", justifyContent:"center", alignItems:"center"}}>
                   <div id = "realImage" style={{height:"50vh"}}>
-                    <Image
-                    src ="/rocket.svg"
-                    width={800}
-                    height={800}  
-                    alt="Picture of the author"
-                    />
-
+                  style={{height:"50vh"}}
+                  <Image
+                  src ="/rocket.svg"
+                  width={800}
+                  height={800}  
+                  alt="Picture of the author"
+                />
                   </div>
                   {/* <img id="realImage"  src="/rocket.svg" alt="Intro" /> */}
                 </div>
