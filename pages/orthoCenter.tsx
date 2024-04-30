@@ -60,7 +60,12 @@ const Ortho = ()=>{
             <Cursor isDesktop={isDesktop} />  
             <Header/>                                                                                                                                                                                                                                          
             <div style = {{}}>
-                <img style = {{height:"100%",width:"100%"}} src="/projects/orthoCenter/page1.gif"></img>
+                {/* <img style = {{height:"100%",width:"100%"}} src="/projects/orthoCenter/page1.gif"></img> */}
+                <video style={{ height: "100%", width: "100%", objectFit: "cover" }} autoPlay loop muted>
+                <source src={"/projects/orthoCenter/page1.webm"} type="video/webm" />
+                Your browser does not support the video tag.
+            </video>
+
                 <img style = {{height:"100%",width:"100%"}} src="/projects/orthoCenter/page2.png"></img>
             </div>
             </>

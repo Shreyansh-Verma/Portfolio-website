@@ -61,7 +61,11 @@ const Crocs  = ()=>{
             <Header/>                                                                                                                                                                                                                                          
             <div style = {{}}>
                 <img style = {{height:"100%",width:"100%"}} src="/projects/crocs/page1.png"></img>
-                <img style = {{height:"100%",width:"100%"}} src="/projects/crocs/page2.gif"></img>
+                {/* <img style = {{height:"100%",width:"100%"}} src="/projects/crocs/page2.gif"></img> */}
+                <video style={{ height: "100%", width: "100%", objectFit: "cover" }} autoPlay loop muted>
+                <source src={"/projects/crocs/page2.webm"} type="video/webm" />
+                  Your browser does not support the video tag.
+                </video>
                 <img style = {{height:"100%",width:"100%"}} src="/projects/crocs/page3.png"></img>
             </div>
             </>
