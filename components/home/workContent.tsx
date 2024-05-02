@@ -5,7 +5,7 @@ import { FaArrowRight } from "react-icons/fa6";
 import { useMediaQuery } from 'react-responsive'
 import { useRouter } from 'next/router';
 
-const Card = ({cardWidth, cardHeight, firstImg, secondImg, projLoc, firstText, secondText, scale, isVideo} : {cardWidth:string, cardHeight:string, firstImg:string, secondImg:string, projLoc:string, firstText:string, secondText:string, scale:string, isVideo:boolean}) =>{
+const Card = ({cardWidth, cardHeight, firstImg, secondImg, projLoc, firstText, secondText, scale} : {cardWidth:string, cardHeight:string, firstImg:string, secondImg:string, projLoc:string, firstText:string, secondText:string, scale:string}) =>{
     const [hovered, setHovered] = useState(false);
     const router = useRouter();
 
@@ -40,31 +40,10 @@ const Card = ({cardWidth, cardHeight, firstImg, secondImg, projLoc, firstText, s
             >
                 <FaArrowRight color='black' style={{ height: "3vw", width: "3vw", backgroundColor: "white", borderRadius: "50%" }} />
             </motion.div>
-            {/* <div style = {{height:"85%", backgroundImage:`url(${hovered ? firstImg : secondImg})`, backgroundPosition:"center", backgroundRepeat:"no-repeat", backgroundSize:"cover"}}>
-
-
-            </div> */}
+            <div style = {{height:"85%", backgroundImage:`url(${hovered ? firstImg : secondImg})`, backgroundPosition:"center", backgroundRepeat:"no-repeat", backgroundSize:"cover"}}>
+            </div> 
             
-            {
-            isVideo?(
-            hovered?
-            (
-            <div style = {{height:"85%", backgroundImage:`url(${firstImg})`, backgroundPosition:"center", backgroundRepeat:"no-repeat", backgroundSize:"cover"}}>
-            </div>
-            )
-            :(
-            (<div style = {{height:"85%", backgroundImage:`url(${secondImg})`, backgroundPosition:"center", backgroundRepeat:"no-repeat", backgroundSize:"cover"}}>
-            </div>))):
-            (
-            hovered?
-            (
-            <div style = {{height:"85%", backgroundImage:`url(${firstImg})`, backgroundPosition:"center", backgroundRepeat:"no-repeat", backgroundSize:"cover"}}>
-            </div>
-            )
-            :(
-            (<div style = {{height:"85%", backgroundImage:`url(${secondImg})`, backgroundPosition:"center", backgroundRepeat:"no-repeat", backgroundSize:"cover"}}>
-            </div>)))
-            }
+           
 
             <div style = {{height:"15%", backgroundColor:"black", overflowY:"hidden", display:"flex", justifyContent:"center"}}>
                 <motion.div
@@ -224,33 +203,33 @@ const WorkContent = () => {
         <div style = {{minHeight:"3000px",display:"flex", justifyContent:"center", alignItems:"center", width:"100vw", backgroundColor:"black"}}>
             <div style = {{height:"2900px",width:"85vw", display:"flex", flexDirection:"column", alignItems:"space-between", justifyContent:"space-between"}}>
                     <div style = {{display:"flex", justifyContent:"space-around"}}>
-                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[0]} secondImg={secondImage[0]} projLoc={projectLocation[0]} firstText={firstText[0]} secondText={secondText[0]} scale="1" isVideo={false} />
-                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[1]} secondImg={secondImage[1]} projLoc={projectLocation[1]} firstText={firstText[1]} secondText={secondText[1]} scale="1" isVideo={false}/>
+                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[0]} secondImg={secondImage[0]} projLoc={projectLocation[0]} firstText={firstText[0]} secondText={secondText[0]} scale="1" />
+                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[1]} secondImg={secondImage[1]} projLoc={projectLocation[1]} firstText={firstText[1]} secondText={secondText[1]} scale="1"/>
                     </div>
 
                     <div style = {{display:"flex", justifyContent:"space-around"}}>
-                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[2]} secondImg={secondImage[2]} projLoc={projectLocation[2]} firstText={firstText[2]} secondText={secondText[2]} scale="1" isVideo={true}/>
-                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[3]} secondImg={secondImage[3]} projLoc={projectLocation[3]} firstText={firstText[3]} secondText={secondText[3]} scale="1" isVideo={false}/>
+                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[2]} secondImg={secondImage[2]} projLoc={projectLocation[2]} firstText={firstText[2]} secondText={secondText[2]} scale="1"/>
+                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[3]} secondImg={secondImage[3]} projLoc={projectLocation[3]} firstText={firstText[3]} secondText={secondText[3]} scale="1"/>
                     </div>
 
                     <div style = {{display:"flex", justifyContent:"space-around"}}>
-                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[4]} secondImg={secondImage[4]} projLoc={projectLocation[4]} firstText={firstText[4]} secondText={secondText[4]} scale="1" isVideo={false}/>
-                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[5]} secondImg={secondImage[5]} projLoc={projectLocation[5]} firstText={firstText[5]} secondText={secondText[5]} scale="1" isVideo={false}/>
+                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[4]} secondImg={secondImage[4]} projLoc={projectLocation[4]} firstText={firstText[4]} secondText={secondText[4]} scale="1"/>
+                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[5]} secondImg={secondImage[5]} projLoc={projectLocation[5]} firstText={firstText[5]} secondText={secondText[5]} scale="1"/>
                     </div>
 
                     <div style = {{display:"flex", justifyContent:"space-around"}}>
-                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[6]} secondImg={secondImage[6]} projLoc={projectLocation[6]} firstText={firstText[6]} secondText={secondText[6]} scale="1" isVideo={false}/>
-                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[7]} secondImg={secondImage[7]} projLoc={projectLocation[7]} firstText={firstText[7]} secondText={secondText[7]} scale="1" isVideo={false}/>
+                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[6]} secondImg={secondImage[6]} projLoc={projectLocation[6]} firstText={firstText[6]} secondText={secondText[6]} scale="1"/>
+                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[7]} secondImg={secondImage[7]} projLoc={projectLocation[7]} firstText={firstText[7]} secondText={secondText[7]} scale="1"/>
                     </div>
 
                     <div style = {{display:"flex", justifyContent:"space-around"}}>
-                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[8]} secondImg={secondImage[8]} projLoc={projectLocation[8]} firstText={firstText[8]} secondText={secondText[8]} scale="1" isVideo={false}/>
-                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[9]} secondImg={secondImage[9]} projLoc={projectLocation[9]} firstText={firstText[9]} secondText={secondText[9]} scale="1" isVideo={false}/>
+                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[8]} secondImg={secondImage[8]} projLoc={projectLocation[8]} firstText={firstText[8]} secondText={secondText[8]} scale="1"/>
+                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[9]} secondImg={secondImage[9]} projLoc={projectLocation[9]} firstText={firstText[9]} secondText={secondText[9]} scale="1"/>
                     </div>
 
                     <div style = {{display:"flex", justifyContent:"space-around"}}>
-                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[10]} secondImg={secondImage[10]} projLoc={projectLocation[10]} firstText={firstText[10]} secondText={secondText[10]} scale="1" isVideo={false}/>
-                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[11]} secondImg={secondImage[11]} projLoc={projectLocation[11]} firstText={firstText[11]} secondText={secondText[11]} scale="1" isVideo={false}/>
+                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[10]} secondImg={secondImage[10]} projLoc={projectLocation[10]} firstText={firstText[10]} secondText={secondText[10]} scale="1"/>
+                            <Card cardHeight='450px' cardWidth='450px' firstImg={firstImage[11]} secondImg={secondImage[11]} projLoc={projectLocation[11]} firstText={firstText[11]} secondText={secondText[11]} scale="1"/>
                     </div>
             </div>
         </div>
@@ -259,18 +238,18 @@ const WorkContent = () => {
     <Tablet>
          <div style = {{minHeight:"5900px",display:"flex", justifyContent:"center", alignItems:"center", width:"100vw"}}>
             <div style = {{height:"5700px",display:"flex", flexDirection:"column",width:"100vw", alignItems:"center", justifyContent:"space-between"}}>
-                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[0]} secondImg={secondImage[0]} projLoc={projectLocation[0]} firstText={firstText[0]} secondText={secondText[0]} scale="1" isVideo={false}/>
-                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[1]} secondImg={secondImage[1]} projLoc={projectLocation[1]} firstText={firstText[1]} secondText={secondText[1]} scale="1" isVideo={false}/>
-                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[2]} secondImg={secondImage[2]} projLoc={projectLocation[2]} firstText={firstText[2]} secondText={secondText[2]} scale="1" isVideo={false}/>
-                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[3]} secondImg={secondImage[3]} projLoc={projectLocation[3]} firstText={firstText[3]} secondText={secondText[3]} scale="1" isVideo={false}/>
-                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[4]} secondImg={secondImage[4]} projLoc={projectLocation[4]} firstText={firstText[4]} secondText={secondText[4]} scale="1" isVideo={false}/>
-                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[5]} secondImg={secondImage[5]} projLoc={projectLocation[5]} firstText={firstText[5]} secondText={secondText[5]} scale="1" isVideo={false}/>
-                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[6]} secondImg={secondImage[6]} projLoc={projectLocation[6]} firstText={firstText[6]} secondText={secondText[6]} scale="1" isVideo={false}/>
-                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[7]} secondImg={secondImage[7]} projLoc={projectLocation[7]} firstText={firstText[7]} secondText={secondText[7]} scale="1" isVideo={false}/>
-                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[8]} secondImg={secondImage[8]} projLoc={projectLocation[8]} firstText={firstText[8]} secondText={secondText[8]} scale="1" isVideo={false}/>
-                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[9]} secondImg={secondImage[9]} projLoc={projectLocation[9]} firstText={firstText[9]} secondText={secondText[9]} scale="1" isVideo={false}/>
-                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[10]} secondImg={secondImage[10]} projLoc={projectLocation[10]} firstText={firstText[10]} secondText={secondText[10]} scale="1" isVideo={false}/>
-                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[11]} secondImg={secondImage[11]} projLoc={projectLocation[11]} firstText={firstText[11]} secondText={secondText[11]} scale="1" isVideo={false}/>
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[0]} secondImg={secondImage[0]} projLoc={projectLocation[0]} firstText={firstText[0]} secondText={secondText[0]} scale="1" />
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[1]} secondImg={secondImage[1]} projLoc={projectLocation[1]} firstText={firstText[1]} secondText={secondText[1]} scale="1" />
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[2]} secondImg={secondImage[2]} projLoc={projectLocation[2]} firstText={firstText[2]} secondText={secondText[2]} scale="1" />
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[3]} secondImg={secondImage[3]} projLoc={projectLocation[3]} firstText={firstText[3]} secondText={secondText[3]} scale="1" />
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[4]} secondImg={secondImage[4]} projLoc={projectLocation[4]} firstText={firstText[4]} secondText={secondText[4]} scale="1" />
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[5]} secondImg={secondImage[5]} projLoc={projectLocation[5]} firstText={firstText[5]} secondText={secondText[5]} scale="1" />
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[6]} secondImg={secondImage[6]} projLoc={projectLocation[6]} firstText={firstText[6]} secondText={secondText[6]} scale="1" />
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[7]} secondImg={secondImage[7]} projLoc={projectLocation[7]} firstText={firstText[7]} secondText={secondText[7]} scale="1" />
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[8]} secondImg={secondImage[8]} projLoc={projectLocation[8]} firstText={firstText[8]} secondText={secondText[8]} scale="1" />
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[9]} secondImg={secondImage[9]} projLoc={projectLocation[9]} firstText={firstText[9]} secondText={secondText[9]} scale="1" />
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[10]} secondImg={secondImage[10]} projLoc={projectLocation[10]} firstText={firstText[10]} secondText={secondText[10]} scale="1" />
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[11]} secondImg={secondImage[11]} projLoc={projectLocation[11]} firstText={firstText[11]} secondText={secondText[11]} scale="1" />
             </div>
         </div>
     </Tablet>   
@@ -278,18 +257,18 @@ const WorkContent = () => {
     <Mobile>
          <div style = {{minHeight:"5900px",display:"flex", justifyContent:"center", alignItems:"center", width:"100vw"}}>
             <div style = {{height:"5700px",display:"flex", flexDirection:"column",width:"100vw", alignItems:"center", justifyContent:"space-between"}}>
-                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[0]} secondImg={secondImage[0]} projLoc={projectLocation[0]} firstText={firstText[0]} secondText={secondText[0]} scale="0.8" isVideo={false}/>
-                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[1]} secondImg={secondImage[1]} projLoc={projectLocation[1]} firstText={firstText[1]} secondText={secondText[1]} scale="0.8" isVideo={false}/>
-                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[2]} secondImg={secondImage[2]} projLoc={projectLocation[2]} firstText={firstText[2]} secondText={secondText[2]} scale="0.8" isVideo={false}/>
-                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[3]} secondImg={secondImage[3]} projLoc={projectLocation[3]} firstText={firstText[3]} secondText={secondText[3]} scale="0.8" isVideo={false}/>
-                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[4]} secondImg={secondImage[4]} projLoc={projectLocation[4]} firstText={firstText[4]} secondText={secondText[4]} scale="0.8" isVideo={false}/>
-                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[5]} secondImg={secondImage[5]} projLoc={projectLocation[5]} firstText={firstText[5]} secondText={secondText[5]} scale="0.8" isVideo={false}/>
-                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[6]} secondImg={secondImage[6]} projLoc={projectLocation[6]} firstText={firstText[6]} secondText={secondText[6]} scale="0.8" isVideo={false}/>
-                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[7]} secondImg={secondImage[7]} projLoc={projectLocation[7]} firstText={firstText[7]} secondText={secondText[7]} scale="0.8" isVideo={false}/>
-                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[8]} secondImg={secondImage[8]} projLoc={projectLocation[8]} firstText={firstText[8]} secondText={secondText[8]} scale="0.8" isVideo={false}/>
-                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[9]} secondImg={secondImage[9]} projLoc={projectLocation[9]} firstText={firstText[9]} secondText={secondText[9]} scale="0.8" isVideo={false}/>
-                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[10]} secondImg={secondImage[10]} projLoc={projectLocation[10]} firstText={firstText[10]} secondText={secondText[10]} scale="0.8" isVideo={false}/>
-                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[11]} secondImg={secondImage[11]} projLoc={projectLocation[11]} firstText={firstText[11]} secondText={secondText[11]} scale="0.8" isVideo={false}/>
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[0]} secondImg={secondImage[0]} projLoc={projectLocation[0]} firstText={firstText[0]} secondText={secondText[0]} scale="0.8" />
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[1]} secondImg={secondImage[1]} projLoc={projectLocation[1]} firstText={firstText[1]} secondText={secondText[1]} scale="0.8" />
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[2]} secondImg={secondImage[2]} projLoc={projectLocation[2]} firstText={firstText[2]} secondText={secondText[2]} scale="0.8" />
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[3]} secondImg={secondImage[3]} projLoc={projectLocation[3]} firstText={firstText[3]} secondText={secondText[3]} scale="0.8" />
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[4]} secondImg={secondImage[4]} projLoc={projectLocation[4]} firstText={firstText[4]} secondText={secondText[4]} scale="0.8" />
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[5]} secondImg={secondImage[5]} projLoc={projectLocation[5]} firstText={firstText[5]} secondText={secondText[5]} scale="0.8" />
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[6]} secondImg={secondImage[6]} projLoc={projectLocation[6]} firstText={firstText[6]} secondText={secondText[6]} scale="0.8" />
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[7]} secondImg={secondImage[7]} projLoc={projectLocation[7]} firstText={firstText[7]} secondText={secondText[7]} scale="0.8" />
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[8]} secondImg={secondImage[8]} projLoc={projectLocation[8]} firstText={firstText[8]} secondText={secondText[8]} scale="0.8" />
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[9]} secondImg={secondImage[9]} projLoc={projectLocation[9]} firstText={firstText[9]} secondText={secondText[9]} scale="0.8" />
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[10]} secondImg={secondImage[10]} projLoc={projectLocation[10]} firstText={firstText[10]} secondText={secondText[10]} scale="0.8" />
+                <Card cardHeight='450px' cardWidth='410px' firstImg={firstImage[11]} secondImg={secondImage[11]} projLoc={projectLocation[11]} firstText={firstText[11]} secondText={secondText[11]} scale="0.8" />
             </div>
         </div>
     </Mobile>   
